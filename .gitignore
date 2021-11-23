@@ -10,3 +10,4 @@ Dummby/
 *.docx
 **/RemoteSystemsTempFiles
 **.metadata
+.launches
