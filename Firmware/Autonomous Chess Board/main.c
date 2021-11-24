@@ -4,6 +4,9 @@
 #define ROW_SIZE (8u)
 #define COLUMN_SIZE (5u)
 
+#define TRUE (1)
+#define FALSE (0)
+
 //FLAGS
 volatile unsigned int UPFLAG = 0 ;
 volatile unsigned int RIGHTFLAG = 0;
@@ -27,13 +30,18 @@ volatile unsigned int leftMotorCW = true;
 volatile unsigned int rightMotorCW = true;
 volatile int leftMotorStepState = 0;
 volatile int rightMotorStepState = 0;
-volatile int cyclesForHalfSquare = 236;
+volatile int cyclesForHalfSquare = 236*4;
 volatile int cycleCountsLeft = 0;
 
 //decode variables
-volatile int directionByte = -1;
-volatile int solenoidByte = -1;
-volatile int currentDirection = -1;
+volatile int directionByte = 0;
+volatile int solenoidByte = 0;
+volatile int currentDirection = 0;
+int upByte = 48;
+int rightByte = 49;
+int downByte = 50;
+int leftByte = 51;
+int PACKETSIZE = 3;
 
 
 //Queue Implementation
@@ -47,6 +55,7 @@ typedef struct {
     int* arr;
 } Queue;
 
+
 void initialize(Queue* q) {
     q->front = 0;
     q->num = 0;
@@ -57,11 +66,11 @@ void initialize(Queue* q) {
 int isEmptry(Queue* q) {
     if (q->num == 0) {
         EMPTYFLAG = 1;
-        return true;
+        return TRUE;
     }
-    else
-    {
-        return false;
+    else {
+
+        return FALSE;
     }
 
 }
@@ -69,31 +78,29 @@ int isEmptry(Queue* q) {
 int isFull(Queue* q) {
     if (q->num == q->capacity) {
         FULLFLAG = 1;
-        return true;
+        return TRUE;
     }
     else
-        return false;
+        return FALSE;
 }
 
 int enqueue(Queue* q, int val) {
 
     if (isFull(q))
-        return false;
-    else
-    {
+        return FALSE;
+    else {
         q->arr[(q->front + q->num) % q->capacity] = val;
         q->num++;
-        return true;
+
+        return TRUE;
     }
 }
 
-int dequeue(Queue* q)
-{
+int dequeue(Queue* q) {
     int result = 0;
     if (isEmptry(q))
-        return false;
-    else
-    {
+        return FALSE;
+    else {
         result = q->arr[q->front];
         q->arr[q->front] = 0;
         q->front = (q->front + 1) % q->capacity;
@@ -129,9 +136,9 @@ int main(void)
     CSCTL3 &= ~(DIVS2 + DIVS1 + DIVS0);                          // SMCLOCK divider is 1
 
     //output the smclk to P3.4
-    P3DIR |= BIT4;
-    P3SEL1 |= BIT4;
-    P3SEL0 |= BIT4;
+    //P3DIR |= BIT4;
+    //P3SEL1 |= BIT4;
+    //P3SEL0 |= BIT4;
     //the clock is working
     //---------------------------Stepper motors------------//
 
@@ -232,100 +239,113 @@ int main(void)
 
         //-------------Move in direction code------------//
 
-        if(DONEMOVING){
-            DONEMOVING = false;
-            currentDirection = dequeue(&directions);
+        int numDirections = directions.num;
 
-            if(currentDirection == 0){
-                UPFLAG = 1;
-            }else if(currentDirection == 1){
-                RIGHTFLAG = 1;
-            }else if(currentDirection == 2){
-                DOWNFLAG = 1;
-            }else if(currentDirection == 3){
-                LEFTFLAG = 1;
+        if(numDirections > 0){
+            if(DONEMOVING){
+              //if(DONEMOVING){
+                DONEMOVING = false;
+                currentDirection = dequeue(&directions);
+
+                if(currentDirection == upByte){
+                    UPFLAG = 1;
+                }else if(currentDirection == rightByte){
+                    RIGHTFLAG = 1;
+                }else if(currentDirection == downByte){
+                    DOWNFLAG = 1;
+                }else if(currentDirection == leftByte){
+                    LEFTFLAG = 1;
+                }
+
             }
-
-            cycleCountsLeft = cyclesForHalfSquare;
         }
 
         if(UPFLAG){
             UPFLAG = 0;
             leftMotorCW = false;
             rightMotorCW = true;
+            cycleCountsLeft = cyclesForHalfSquare;
         }
         if(DOWNFLAG){
             DOWNFLAG = 0;
             leftMotorCW = true;
             rightMotorCW = false;
+            cycleCountsLeft = cyclesForHalfSquare;
         }
         if(RIGHTFLAG){
             RIGHTFLAG = 0;
             leftMotorCW = false;
             rightMotorCW = false;
+            cycleCountsLeft = cyclesForHalfSquare;
         }
         if(LEFTFLAG){
             LEFTFLAG = 0;
             leftMotorCW = true;
             rightMotorCW = true;
+            cycleCountsLeft = cyclesForHalfSquare;
         }
 
         //---------------LEFT MOTOR--------------------//
-        if (leftMotorStepState >= 8) {
-        leftMotorStepState = 0;
-        }
-        else if (leftMotorStepState <= -1) {
-            leftMotorStepState = 7;
-        }
 
-        if (stepperMotorLookupTable[leftMotorStepState][0] == 1) {
-            P3OUT |= BIT3;
-        }else{
-            P3OUT &= ~BIT3;
-        }
-        if (stepperMotorLookupTable[leftMotorStepState][1] == 1){
-            P3OUT |= BIT2;
-        }else{
-            P3OUT &= ~BIT2;
-        }
-        if (stepperMotorLookupTable[leftMotorStepState][2] == 1){
-            P3OUT |= BIT1;
-        }else{
-            P3OUT &= ~BIT1;
-        }
-        if (stepperMotorLookupTable[leftMotorStepState][3] == 1){
-            P3OUT |= BIT0;
-        }else{
-            P3OUT &= ~BIT0;
-        }
+        if(!DONEMOVING){   //when done moving is true skip code
+            if (leftMotorStepState >= 8) {
+            leftMotorStepState = 0;
+            }
+            else if (leftMotorStepState <= -1) {
+                leftMotorStepState = 7;
+            }
 
-        //-------------------RIGHT MOTOR------------------//
-        if (rightMotorStepState >= 8) {
-           rightMotorStepState = 0;
-                        }
-        else if (rightMotorStepState <= -1) {
-            rightMotorStepState = 7;
-        }
+            if (stepperMotorLookupTable[leftMotorStepState][0] == 1) {
+                P3OUT |= BIT0;
+            }else{
+                P3OUT &= ~BIT0;
+            }
+            if (stepperMotorLookupTable[leftMotorStepState][1] == 1){
+                P3OUT |= BIT1;
+            }else{
+                P3OUT &= ~BIT1;
+            }
+            if (stepperMotorLookupTable[leftMotorStepState][2] == 1){
+                P3OUT |= BIT2;
+            }else{
+                P3OUT &= ~BIT2;
+            }
+            if (stepperMotorLookupTable[leftMotorStepState][3] == 1){
+                P3OUT |= BIT3;
+            }else{
+                P3OUT &= ~BIT3;
+            }
 
-        if (stepperMotorLookupTable[rightMotorStepState][0] == 1) {
-            P3OUT |= BIT7;
-        }else{
-            P3OUT &= ~BIT7;
-        }
-        if (stepperMotorLookupTable[rightMotorStepState][1] == 1){
-            P3OUT |= BIT6;
-        }else{
-            P3OUT &= ~BIT6;
-        }
-        if (stepperMotorLookupTable[rightMotorStepState][2] == 1){
-            P3OUT |= BIT5;
-        }else{
-            P3OUT &= ~BIT5;
-        }
-        if (stepperMotorLookupTable[rightMotorStepState][3] == 1){
-            P3OUT |= BIT4;
-        }else{
-            P3OUT &= ~BIT4;
+            //-------------------RIGHT MOTOR------------------//
+            if (rightMotorStepState >= 8) {
+               rightMotorStepState = 0;
+                            }
+            else if (rightMotorStepState <= -1) {
+               rightMotorStepState = 7;
+            }
+
+            if (stepperMotorLookupTable[rightMotorStepState][0] == 1) {
+                P3OUT |= BIT7;
+            }else{
+                P3OUT &= ~BIT7;
+            }
+            if (stepperMotorLookupTable[rightMotorStepState][1] == 1){
+                P3OUT |= BIT6;
+            }else{
+                P3OUT &= ~BIT6;
+            }
+            if (stepperMotorLookupTable[rightMotorStepState][2] == 1){
+                P3OUT |= BIT5;
+            }else{
+                P3OUT &= ~BIT5;
+            }
+            if (stepperMotorLookupTable[rightMotorStepState][3] == 1){
+                P3OUT |= BIT4;
+            }else{
+                P3OUT &= ~BIT4;
+            }
+
+            cycleCountsLeft--;
         }
 
         //--------------ENQUEUE DATA-----------------//
@@ -334,7 +354,7 @@ int main(void)
             enqueue(&buffer, RxByte);
         }
 
-        if ((buffer.num) >= 5) {
+        if ((buffer.num) >= PACKETSIZE) {
             decode(buffer,directions);
         }
 
@@ -348,19 +368,25 @@ __interrupt void TIMER0_A0_ISR(void) {
     TA0CCTL0 &= ~(CCIFG); //clear flag
 
     //have not checked if the directions works out
-    if(leftMotorCW){
-        leftMotorStepState++;
-    } else{
-        leftMotorStepState--;
+    if(cycleCountsLeft <= 0){
+        DONEMOVING = true;
     }
-    if(rightMotorCW){
-        rightMotorStepState++;
-    } else{
-        rightMotorStepState--;
+    else{
+        if(leftMotorCW){
+            leftMotorStepState++;
+        }else{
+            leftMotorStepState--;
+        }
+        if(rightMotorCW){
+            rightMotorStepState++;
+        }
+        else{
+            rightMotorStepState--;
+        }
     }
-
 
 }
+
 
 #pragma vector = USCI_A0_VECTOR
 __interrupt void USCI_A0_ISR(void)
@@ -373,12 +399,22 @@ __interrupt void USCI_A0_ISR(void)
 }
 
 int decode(Queue* buffer, Queue* directions){
-    if (dequeue(buffer) == 255) {
+    if (dequeue(buffer) == 'a') {
         directionByte = dequeue(buffer);
         solenoidByte = dequeue(buffer);
 
         //store directionByte
-        enqueue(directions, directionByte);
+
+        if (directionByte == 48){
+            enqueue(directions, 0);
+        } else if (directionByte == 49){
+            enqueue(directions, 1);
+        } else if (directionByte ==  50){
+            enqueue(directions, 2);
+        } else if (directionByte == 51){
+            enqueue(directions, 3);
+        }
+
 
         return true;
     }
