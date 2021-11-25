@@ -22,7 +22,7 @@ volatile unsigned int DONEMOVING = true;
 //PWM
 volatile unsigned int steppingSpeed = 18800;
 volatile unsigned int PWMStepperMax = 1880;
-volatile unsigned int PWMStepperTrigger = 1015;
+volatile unsigned int PWMStepperTrigger = 977;
 
 
 //stepper motor
@@ -30,7 +30,8 @@ volatile unsigned int leftMotorCW = true;
 volatile unsigned int rightMotorCW = true;
 volatile int leftMotorStepState = 0;
 volatile int rightMotorStepState = 0;
-volatile int cyclesForHalfSquare = 236*4;
+//volatile int cyclesForHalfSquare = 2228; //cycles for 1 rev
+volatile int cyclesForHalfSquare = 1315;
 volatile int cycleCountsLeft = 0;
 
 //decode variables
@@ -46,7 +47,7 @@ int PACKETSIZE = 3;
 
 //Queue Implementation
 unsigned int RxByte;
-int BUFFER_SIZE = 50;
+const int BUFFER_SIZE = 30;
 
 typedef struct {
     int front;
@@ -55,57 +56,47 @@ typedef struct {
     int* arr;
 } Queue;
 
-
-void initialize(Queue* q) {
-    q->front = 0;
-    q->num = 0;
-    q->capacity = BUFFER_SIZE;
-    q->arr = (int*)malloc(q->capacity * sizeof(int));
+void initialize(Queue* q){
+    q -> front = 0;
+    q -> num = 0;
+    q -> capacity = BUFFER_SIZE; //may need to be 49
+    q -> arr = (int*) malloc(q-> capacity * sizeof(int));
 }
 
-int isEmptry(Queue* q) {
-    if (q->num == 0) {
-        EMPTYFLAG = 1;
-        return TRUE;
-    }
-    else {
-
-        return FALSE;
-    }
-
-}
-
-int isFull(Queue* q) {
-    if (q->num == q->capacity) {
-        FULLFLAG = 1;
-        return TRUE;
-    }
+int isEmpty(Queue* q){
+    if (q-> num == 0)
+        return 1;
     else
-        return FALSE;
+        return 0;
 }
 
-int enqueue(Queue* q, int val) {
+int isFull(Queue* q){
+    if (q->num >= q->capacity)
+        return 1;
+    else
+        return 0;
+}
 
-    if (isFull(q))
-        return FALSE;
-    else {
+int enqueue(Queue* q, unsigned int val){
+    if(isFull(q))
+        return 0;
+    else{
         q->arr[(q->front + q->num) % q->capacity] = val;
         q->num++;
-
-        return TRUE;
+        return 1;
     }
 }
 
-int dequeue(Queue* q) {
-    int result = 0;
-    if (isEmptry(q))
-        return FALSE;
-    else {
-        result = q->arr[q->front];
-        q->arr[q->front] = 0;
+int dequeue(Queue* q){
+    int dequeued;
+    if(isEmpty(q))
+        return 0;
+    else{
+        dequeued = q->arr[q->front];
+        q->arr[q->front] = -1;
         q->front = (q->front + 1) % q->capacity;
         q->num--;
-        return result;
+        return dequeued;
     }
 }
 
@@ -247,13 +238,13 @@ int main(void)
                 DONEMOVING = false;
                 currentDirection = dequeue(&directions);
 
-                if(currentDirection == upByte){
+                if(currentDirection == 0){
                     UPFLAG = 1;
-                }else if(currentDirection == rightByte){
+                }else if(currentDirection == 1){
                     RIGHTFLAG = 1;
-                }else if(currentDirection == downByte){
+                }else if(currentDirection == 2){
                     DOWNFLAG = 1;
-                }else if(currentDirection == leftByte){
+                }else if(currentDirection == 3){
                     LEFTFLAG = 1;
                 }
 
