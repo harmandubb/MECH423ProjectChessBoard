@@ -16,6 +16,8 @@ volatile unsigned int ENQUEUEFLAG = 0;
 volatile unsigned int FULLFLAG = 0;
 volatile unsigned int EMPTYFLAG = 0;
 volatile unsigned int DONEMOVING = true;
+volatile unsigned int GAMESTART = true;
+volatile unsigned int GAMESTARTLEFTDONE = false;
 
 
 
@@ -211,22 +213,49 @@ int main(void)
 	Queue directions;
 	initialize(&directions);
 
+	//-------------------------Limit Switch-----------------//
+	P4DIR &= ~(BIT0); //Configuring pin 4.0 to be an input
+    P4SEL0 &= ~BIT0;
+    P4SEL1 &= ~BIT0;
+
+    P1DIR &= ~(BIT0); //Configuring pin 1.0 to be an input
+    P1SEL0 &= ~BIT0;
+    P1SEL1 &= ~BIT0;
+
+    P4REN |= BIT0; //Enabling a resistor to be active on the pin
+    P4OUT |= BIT0; //Enabling pullup resistor on port 4.0
+
+    P1REN |= BIT0; //Enabling a resistor to be active on the pin
+    P1OUT |= BIT0; //Enabling pullup resistor on port 1.0
+
+    P4IES &= ~(BIT0); //Rising edge
+    P4IFG &= ~BIT0; //Clearning the flag
+
+    P1IES &= ~(BIT0); //Rising edge
+    P1IFG &= ~BIT0; //Clearning the flag
+
 	//----------------------INTERRUPTS----------------------//
 	//enable interrupt for timer A0
     TA0CTL |= TAIE;
     //enable compare and capture TA0.0 interrupt
     TA0CCTL0 |= CCIE;
 
+    //interupt for input pins 4
+    P4IE |= BIT0;
+    P1IE |= BIT0;
+
     // global interrupt enable
     _EINT();
 
     while(true){
         //--------------Game Start up-----------------//
-
-
-
-
-
+        if(GAMESTART){
+            if (GAMESTARTLEFTDONE){
+                UPFLAG = true;
+            } else {
+                LEFTFLAG = true;
+            }
+        }
 
         //-------------Move in direction code------------//
 
@@ -377,6 +406,21 @@ __interrupt void TIMER0_A0_ISR(void) {
     }
 
 }
+
+#pragma vector = PORT4_VECTOR
+__interrupt void PORT4_ISR(void)
+{
+    P4IFG &= ~(BIT0);
+    GAMESTART = false;
+}
+
+#pragma vector = PORT1_VECTOR
+__interrupt void PORT1_ISR(void)
+{
+    P1IFG &= ~(BIT0);
+    GAMESTARTLEFTDONE = true;
+}
+
 
 
 #pragma vector = USCI_A0_VECTOR
