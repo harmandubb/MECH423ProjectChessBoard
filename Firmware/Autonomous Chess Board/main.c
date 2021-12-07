@@ -17,14 +17,14 @@ volatile unsigned int FULLFLAG = 0;
 volatile unsigned int EMPTYFLAG = 0;
 volatile unsigned int DONEMOVING = true;
 volatile unsigned int GAMESTART = true;
-volatile unsigned int GAMESTARTLEFTDONE = false;
+volatile unsigned int GAMESTARTDOWNDONE = false;
 
 
 
 //PWM
 volatile unsigned int steppingSpeed = 18800;
-volatile unsigned int PWMStepperMax = 1880;
-volatile unsigned int PWMStepperTrigger = 977;
+volatile unsigned int PWMStepperMax = 1000;
+volatile unsigned int PWMStepperTrigger = 520;
 
 
 //stepper motor
@@ -181,7 +181,7 @@ int main(void)
     TB0CTL &= ~(MC0 + MC1);
     TB0CTL |= MC__UP;
 
-    //setting up TB0.1
+    //setting up TB0.1 for PWM
     P1DIR |= BIT4;
     P1SEL1 &= ~(BIT4);
     P1SEL0 |= BIT4;
@@ -250,10 +250,12 @@ int main(void)
     while(true){
         //--------------Game Start up-----------------//
         if(GAMESTART){
-            if (GAMESTARTLEFTDONE){
-                UPFLAG = true;
+            if (GAMESTARTDOWNDONE){
+                RIGHTFLAG = true;
             } else {
-                LEFTFLAG = true;
+                DOWNFLAG = true;
+                DONEMOVING = false;
+
             }
         }
 
@@ -418,7 +420,7 @@ __interrupt void PORT4_ISR(void)
 __interrupt void PORT1_ISR(void)
 {
     P1IFG &= ~(BIT0);
-    GAMESTARTLEFTDONE = true;
+    GAMESTARTDOWNDONE = true;
 }
 
 
