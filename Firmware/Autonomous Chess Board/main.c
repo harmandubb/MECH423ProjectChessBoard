@@ -252,6 +252,7 @@ int main(void)
         if(GAMESTART){
             if (GAMESTARTDOWNDONE){
                 RIGHTFLAG = true;
+                DONEMOVING = false;
             } else {
                 DOWNFLAG = true;
                 DONEMOVING = false;

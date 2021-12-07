@@ -17,5 +17,11 @@ namespace ChessBoardMovement
 			InitializeComponent();
 		}
 
+
+		private void btnSubmit_Click(object sender, EventArgs e)
+		{
+			string origin = txtOrigin.Text;
+			string destination = txtDestination.Text;
+		}
 	}
 }

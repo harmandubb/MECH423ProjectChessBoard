@@ -48,7 +48,6 @@ namespace ChessboardMovement
 			this.label1.Size = new System.Drawing.Size(34, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Origin";
-
 			// 
 			// txtDestination
 			// 
@@ -56,7 +55,6 @@ namespace ChessboardMovement
 			this.txtDestination.Name = "txtDestination";
 			this.txtDestination.Size = new System.Drawing.Size(100, 20);
 			this.txtDestination.TabIndex = 1;
-
 			// 
 			// btnSubmit
 			// 
@@ -66,7 +64,7 @@ namespace ChessboardMovement
 			this.btnSubmit.TabIndex = 2;
 			this.btnSubmit.Text = "Submit";
 			this.btnSubmit.UseVisualStyleBackColor = true;
-
+			this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
 			// 
 			// txtOrigin
 			// 
@@ -74,7 +72,6 @@ namespace ChessboardMovement
 			this.txtOrigin.Name = "txtOrigin";
 			this.txtOrigin.Size = new System.Drawing.Size(100, 20);
 			this.txtOrigin.TabIndex = 3;
-
 			// 
 			// none
 			// 
@@ -84,7 +81,6 @@ namespace ChessboardMovement
 			this.none.Size = new System.Drawing.Size(60, 13);
 			this.none.TabIndex = 4;
 			this.none.Text = "Destination";
-
 			// 
 			// txtMove
 			// 
@@ -92,7 +88,6 @@ namespace ChessboardMovement
 			this.txtMove.Name = "txtMove";
 			this.txtMove.Size = new System.Drawing.Size(100, 20);
 			this.txtMove.TabIndex = 6;
-
 			// 
 			// label3
 			// 
@@ -102,7 +97,6 @@ namespace ChessboardMovement
 			this.label3.Size = new System.Drawing.Size(78, 13);
 			this.label3.TabIndex = 5;
 			this.label3.Text = "Player to Move";
-
 			// 
 			// Form1
 			// 
