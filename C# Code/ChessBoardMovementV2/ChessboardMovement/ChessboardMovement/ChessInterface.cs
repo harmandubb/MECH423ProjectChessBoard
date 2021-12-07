@@ -33,42 +33,216 @@ namespace ChessboardMovement
 			return chessCoordinates;
 		}
 
-		public static void move(string origin, string destination)
+		public static List<byte[]> move(string origin, string destination, Solenoid solenoid, Board board)
 		{
 			List<byte[]> UARTCommands = new List<byte[]>();
-			List<Tuple<int, int>> moveCoordinates = new List<Tuple<int, int>>();
+			List<Tuple<int, int>> playerMove = new List<Tuple<int, int>>();
+			List<byte[]> temp = new List<byte[]>();
+			bool solenoidOn;
 
-			moveCoordinates = parseMove(origin, destination);
-
-			Tuple<int, int> relativeCoordinates = getRelativeCoordinates(moveCoordinates);
-
-			bool solenoidOn = true;
-
-			UARTCommands.Add(moveToNECorner(solenoidOn));
-
+			playerMove = parseMove(origin, destination);
 
 			
 
+			//determine if a piece needs to be moved out of the way
+			if (board.piecePresent(playerMove[1]))
+			{
+				solenoidOn = false;
+				//move the piece out of the way by moving the solenoid from it's current position to be under the piece to move
+				Tuple<int, int> goToElimatePieceRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[1]);
+				UARTCommands.AddRange(moveToNECorner(solenoidOn));
+				UARTCommands.AddRange(moveToDestination(solenoidOn, goToElimatePieceRelativeCoordinate));
+				UARTCommands.AddRange(moveToCenter(solenoidOn));
+
+				solenoid.setLocation(playerMove[1]);
+
+				//eliminate the piece
+				solenoidOn = true;
+				UARTCommands.AddRange(moveToNECorner(solenoidOn));
+				UARTCommands.AddRange(moveToTheEdgeOfBoard(solenoidOn, playerMove[1]));
+				UARTCommands.AddRange(moveHalfToLeft(solenoidOn));
+
+				//can drop the piece 
+				solenoidOn = false;
+				UARTCommands.AddRange(moveHalfToRight(solenoidOn));
+				UARTCommands.AddRange(moveToCenter(solenoidOn));
+
+				//updating the solenoid location
+				solenoid.setLocation(Tuple.Create(playerMove[1].Item1, 0 ));
+			}
+
+			//need to move solenoid to origin location 
+
+			solenoidOn = false;
+
+			Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[0]);
+			UARTCommands.AddRange(moveToNECorner(solenoidOn));
+			UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
+			UARTCommands.AddRange(moveToCenter(solenoidOn));
+
+			solenoid.setLocation(playerMove[0]);
 
 
+			//conduct the players move 
+			solenoidOn = true;
+			Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[0], playerMove[1]);
 
+			UARTCommands.AddRange(moveToNECorner(solenoidOn));
+			UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
+			UARTCommands.AddRange(moveToCenter(solenoidOn));
 
+			solenoid.setLocation(playerMove[1]);
+
+			solenoidOn = false;
+
+			return UARTCommands;
 		}
 
-		public static Tuple<int, int> getRelativeCoordinates(List<Tuple<int, int>> moveCoordinates)
+		public static Tuple<int, int> getRelativeCoordinates(Tuple<int, int> origin, Tuple<int,int> destination)
 		{
-			Tuple<int, int> relativeCoordinates = new Tuple<int, int>(moveCoordinates[1].Item1 - moveCoordinates[0].Item1, moveCoordinates[1].Item2 - moveCoordinates[0].Item2);
+			Tuple<int, int> relativeCoordinates = new Tuple<int, int>(destination.Item1 - origin.Item1, destination.Item2 - origin.Item2);
 
 			return relativeCoordinates;
 		}
 
-		public static byte[] moveToNECorner(bool solenoidOn)
+		public static List<byte[]> moveToNECorner(bool solenoidOn)
 		{
 			byte aAsciValue = 96;
-			byte[] buffer = new byte[] { aAsciValue, Convert.ToByte(directions.UP), Convert.ToByte(solenoidOn), aAsciValue, Convert.ToByte(directions.RIGHT), Convert.ToByte(solenoidOn) };
 
-			return buffer;
+			List<byte[]> commands = new List<byte[]>
+			{
+				new byte[] {aAsciValue, Convert.ToByte(directions.UP), Convert.ToByte(solenoidOn) },
+				new byte[] {aAsciValue, Convert.ToByte(directions.RIGHT), Convert.ToByte(solenoidOn)}
+			};
+
+			return commands;
 		}
+
+		public static List<byte[]> moveToCenter(bool solenoidOn)
+		{
+			byte aAsciValue = 96;
+
+			List<byte[]> commands = new List<byte[]>
+			{
+				new byte[] {aAsciValue, Convert.ToByte(directions.DOWN), Convert.ToByte(solenoidOn)},
+				new byte[] {aAsciValue, Convert.ToByte(directions.LEFT), Convert.ToByte(solenoidOn)}
+			};
+
+			return commands;
+		}
+
+		public static List<byte[]> moveHalfToLeft(bool solenoidOn)
+		{
+			byte aAsciValue = 96;
+
+			List<byte[]> commands = new List<byte[]>
+			{
+				new byte[] {aAsciValue, Convert.ToByte(directions.LEFT), Convert.ToByte(solenoidOn)}
+			};
+
+			return commands;
+		}
+
+		public static List<byte[]> moveHalfToRight(bool solenoidOn)
+		{
+			byte aAsciValue = 96;
+
+			List<byte[]> commands = new List<byte[]>
+			{
+				new byte[] {aAsciValue, Convert.ToByte(directions.RIGHT), Convert.ToByte(solenoidOn)}
+			};
+
+			return commands;
+		}
+
+		public static List<byte[]> moveToTheEdgeOfBoard(bool solenoidOn, Tuple<int,int> currentCoordinates)
+		{
+			byte aAsciValue = 96;
+			List<byte[]> movement = new List<byte[]>();
+			int LEFTRIGHT = 0;
+			byte[] temp = new byte[3];
+
+			//if (currentCoordinates.Item2 >= 5)
+			//{
+			//	LEFTRIGHT = (int)directions.RIGHT;
+			//}
+			//else
+			//{
+			//	LEFTRIGHT = (int)directions.LEFT;
+			//}
+
+			LEFTRIGHT = (int)directions.LEFT;
+
+			//bias moving to the left for now and make the game smarter afterwards 
+			for (int i = 0; i < currentCoordinates.Item2; i++)
+			{
+				for (int j = 0; j < 2; j++)
+				{
+					temp = new byte[] { aAsciValue, Convert.ToByte(LEFTRIGHT), Convert.ToByte(solenoidOn) };
+					movement.Add(temp);
+				}
+			}
+
+			return null;
+		}
+
+
+
+		public static List<byte[]> moveToDestination(bool solenoidOn, Tuple<int,int> relativeCoordinates)
+		{
+			byte aAsciValue = 96;
+
+			int UPDOWN = 0;
+			int RIGHTLEFT = 0;
+
+			List<byte[]> mainMovements = new List<byte[]>();
+			byte[] temp = new byte[3];
+
+			if (relativeCoordinates.Item1 > 0)
+			{
+				UPDOWN = (int) directions.UP;
+			} else
+			{
+				UPDOWN = (int)directions.DOWN;
+			}
+
+			if (relativeCoordinates.Item2 > 0)
+			{
+				RIGHTLEFT = (int)directions.RIGHT;
+			}
+			else
+			{
+				RIGHTLEFT = (int)directions.LEFT;
+			}
+
+		
+			//move up and down first 
+			for(int i = 0;  i < Math.Abs(relativeCoordinates.Item1); i++)
+			{
+				//need two half steps to move one square 
+				for(int j = 0; j < 2; j++)
+				{
+					temp = new byte[] { aAsciValue, Convert.ToByte(UPDOWN), Convert.ToByte(solenoidOn) };
+					mainMovements.Add(temp);
+				}
+				
+			}
+
+			//move right and left 
+			for (int i = 0; i < Math.Abs(relativeCoordinates.Item2); i++)
+			{
+				//need two half steps to move one square 
+				for (int j = 0; j < 2; j++)
+				{
+					temp = new byte[] { aAsciValue, Convert.ToByte(RIGHTLEFT), Convert.ToByte(solenoidOn) };
+					mainMovements.Add(temp);
+				}
+
+			}
+
+			return null;
+		}
+
 
 
 
@@ -117,9 +291,25 @@ namespace ChessboardMovement
 		}
 	}
 
-	class Solenoid
-
+	class Solenoid 
 	{
+		private Tuple<int, int> location;
+
+		public Solenoid()
+		{
+			this.location = new Tuple<int, int>(0, 0); 
+		}
+
+		public void setLocation(Tuple<int,int> newLocation)
+		{
+			this.location = newLocation;
+		}
+
+		public Tuple<int,int> getLocation()
+		{
+			return this.location;
+		}
+
 
 	}
 }
