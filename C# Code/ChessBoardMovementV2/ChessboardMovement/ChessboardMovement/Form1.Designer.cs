@@ -38,6 +38,7 @@ namespace ChessboardMovement
 			this.none = new System.Windows.Forms.Label();
 			this.txtMove = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// label1
@@ -98,6 +99,11 @@ namespace ChessboardMovement
 			this.label3.TabIndex = 5;
 			this.label3.Text = "Player to Move";
 			// 
+			// timer1
+			// 
+			this.timer1.Interval = 500;
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,6 +133,7 @@ namespace ChessboardMovement
 		private System.Windows.Forms.Label none;
 		private System.Windows.Forms.TextBox txtMove;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Timer timer1;
 	}
 }
 
