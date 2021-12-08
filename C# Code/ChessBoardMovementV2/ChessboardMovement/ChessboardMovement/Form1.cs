@@ -27,9 +27,18 @@ namespace ChessboardMovement
 			InitializeComponent();
 			board = new Board();
 			solenoid = new Solenoid();
-			
-				
+
+			//Code segment for the computer to automatically find the comm port
+			comboBoxCOMPorts.Items.Clear();
+			comboBoxCOMPorts.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+			if (comboBoxCOMPorts.Items.Count == 0)
+				comboBoxCOMPorts.Text = "No COM ports!";
+			else
+				comboBoxCOMPorts.SelectedIndex = 0;
+
+
 		}
+
 
 		private void btnSubmit_Click(object sender, EventArgs e)
 		{
@@ -76,6 +85,32 @@ namespace ChessboardMovement
 
 			}
 			timerCounter++;
+		}
+
+		private void btnConnectDisconnect_Click(object sender, EventArgs e)
+		{
+			//Connect
+			if (btnConnectDisconnect.Text == "Connect Serial")
+			{
+				btnConnectDisconnect.Text = "Disconnect Serial";
+
+				if (serialPort1.IsOpen == true)
+				{
+					serialPort1.Close();
+				}
+				serialPort1.Open();
+
+			}
+			else if (btnConnectDisconnect.Text == "Disconnect Serial")
+			{
+				btnConnectDisconnect.Text = "Connect Serial";
+
+				if (serialPort1.IsOpen == true)
+				{
+					serialPort1.Close();
+				}
+
+			}
 		}
 	}
 }
