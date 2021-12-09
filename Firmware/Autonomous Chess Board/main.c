@@ -17,7 +17,10 @@ volatile unsigned int FULLFLAG = 0;
 volatile unsigned int EMPTYFLAG = 0;
 volatile unsigned int DONEMOVING = true;
 volatile unsigned int GAMESTART = true;
-volatile unsigned int GAMESTARTDOWNDONE = false;
+volatile unsigned int RESETDOWNDONE = false;
+unsigned int RESETRIGHTDONE = false;
+unsigned int ZEROUPDONE = false;
+unsigned int ZEROLEFTDONE = false;
 
 
 
@@ -35,6 +38,8 @@ volatile int rightMotorStepState = 0;
 //volatile int cyclesForHalfSquare = 2228; //cycles for 1 rev
 volatile int cyclesForHalfSquare = 1315;
 volatile int cycleCountsLeft = 0;
+int cyclesZeroUP =  3727;
+int cyclesZeroLEFT = 1808;
 
 //decode variables
 volatile int directionByte = 0;
@@ -250,7 +255,29 @@ int main(void)
     while(true){
         //--------------Game Start up-----------------//
         if(GAMESTART){
-            if (GAMESTARTDOWNDONE){
+            if (ZEROLEFTDONE){
+                GAMESTART = false;
+            }
+            else if(ZEROUPDONE){
+                if (cyclesZeroLEFT == 0){
+                    ZEROLEFTDONE = true;
+                } else {
+                    LEFTFLAG = true;
+                    cyclesZeroLEFT = cyclesZeroLEFT - 1;
+                }
+                LEFTFLAG = true;
+                cycleCountsLeft = cyclesZeroLEFT;
+            }
+            else if (RESETRIGHTDONE){
+                if (cyclesZeroUP == 0){
+                    ZEROUPDONE = true;
+                    cycleCountsLeft = 0;
+                } else{
+                    UPFLAG = true;
+                    cyclesZeroUP = cyclesZeroUP - 1;
+                }
+            }
+            else if (RESETDOWNDONE){
                 RIGHTFLAG = true;
                 DONEMOVING = false;
             } else {
@@ -414,14 +441,15 @@ __interrupt void TIMER0_A0_ISR(void) {
 __interrupt void PORT4_ISR(void)
 {
     P4IFG &= ~(BIT0);
-    GAMESTART = false;
+    RESETRIGHTDONE = true;
 }
 
 #pragma vector = PORT1_VECTOR
 __interrupt void PORT1_ISR(void)
 {
     P1IFG &= ~(BIT0);
-    GAMESTARTDOWNDONE = true;
+    RESETDOWNDONE = true;
+    cycleCountsLeft = 0;
 }
 
 
