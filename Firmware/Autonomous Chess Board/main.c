@@ -41,6 +41,9 @@ volatile int cycleCountsLeft = 0;
 int cyclesZeroUP =  1802 +1103;
 int cyclesZeroLEFT = 534 +1103;
 
+//solenoid
+int solenoidCommand = 0;
+
 //decode variables
 volatile int directionByte = 0;
 volatile int solenoidByte = 0;
@@ -199,6 +202,13 @@ int main(void)
     TB0CCR1 = PWMStepperTrigger;
     TB0CCR0 = PWMStepperMax;
     TB0R = 0xFFFF;
+
+    //-----------------------Solenoid---------------------//
+    //using pin 1.1 for solenoid output
+    P1DIR |= BIT1;
+    P1SEL1 &= ~(BIT1);
+    P1SEL0 &= ~(BIT1);
+
 	//----------------------UART-RedBoard-----------------//
 
     //Configure ports for UCA0
@@ -217,6 +227,9 @@ int main(void)
 
 	Queue directions;
 	initialize(&directions);
+
+	Queue solenoid;
+	initialize(&solenoid);
 
 	//-------------------------Limit Switch-----------------//
 	P4DIR &= ~(BIT0); //Configuring pin 4.0 to be an input
@@ -298,6 +311,7 @@ int main(void)
               //if(DONEMOVING){
                 DONEMOVING = false;
                 currentDirection = dequeue(&directions);
+                solenoidCommand = dequeue(&solenoid);
 
                 if(currentDirection == 0){
                     UPFLAG = 1;
@@ -307,6 +321,14 @@ int main(void)
                     DOWNFLAG = 1;
                 }else if(currentDirection == 3){
                     LEFTFLAG = 1;
+                }
+
+                if(solenoidCommand == 1){
+                    //turn on the solenoid
+                    P1OUT |= BIT1;
+                } else {
+                    //turn off the solenoid
+                    P1OUT &= ~(BIT1);
                 }
 
             }
@@ -407,7 +429,7 @@ int main(void)
         }
 
         if ((buffer.num) >= PACKETSIZE) {
-            decode(buffer,directions);
+            decode(buffer,directions,solenoid);
         }
 
     }
@@ -466,7 +488,7 @@ __interrupt void USCI_A0_ISR(void)
     ENQUEUEFLAG = 1;
 }
 
-int decode(Queue* buffer, Queue* directions){
+int decode(Queue* buffer, Queue* directions, Queue* solenoid){
     if (dequeue(buffer) == 'a') {
         directionByte = dequeue(buffer);
         solenoidByte = dequeue(buffer);
@@ -482,6 +504,9 @@ int decode(Queue* buffer, Queue* directions){
         } else if (directionByte == 51){
             enqueue(directions, 3);
         }
+
+        //store solenoidByte
+        enqueue(solenoid, solenoidByte);
 
 
         return true;
