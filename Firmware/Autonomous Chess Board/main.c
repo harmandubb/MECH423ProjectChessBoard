@@ -36,10 +36,10 @@ volatile unsigned int rightMotorCW = true;
 volatile int leftMotorStepState = 0;
 volatile int rightMotorStepState = 0;
 //volatile int cyclesForHalfSquare = 2228; //cycles for 1 rev
-volatile int cyclesForHalfSquare = 1315;
+volatile int cyclesForHalfSquare = 1103;
 volatile int cycleCountsLeft = 0;
-int cyclesZeroUP =  3727;
-int cyclesZeroLEFT = 1808;
+int cyclesZeroUP =  1802 +1103;
+int cyclesZeroLEFT = 534 +1103;
 
 //decode variables
 volatile int directionByte = 0;
@@ -261,17 +261,19 @@ int main(void)
             else if(ZEROUPDONE){
                 if (cyclesZeroLEFT == 0){
                     ZEROLEFTDONE = true;
+                    cycleCountsLeft = 0;
+                    LEFTFLAG = false;
                 } else {
                     LEFTFLAG = true;
                     cyclesZeroLEFT = cyclesZeroLEFT - 1;
                 }
-                LEFTFLAG = true;
-                cycleCountsLeft = cyclesZeroLEFT;
+
             }
             else if (RESETRIGHTDONE){
                 if (cyclesZeroUP == 0){
                     ZEROUPDONE = true;
                     cycleCountsLeft = 0;
+                    UPFLAG = false;
                 } else{
                     UPFLAG = true;
                     cyclesZeroUP = cyclesZeroUP - 1;
