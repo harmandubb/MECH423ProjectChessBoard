@@ -62,8 +62,10 @@ namespace ChessboardMovement
 				UARTCommands.AddRange(moveToTheEdgeOfBoard(solenoidOn, playerMove[1]));
 				UARTCommands.AddRange(moveHalfToLeft(solenoidOn));
 
-				//can drop the piece 
+				////can drop the piece 
 				solenoidOn = false;
+				UARTCommands.AddRange(moveHalfToRight(solenoidOn));
+				UARTCommands.AddRange(moveHalfToRight(solenoidOn));
 				UARTCommands.AddRange(moveHalfToRight(solenoidOn));
 				UARTCommands.AddRange(moveToCenter(solenoidOn));
 
@@ -75,25 +77,25 @@ namespace ChessboardMovement
 
 			solenoidOn = false;
 
-			Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[0]);
-			UARTCommands.AddRange(moveToNECorner(solenoidOn));
-			UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
-			UARTCommands.AddRange(moveToCenter(solenoidOn));
+			//Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[0]);
+			//UARTCommands.AddRange(moveToNECorner(solenoidOn));
+			//UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
+			//UARTCommands.AddRange(moveToCenter(solenoidOn));
 
-			solenoid.setLocation(playerMove[0]);
+			//solenoid.setLocation(playerMove[0]);
 
 
-			////conduct the players move 
-			solenoidOn = true;
-			Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[0], playerMove[1]);
+			////////conduct the players move 
+			//solenoidOn = true;
+			//Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[0], playerMove[1]);
 
-			UARTCommands.AddRange(moveToNECorner(solenoidOn));
-			UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
-			UARTCommands.AddRange(moveToCenter(solenoidOn));
+			//UARTCommands.AddRange(moveToNECorner(solenoidOn));
+			//UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
+			//UARTCommands.AddRange(moveToCenter(solenoidOn));
 
-			solenoid.setLocation(playerMove[0]);
+			//solenoid.setLocation(playerMove[0]);
 
-			solenoidOn = false;
+			//solenoidOn = false;
 
 			return UARTCommands;
 		}
@@ -174,7 +176,7 @@ namespace ChessboardMovement
 			LEFTRIGHT = (int)directions.LEFT;
 
 			//bias moving to the left for now and make the game smarter afterwards 
-			for (int i = 0; i < currentCoordinates.Item2; i++)
+			for (int i = 0; i < currentCoordinates.Item2 + 1; i++)
 			{
 				for (int j = 0; j < 2; j++)
 				{

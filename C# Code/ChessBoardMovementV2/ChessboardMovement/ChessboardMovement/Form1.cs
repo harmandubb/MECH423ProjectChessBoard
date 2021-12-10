@@ -28,14 +28,7 @@ namespace ChessboardMovement
 			board = new Board();
 			solenoid = new Solenoid();
 
-			//Code segment for the computer to automatically find the comm port
-			comboBoxCOMPorts.Items.Clear();
-			comboBoxCOMPorts.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
-			if (comboBoxCOMPorts.Items.Count == 0)
-				comboBoxCOMPorts.Text = "No COM ports!";
-			else
-				comboBoxCOMPorts.SelectedIndex = 0;
-
+			
 
 		}
 
@@ -59,9 +52,9 @@ namespace ChessboardMovement
 				//only transmit 10 commands at a time due to firmware buffer limitation
 				if (UARTCommands.Count > 0)
 				{
-					if (UARTCommands.Count > 10)
+					if (UARTCommands.Count > 20)
 					{
-						numCommandsTosend = 10;
+						numCommandsTosend = 20;
 					}
 					else
 					{
@@ -113,6 +106,18 @@ namespace ChessboardMovement
 				}
 
 			}
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+			//Code segment for the computer to automatically find the comm port
+			comboBoxCOMPorts.Items.Clear();
+			comboBoxCOMPorts.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+			if (comboBoxCOMPorts.Items.Count == 0)
+				comboBoxCOMPorts.Text = "No COM ports!";
+			else
+				comboBoxCOMPorts.SelectedIndex = 0;
+
 		}
 	}
 }
