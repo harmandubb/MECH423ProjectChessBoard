@@ -77,25 +77,27 @@ namespace ChessboardMovement
 
 			solenoidOn = false;
 
-			//Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[0]);
-			//UARTCommands.AddRange(moveToNECorner(solenoidOn));
-			//UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
-			//UARTCommands.AddRange(moveToCenter(solenoidOn));
+			Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[0]);
+			UARTCommands.AddRange(moveToNECorner(solenoidOn));
+			UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
+			UARTCommands.AddRange(moveToCenter(solenoidOn));
 
-			//solenoid.setLocation(playerMove[0]);
+			solenoid.setLocation(playerMove[0]);
 
 
-			////////conduct the players move 
-			//solenoidOn = true;
-			//Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[0], playerMove[1]);
+			//conduct the players move 
+			solenoidOn = true;
+			Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[0], playerMove[1]);
 
-			//UARTCommands.AddRange(moveToNECorner(solenoidOn));
-			//UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
-			//UARTCommands.AddRange(moveToCenter(solenoidOn));
+			UARTCommands.AddRange(moveToNECorner(solenoidOn));
+			UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
+			UARTCommands.AddRange(moveToCenter(solenoidOn));
 
-			//solenoid.setLocation(playerMove[0]);
+			solenoid.setLocation(playerMove[1]);
 
-			//solenoidOn = false;
+			solenoidOn = false;
+
+
 
 			return UARTCommands;
 		}
@@ -113,8 +115,13 @@ namespace ChessboardMovement
 
 			List<byte[]> commands = new List<byte[]>
 			{
-				new byte[] {aAsciValue, Convert.ToByte(directions.UP), Convert.ToByte(solenoidOn) },
-				new byte[] {aAsciValue, Convert.ToByte(directions.RIGHT), Convert.ToByte(solenoidOn)}
+				//new byte[] {aAsciValue, Convert.ToByte(directions.UP), Convert.ToByte(solenoidOn) },
+				//new byte[] {aAsciValue, Convert.ToByte(directions.RIGHT), Convert.ToByte(solenoidOn)}
+
+				new byte[] {aAsciValue, Convert.ToByte(solenoidOn), Convert.ToByte(directions.UP) },
+				new byte[] {aAsciValue, Convert.ToByte(solenoidOn), Convert.ToByte(directions.RIGHT)}
+
+
 			};
 
 			return commands;
@@ -126,8 +133,11 @@ namespace ChessboardMovement
 
 			List<byte[]> commands = new List<byte[]>
 			{
-				new byte[] {aAsciValue, Convert.ToByte(directions.DOWN), Convert.ToByte(solenoidOn)},
-				new byte[] {aAsciValue, Convert.ToByte(directions.LEFT), Convert.ToByte(solenoidOn)}
+				//new byte[] {aAsciValue, Convert.ToByte(directions.DOWN), Convert.ToByte(solenoidOn)},
+				//new byte[] {aAsciValue, Convert.ToByte(directions.LEFT), Convert.ToByte(solenoidOn)}
+
+				new byte[] {aAsciValue, Convert.ToByte(solenoidOn), Convert.ToByte(directions.DOWN)},
+				new byte[] {aAsciValue, Convert.ToByte(solenoidOn), Convert.ToByte(directions.LEFT), }
 			};
 
 			return commands;
@@ -139,7 +149,8 @@ namespace ChessboardMovement
 
 			List<byte[]> commands = new List<byte[]>
 			{
-				new byte[] {aAsciValue, Convert.ToByte(directions.LEFT), Convert.ToByte(solenoidOn)}
+				//new byte[] {aAsciValue, Convert.ToByte(directions.LEFT), Convert.ToByte(solenoidOn)}
+				new byte[] {aAsciValue, Convert.ToByte(solenoidOn),  Convert.ToByte(directions.LEFT)}
 			};
 
 			return commands;
@@ -151,7 +162,8 @@ namespace ChessboardMovement
 
 			List<byte[]> commands = new List<byte[]>
 			{
-				new byte[] {aAsciValue, Convert.ToByte(directions.RIGHT), Convert.ToByte(solenoidOn)}
+				//new byte[] {aAsciValue, Convert.ToByte(directions.RIGHT), Convert.ToByte(solenoidOn)}
+				new byte[] {aAsciValue, Convert.ToByte(solenoidOn), Convert.ToByte(directions.RIGHT) }
 			};
 
 			return commands;
@@ -180,7 +192,8 @@ namespace ChessboardMovement
 			{
 				for (int j = 0; j < 2; j++)
 				{
-					temp = new byte[] { aAsciValue, Convert.ToByte(LEFTRIGHT), Convert.ToByte(solenoidOn) };
+					//temp = new byte[] { aAsciValue, Convert.ToByte(LEFTRIGHT), Convert.ToByte(solenoidOn) };
+					temp = new byte[] { aAsciValue, Convert.ToByte(solenoidOn), Convert.ToByte(LEFTRIGHT) };
 					movement.Add(temp);
 				}
 			}
@@ -224,7 +237,8 @@ namespace ChessboardMovement
 				//need two half steps to move one square 
 				for(int j = 0; j < 2; j++)
 				{
-					temp = new byte[] { aAsciValue, Convert.ToByte(UPDOWN), Convert.ToByte(solenoidOn) };
+					//temp = new byte[] { aAsciValue, Convert.ToByte(UPDOWN), Convert.ToByte(solenoidOn) };
+					temp = new byte[] { aAsciValue,  Convert.ToByte(solenoidOn), Convert.ToByte(UPDOWN)};
 					mainMovements.Add(temp);
 				}
 				
@@ -236,7 +250,8 @@ namespace ChessboardMovement
 				//need two half steps to move one square 
 				for (int j = 0; j < 2; j++)
 				{
-					temp = new byte[] { aAsciValue, Convert.ToByte(RIGHTLEFT), Convert.ToByte(solenoidOn) };
+					// = new byte[] { aAsciValue, Convert.ToByte(RIGHTLEFT), Convert.ToByte(solenoidOn) };
+					temp = new byte[] { aAsciValue, Convert.ToByte(solenoidOn), Convert.ToByte(RIGHTLEFT) };
 					mainMovements.Add(temp);
 				}
 

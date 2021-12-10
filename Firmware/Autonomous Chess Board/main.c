@@ -57,7 +57,7 @@ int PACKETSIZE = 3;
 
 //Queue Implementation
 unsigned int RxByte;
-const int BUFFER_SIZE = 30;
+const int BUFFER_SIZE = 33;
 
 typedef struct {
     int front;
@@ -317,10 +317,13 @@ int main(void)
         int numDirections = directions.num;
 
         if(numDirections > 0){
+
             if(DONEMOVING){
                 DONEMOVING = false;
                 currentDirection = dequeue(&directions);
                 solenoidCommand = dequeue(&solenoid);
+                while ((UCA0IFG & UCTXIFG) == 0);
+                UCA0TXBUF = solenoidCommand;//for debugging
 
                 if(currentDirection == 0){
                     UPFLAG = 1;
@@ -332,16 +335,15 @@ int main(void)
                     LEFTFLAG = 1;
                 }
 
-                if(solenoidCommand == 1){
-                    //turn on the solenoid
-                    P1OUT |= BIT1;
-                } else {
-                    //turn off the solenoid
-                    P1OUT &= ~(BIT1);
-
-                }
-
             }
+        }
+
+        if(solenoidCommand == 1){
+            //turn on the solenoid
+            P1OUT |= BIT1;
+        } else {
+            //turn off the solenoid
+            P1OUT &= ~(BIT1);
         }
 
         if(UPFLAG){
@@ -511,7 +513,7 @@ __interrupt void USCI_A0_ISR(void)
 {
     RxByte = UCA0RXBUF;
     while ((UCA0IFG & UCTXIFG) == 0);
-    UCA0TXBUF = RxByte;//for debugging
+    //UCA0TXBUF = RxByte;//for debugging
     enqueue(&buffer, RxByte);
 
     //ENQUEUEFLAG = 1;
@@ -519,11 +521,14 @@ __interrupt void USCI_A0_ISR(void)
 
 int decode(Queue* buffer, Queue* directions, Queue* solenoid){
     if (dequeue(buffer) == 'a') {
-        directionByte = dequeue(buffer);
         solenoidByte = dequeue(buffer);
+        directionByte = dequeue(buffer);
+
+
+        //store solenoidByte
+        enqueue(solenoid, solenoidByte);
 
         //store directionByte
-
         if (directionByte == 48){
             enqueue(directions, 0);
         } else if (directionByte == 49){
@@ -534,8 +539,7 @@ int decode(Queue* buffer, Queue* directions, Queue* solenoid){
             enqueue(directions, 3);
         }
 
-        //store solenoidByte
-        enqueue(solenoid, solenoidByte);
+
 
 
         return true;

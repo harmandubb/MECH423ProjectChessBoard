@@ -41,11 +41,13 @@ namespace ChessboardMovement
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.comboBoxCOMPorts = new System.Windows.Forms.ComboBox();
 			this.btnConnectDisconnect = new System.Windows.Forms.Button();
+			this.txtSerialBytes = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// serialPort1
 			// 
 			this.serialPort1.PortName = "COM4";
+			this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.PortDataReceived);
 			// 
 			// label1
 			// 
@@ -129,11 +131,20 @@ namespace ChessboardMovement
 			this.btnConnectDisconnect.UseVisualStyleBackColor = true;
 			this.btnConnectDisconnect.Click += new System.EventHandler(this.btnConnectDisconnect_Click);
 			// 
+			// txtSerialBytes
+			// 
+			this.txtSerialBytes.Location = new System.Drawing.Point(12, 148);
+			this.txtSerialBytes.Multiline = true;
+			this.txtSerialBytes.Name = "txtSerialBytes";
+			this.txtSerialBytes.Size = new System.Drawing.Size(215, 114);
+			this.txtSerialBytes.TabIndex = 9;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.txtSerialBytes);
 			this.Controls.Add(this.btnConnectDisconnect);
 			this.Controls.Add(this.comboBoxCOMPorts);
 			this.Controls.Add(this.txtMove);
@@ -164,6 +175,7 @@ namespace ChessboardMovement
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.ComboBox comboBoxCOMPorts;
 		private System.Windows.Forms.Button btnConnectDisconnect;
+		private System.Windows.Forms.TextBox txtSerialBytes;
 	}
 }
 

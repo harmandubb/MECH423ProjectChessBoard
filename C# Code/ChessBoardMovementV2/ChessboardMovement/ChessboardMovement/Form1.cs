@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChessboardMovement;
+using System.Collections.Concurrent;
 
 namespace ChessboardMovement
 {
@@ -18,9 +19,13 @@ namespace ChessboardMovement
 		Solenoid solenoid;
 		List<byte[]> UARTCommands = new List<byte[]>();
 
+
 		double timerInterval = 0.5;
 		int timerCounter = 0;
-		double countsToWait = 10 / 0.5;
+		double countsToWait = 8 / 0.5;
+		//Class Variables
+		String serialDataString = "";
+		ConcurrentQueue<Int32> dataQueue = new ConcurrentQueue<Int32>();
 
 		public Form1()
 		{
@@ -28,7 +33,7 @@ namespace ChessboardMovement
 			board = new Board();
 			solenoid = new Solenoid();
 
-			
+
 
 		}
 
@@ -40,21 +45,34 @@ namespace ChessboardMovement
 			string destination = txtDestination.Text;
 
 			UARTCommands.AddRange(ChessInterface.move(origin, destination, solenoid, board));
-			
+
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
+			int byteData = 0;
+			if (serialPort1.IsOpen)
+			{
+				//txtSerialBytes.Text = serialPort1.BytesToRead.ToString();
+				while (dataQueue.Count != 0)
+				{
+					if (dataQueue.TryDequeue(out byteData))
+					{
+						txtSerialBytes.AppendText(Convert.ToString(byteData) + ",");
+					}
+					else MessageBox.Show("Dequeueing failed");
+				}
+			}
 			int numCommandsTosend = 0;
 
-			if(timerCounter == countsToWait)
+			if (timerCounter >= countsToWait)
 			{
 				//only transmit 10 commands at a time due to firmware buffer limitation
 				if (UARTCommands.Count > 0)
 				{
-					if (UARTCommands.Count > 20)
+					if (UARTCommands.Count > 11)
 					{
-						numCommandsTosend = 20;
+						numCommandsTosend = 11;
 					}
 					else
 					{
@@ -118,6 +136,20 @@ namespace ChessboardMovement
 			else
 				comboBoxCOMPorts.SelectedIndex = 0;
 
+		}
+
+		private void PortDataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+		{
+			int newByte = 0;
+			int bytesToRead;
+			bytesToRead = serialPort1.BytesToRead;
+
+			while (bytesToRead != 0)
+			{
+				newByte = serialPort1.ReadByte();
+				dataQueue.Enqueue(newByte);
+				bytesToRead = serialPort1.BytesToRead;
+			}
 		}
 	}
 }
