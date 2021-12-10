@@ -75,25 +75,25 @@ namespace ChessboardMovement
 
 			solenoidOn = false;
 
-			Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[1]);
+			Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[0]);
 			UARTCommands.AddRange(moveToNECorner(solenoidOn));
 			UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
 			UARTCommands.AddRange(moveToCenter(solenoidOn));
 
-			//solenoid.setLocation(playerMove[0]);
+			solenoid.setLocation(playerMove[0]);
 
 
 			////conduct the players move 
-			//solenoidOn = true;
-			//Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[1], playerMove[0]);
+			solenoidOn = true;
+			Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[0], playerMove[1]);
 
-			//UARTCommands.AddRange(moveToNECorner(solenoidOn));
-			//UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
-			//UARTCommands.AddRange(moveToCenter(solenoidOn));
+			UARTCommands.AddRange(moveToNECorner(solenoidOn));
+			UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
+			UARTCommands.AddRange(moveToCenter(solenoidOn));
 
-			//solenoid.setLocation(playerMove[0]);
+			solenoid.setLocation(playerMove[0]);
 
-			//solenoidOn = false;
+			solenoidOn = false;
 
 			return UARTCommands;
 		}
