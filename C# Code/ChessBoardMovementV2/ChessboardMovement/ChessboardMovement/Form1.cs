@@ -47,6 +47,7 @@ namespace ChessboardMovement
 			string destination = txtDestination.Text;
 
 			UARTCommands.AddRange(ChessInterface.move(origin, destination, solenoid, board));
+			
 		}
 
 		private void timer1_Tick(object sender, EventArgs e)

@@ -22,8 +22,8 @@ namespace ChessboardMovement
 
 		public static List<Tuple<int,int>> parseMove(string origin, string destination)
 		{
-			Tuple<int, int> originCoordinate = new Tuple<int, int>(Convert.ToInt32((char) origin[0]), Convert.ToInt32((char)origin[1]));
-			Tuple<int, int> destinationCoordinate = new Tuple<int, int>(Convert.ToInt32((char) destination[0]), Convert.ToInt32((char)destination[1]));
+			Tuple<int, int> originCoordinate = new Tuple<int, int>(Convert.ToInt32((char) origin[0]) - 65, Convert.ToInt32(origin[1])-48);
+			Tuple<int, int> destinationCoordinate = new Tuple<int, int>(Convert.ToInt32((char) destination[0]) - 65, Convert.ToInt32(destination[1])-48);
 
 			List<Tuple<int, int>> chessCoordinates = new List<Tuple<int, int>>();
 
@@ -240,7 +240,7 @@ namespace ChessboardMovement
 
 			}
 
-			return null;
+			return mainMovements;
 		}
 
 

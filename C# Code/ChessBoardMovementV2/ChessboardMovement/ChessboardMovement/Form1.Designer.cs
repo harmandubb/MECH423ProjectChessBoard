@@ -43,6 +43,10 @@ namespace ChessboardMovement
 			this.btnConnectDisconnect = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
+			// serialPort1
+			// 
+			this.serialPort1.PortName = "COM4";
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -103,6 +107,7 @@ namespace ChessboardMovement
 			// 
 			// timer1
 			// 
+			this.timer1.Enabled = true;
 			this.timer1.Interval = 500;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 

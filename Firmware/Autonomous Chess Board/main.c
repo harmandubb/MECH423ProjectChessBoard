@@ -209,6 +209,8 @@ int main(void)
     P1SEL1 &= ~(BIT1);
     P1SEL0 &= ~(BIT1);
 
+    P1OUT &= ~(BIT1);
+
 	//----------------------UART-RedBoard-----------------//
 
     //Configure ports for UCA0
@@ -266,7 +268,7 @@ int main(void)
     _EINT();
 
     while(true){
-        //--------------Game Start up-----------------//
+//        //--------------Game Start up-----------------//
         if(GAMESTART){
             if (ZEROLEFTDONE){
                 GAMESTART = false;
@@ -285,7 +287,7 @@ int main(void)
             else if (RESETRIGHTDONE){
                 if (cyclesZeroUP == 0){
                     ZEROUPDONE = true;
-                    cycleCountsLeft = 0;
+                    //cycleCountsLeft = 0;
                     UPFLAG = false;
                 } else{
                     UPFLAG = true;
@@ -301,6 +303,8 @@ int main(void)
 
             }
         }
+        //debugging solenoid always on
+        //P1OUT |= BIT1;
 
         //-------------Move in direction code------------//
 
@@ -329,6 +333,7 @@ int main(void)
                 } else {
                     //turn off the solenoid
                     P1OUT &= ~(BIT1);
+
                 }
 
             }
