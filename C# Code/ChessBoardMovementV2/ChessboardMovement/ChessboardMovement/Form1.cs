@@ -59,9 +59,9 @@ namespace ChessboardMovement
 				//only transmit 10 commands at a time due to firmware buffer limitation
 				if (UARTCommands.Count > 0)
 				{
-					if (UARTCommands.Count > 5)
+					if (UARTCommands.Count > 10)
 					{
-						numCommandsTosend = 5;
+						numCommandsTosend = 10;
 					}
 					else
 					{

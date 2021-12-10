@@ -22,8 +22,8 @@ namespace ChessboardMovement
 
 		public static List<Tuple<int,int>> parseMove(string origin, string destination)
 		{
-			Tuple<int, int> originCoordinate = new Tuple<int, int>(Convert.ToInt32(origin[1])-48, Convert.ToInt32((char)origin[0]) - 65);
-			Tuple<int, int> destinationCoordinate = new Tuple<int, int>(Convert.ToInt32(destination[1])-48, Convert.ToInt32((char)destination[0]) - 65);
+			Tuple<int, int> originCoordinate = new Tuple<int, int>(Convert.ToInt32(origin[1])-48 - 1, Convert.ToInt32((char)origin[0]) - 65);
+			Tuple<int, int> destinationCoordinate = new Tuple<int, int>(Convert.ToInt32(destination[1])-48- 1, Convert.ToInt32((char)destination[0]) - 65);
 
 			List<Tuple<int, int>> chessCoordinates = new List<Tuple<int, int>>();
 
@@ -75,23 +75,23 @@ namespace ChessboardMovement
 
 			solenoidOn = false;
 
-			Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[0]);
+			Tuple<int, int> goToOriginRelativeCoordinate = getRelativeCoordinates(solenoid.getLocation(), playerMove[1]);
 			UARTCommands.AddRange(moveToNECorner(solenoidOn));
-			//UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
-			//UARTCommands.AddRange(moveToCenter(solenoidOn));
+			UARTCommands.AddRange(moveToDestination(solenoidOn, goToOriginRelativeCoordinate));
+			UARTCommands.AddRange(moveToCenter(solenoidOn));
 
 			//solenoid.setLocation(playerMove[0]);
 
 
 			////conduct the players move 
 			//solenoidOn = true;
-			//Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[0], playerMove[1]);
+			//Tuple<int, int> relativePlayerMoveCoordinates = getRelativeCoordinates(playerMove[1], playerMove[0]);
 
 			//UARTCommands.AddRange(moveToNECorner(solenoidOn));
 			//UARTCommands.AddRange(moveToDestination(solenoidOn, relativePlayerMoveCoordinates));
 			//UARTCommands.AddRange(moveToCenter(solenoidOn));
 
-			//solenoid.setLocation(playerMove[1]);
+			//solenoid.setLocation(playerMove[0]);
 
 			//solenoidOn = false;
 
@@ -198,7 +198,7 @@ namespace ChessboardMovement
 			List<byte[]> mainMovements = new List<byte[]>();
 			byte[] temp = new byte[3];
 
-			if (relativeCoordinates.Item1 > 0)
+			if (relativeCoordinates.Item2 > 0)
 			{
 				UPDOWN = (int) directions.UP;
 			} else
@@ -206,7 +206,7 @@ namespace ChessboardMovement
 				UPDOWN = (int)directions.DOWN;
 			}
 
-			if (relativeCoordinates.Item2 > 0)
+			if (relativeCoordinates.Item1 > 0)
 			{
 				RIGHTLEFT = (int)directions.RIGHT;
 			}
@@ -217,7 +217,7 @@ namespace ChessboardMovement
 
 		
 			//move up and down first 
-			for(int i = 0;  i < Math.Abs(relativeCoordinates.Item1); i++)
+			for(int i = 0;  i < Math.Abs(relativeCoordinates.Item2); i++)
 			{
 				//need two half steps to move one square 
 				for(int j = 0; j < 2; j++)
@@ -229,7 +229,7 @@ namespace ChessboardMovement
 			}
 
 			//move right and left 
-			for (int i = 0; i < Math.Abs(relativeCoordinates.Item2); i++)
+			for (int i = 0; i < Math.Abs(relativeCoordinates.Item1); i++)
 			{
 				//need two half steps to move one square 
 				for (int j = 0; j < 2; j++)

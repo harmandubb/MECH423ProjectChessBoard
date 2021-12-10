@@ -284,6 +284,7 @@ int main(void)
                     LEFTFLAG = false;
                 } else {
                     LEFTFLAG = true;
+                    DONEMOVING = false;
                     cyclesZeroLEFT = cyclesZeroLEFT - 1;
                 }
 
@@ -295,6 +296,7 @@ int main(void)
                     UPFLAG = false;
                 } else{
                     UPFLAG = true;
+                    DONEMOVING = false;
                     cyclesZeroUP = cyclesZeroUP - 1;
                 }
             }
