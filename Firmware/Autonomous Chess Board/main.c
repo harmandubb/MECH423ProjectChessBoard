@@ -25,7 +25,7 @@ unsigned int ZEROLEFTDONE = false;
 
 
 //PWM
-volatile unsigned int steppingSpeed = 18800;
+const int steppingSpeed = 2000;
 volatile unsigned int PWMStepperMax = 1000;
 volatile unsigned int PWMStepperTrigger = 520;
 
@@ -36,10 +36,10 @@ volatile unsigned int rightMotorCW = true;
 volatile int leftMotorStepState = 0;
 volatile int rightMotorStepState = 0;
 //volatile int cyclesForHalfSquare = 2228; //cycles for 1 rev
-volatile int cyclesForHalfSquare = 1103;
+volatile int cyclesForHalfSquare = 224;
 volatile int cycleCountsLeft = 0;
-int cyclesZeroUP =  1802 +1103;
-int cyclesZeroLEFT = 534 +1103;
+int cyclesZeroUP = 373 + 222;
+int cyclesZeroLEFT = 100 + 222;
 
 //solenoid
 int solenoidCommand = 0;
@@ -109,6 +109,9 @@ int dequeue(Queue* q){
         return dequeued;
     }
 }
+
+Queue buffer;
+
 
 static const int stepperMotorLookupTable[ROW_SIZE][COLUMN_SIZE] =
 {
@@ -224,8 +227,9 @@ int main(void)
     UCA0IE |= UCRXIE;
 
 	//---------------------------Buffer---------------------//
-	Queue buffer;
-	initialize(&buffer);
+
+
+    initialize(&buffer);
 
 	Queue directions;
 	initialize(&directions);
@@ -256,9 +260,9 @@ int main(void)
 
 	//----------------------INTERRUPTS----------------------//
 	//enable interrupt for timer A0
-    TA0CTL |= TAIE;
+    //TA0CTL |= TAIE;
     //enable compare and capture TA0.0 interrupt
-    TA0CCTL0 |= CCIE;
+    //TA0CCTL0 |= CCIE;
 
     //interupt for input pins 4
     P4IE |= BIT0;
@@ -312,7 +316,6 @@ int main(void)
 
         if(numDirections > 0){
             if(DONEMOVING){
-              //if(DONEMOVING){
                 DONEMOVING = false;
                 currentDirection = dequeue(&directions);
                 solenoidCommand = dequeue(&solenoid);
@@ -427,44 +430,62 @@ int main(void)
             cycleCountsLeft--;
         }
 
+        if(cycleCountsLeft <= 0){
+                DONEMOVING = true;
+            }
+            else{
+                if(leftMotorCW){
+                    leftMotorStepState++;
+                }else{
+                    leftMotorStepState--;
+                }
+                if(rightMotorCW){
+                    rightMotorStepState++;
+                }
+                else{
+                    rightMotorStepState--;
+                }
+            }
+
         //--------------ENQUEUE DATA-----------------//
-        if (ENQUEUEFLAG == 1) {
-            ENQUEUEFLAG = 0;
-            enqueue(&buffer, RxByte);
-        }
+//        if (ENQUEUEFLAG == 1) {
+//            ENQUEUEFLAG = 0;
+//            enqueue(&buffer, RxByte);
+//        }
 
         if ((buffer.num) >= PACKETSIZE) {
             decode(buffer,directions,solenoid);
         }
+        __delay_cycles(steppingSpeed);
 
     }
 	return 0;
 }
 
-#pragma vector = TIMER0_A0_VECTOR
-__interrupt void TIMER0_A0_ISR(void) {
-    TA0IV = 0; //clear inttrupt
-    TA0CCTL0 &= ~(CCIFG); //clear flag
-
-    //have not checked if the directions works out
-    if(cycleCountsLeft <= 0){
-        DONEMOVING = true;
-    }
-    else{
-        if(leftMotorCW){
-            leftMotorStepState++;
-        }else{
-            leftMotorStepState--;
-        }
-        if(rightMotorCW){
-            rightMotorStepState++;
-        }
-        else{
-            rightMotorStepState--;
-        }
-    }
-
-}
+//#pragma vector = TIMER0_A0_VECTOR
+//__interrupt void TIMER0_A0_ISR(void) {
+//    TA0IV = 0; //clear inttrupt
+//    TA0CCTL0 &= ~(CCIFG); //clear flag
+//
+//
+//    if(cycleCountsLeft <= 0){
+//        DONEMOVING = true;
+//    }
+//    else{
+//        if(leftMotorCW){
+//            leftMotorStepState++;
+//        }else{
+//            leftMotorStepState--;
+//        }
+//        if(rightMotorCW){
+//            rightMotorStepState++;
+//        }
+//        else{
+//            rightMotorStepState--;
+//        }
+//    }
+//
+//}
 
 #pragma vector = PORT4_VECTOR
 __interrupt void PORT4_ISR(void)
@@ -489,8 +510,9 @@ __interrupt void USCI_A0_ISR(void)
     RxByte = UCA0RXBUF;
     while ((UCA0IFG & UCTXIFG) == 0);
     UCA0TXBUF = RxByte;//for debugging
+    enqueue(&buffer, RxByte);
 
-    ENQUEUEFLAG = 1;
+    //ENQUEUEFLAG = 1;
 }
 
 int decode(Queue* buffer, Queue* directions, Queue* solenoid){

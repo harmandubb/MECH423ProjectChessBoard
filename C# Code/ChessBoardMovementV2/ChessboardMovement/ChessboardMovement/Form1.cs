@@ -59,9 +59,9 @@ namespace ChessboardMovement
 				//only transmit 10 commands at a time due to firmware buffer limitation
 				if (UARTCommands.Count > 0)
 				{
-					if (UARTCommands.Count > 10)
+					if (UARTCommands.Count > 5)
 					{
-						numCommandsTosend = 10;
+						numCommandsTosend = 5;
 					}
 					else
 					{
@@ -76,6 +76,7 @@ namespace ChessboardMovement
 						{
 							//sending a command
 							serialPort1.Write(UARTCommands[0], 0, 3);
+							//MessageBox.Show("Sent");
 						}
 
 						//ensuring that the command is deleted
