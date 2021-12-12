@@ -22,7 +22,7 @@ namespace ChessboardMovement
 
 		double timerInterval = 0.5;
 		int timerCounter = 0;
-		double countsToWait = 8 / 0.5;
+		double countsToWait = 10;
 		//Class Variables
 		String serialDataString = "";
 		ConcurrentQueue<Int32> dataQueue = new ConcurrentQueue<Int32>();
@@ -70,9 +70,9 @@ namespace ChessboardMovement
 				//only transmit 10 commands at a time due to firmware buffer limitation
 				if (UARTCommands.Count > 0)
 				{
-					if (UARTCommands.Count > 11)
+					if (UARTCommands.Count > 6)
 					{
-						numCommandsTosend = 11;
+						numCommandsTosend = 6;
 					}
 					else
 					{
@@ -150,6 +150,19 @@ namespace ChessboardMovement
 				dataQueue.Enqueue(newByte);
 				bytesToRead = serialPort1.BytesToRead;
 			}
+		}
+
+		private void btnFoolsMate_Click(object sender, EventArgs e)
+		{
+			UARTCommands.AddRange(ChessInterface.move("F2", "F3", solenoid, board));
+			UARTCommands.AddRange(ChessInterface.move("E7", "E6", solenoid, board));
+			UARTCommands.AddRange(ChessInterface.move("G2", "G4", solenoid, board));
+			UARTCommands.AddRange(ChessInterface.move("D8", "H4", solenoid, board));
+		}
+
+		private void btnEliminate_Click(object sender, EventArgs e)
+		{
+			UARTCommands.AddRange(ChessInterface.move("H4", "E1", solenoid, board));
 		}
 	}
 }

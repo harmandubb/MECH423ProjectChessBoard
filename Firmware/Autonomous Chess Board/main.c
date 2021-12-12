@@ -57,7 +57,7 @@ int PACKETSIZE = 3;
 
 //Queue Implementation
 unsigned int RxByte;
-const int BUFFER_SIZE = 33;
+const int BUFFER_SIZE = 20;
 
 typedef struct {
     int front;

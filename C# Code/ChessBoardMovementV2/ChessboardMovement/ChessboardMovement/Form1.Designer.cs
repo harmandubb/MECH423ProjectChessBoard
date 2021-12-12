@@ -42,6 +42,8 @@ namespace ChessboardMovement
 			this.comboBoxCOMPorts = new System.Windows.Forms.ComboBox();
 			this.btnConnectDisconnect = new System.Windows.Forms.Button();
 			this.txtSerialBytes = new System.Windows.Forms.TextBox();
+			this.btnFoolsMate = new System.Windows.Forms.Button();
+			this.btnEliminate = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// serialPort1
@@ -139,11 +141,33 @@ namespace ChessboardMovement
 			this.txtSerialBytes.Size = new System.Drawing.Size(215, 114);
 			this.txtSerialBytes.TabIndex = 9;
 			// 
+			// btnFoolsMate
+			// 
+			this.btnFoolsMate.Location = new System.Drawing.Point(271, 146);
+			this.btnFoolsMate.Name = "btnFoolsMate";
+			this.btnFoolsMate.Size = new System.Drawing.Size(75, 23);
+			this.btnFoolsMate.TabIndex = 10;
+			this.btnFoolsMate.Text = "Fools Mate";
+			this.btnFoolsMate.UseVisualStyleBackColor = true;
+			this.btnFoolsMate.Click += new System.EventHandler(this.btnFoolsMate_Click);
+			// 
+			// btnEliminate
+			// 
+			this.btnEliminate.Location = new System.Drawing.Point(271, 185);
+			this.btnEliminate.Name = "btnEliminate";
+			this.btnEliminate.Size = new System.Drawing.Size(75, 23);
+			this.btnEliminate.TabIndex = 11;
+			this.btnEliminate.Text = "Eliminate";
+			this.btnEliminate.UseVisualStyleBackColor = true;
+			this.btnEliminate.Click += new System.EventHandler(this.btnEliminate_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.btnEliminate);
+			this.Controls.Add(this.btnFoolsMate);
 			this.Controls.Add(this.txtSerialBytes);
 			this.Controls.Add(this.btnConnectDisconnect);
 			this.Controls.Add(this.comboBoxCOMPorts);
@@ -176,6 +200,8 @@ namespace ChessboardMovement
 		private System.Windows.Forms.ComboBox comboBoxCOMPorts;
 		private System.Windows.Forms.Button btnConnectDisconnect;
 		private System.Windows.Forms.TextBox txtSerialBytes;
+		private System.Windows.Forms.Button btnFoolsMate;
+		private System.Windows.Forms.Button btnEliminate;
 	}
 }
 
