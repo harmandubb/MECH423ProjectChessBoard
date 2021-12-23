@@ -44,6 +44,10 @@ namespace ChessboardMovement
 			this.txtSerialBytes = new System.Windows.Forms.TextBox();
 			this.btnFoolsMate = new System.Windows.Forms.Button();
 			this.btnEliminate = new System.Windows.Forms.Button();
+			this.Debugging = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// serialPort1
@@ -54,7 +58,7 @@ namespace ChessboardMovement
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(9, 45);
+			this.label1.Location = new System.Drawing.Point(9, 106);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(34, 13);
 			this.label1.TabIndex = 0;
@@ -62,14 +66,14 @@ namespace ChessboardMovement
 			// 
 			// txtDestination
 			// 
-			this.txtDestination.Location = new System.Drawing.Point(127, 61);
+			this.txtDestination.Location = new System.Drawing.Point(127, 122);
 			this.txtDestination.Name = "txtDestination";
 			this.txtDestination.Size = new System.Drawing.Size(100, 20);
 			this.txtDestination.TabIndex = 1;
 			// 
 			// btnSubmit
 			// 
-			this.btnSubmit.Location = new System.Drawing.Point(233, 58);
+			this.btnSubmit.Location = new System.Drawing.Point(233, 119);
 			this.btnSubmit.Name = "btnSubmit";
 			this.btnSubmit.Size = new System.Drawing.Size(75, 23);
 			this.btnSubmit.TabIndex = 2;
@@ -79,7 +83,7 @@ namespace ChessboardMovement
 			// 
 			// txtOrigin
 			// 
-			this.txtOrigin.Location = new System.Drawing.Point(12, 61);
+			this.txtOrigin.Location = new System.Drawing.Point(12, 122);
 			this.txtOrigin.Name = "txtOrigin";
 			this.txtOrigin.Size = new System.Drawing.Size(100, 20);
 			this.txtOrigin.TabIndex = 3;
@@ -87,7 +91,7 @@ namespace ChessboardMovement
 			// none
 			// 
 			this.none.AutoSize = true;
-			this.none.Location = new System.Drawing.Point(124, 45);
+			this.none.Location = new System.Drawing.Point(124, 106);
 			this.none.Name = "none";
 			this.none.Size = new System.Drawing.Size(60, 13);
 			this.none.TabIndex = 4;
@@ -95,7 +99,7 @@ namespace ChessboardMovement
 			// 
 			// txtMove
 			// 
-			this.txtMove.Location = new System.Drawing.Point(12, 103);
+			this.txtMove.Location = new System.Drawing.Point(325, 121);
 			this.txtMove.Name = "txtMove";
 			this.txtMove.Size = new System.Drawing.Size(100, 20);
 			this.txtMove.TabIndex = 6;
@@ -103,7 +107,7 @@ namespace ChessboardMovement
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(9, 87);
+			this.label3.Location = new System.Drawing.Point(322, 105);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(78, 13);
 			this.label3.TabIndex = 5;
@@ -135,7 +139,7 @@ namespace ChessboardMovement
 			// 
 			// txtSerialBytes
 			// 
-			this.txtSerialBytes.Location = new System.Drawing.Point(12, 148);
+			this.txtSerialBytes.Location = new System.Drawing.Point(12, 169);
 			this.txtSerialBytes.Multiline = true;
 			this.txtSerialBytes.Name = "txtSerialBytes";
 			this.txtSerialBytes.Size = new System.Drawing.Size(215, 114);
@@ -143,7 +147,7 @@ namespace ChessboardMovement
 			// 
 			// btnFoolsMate
 			// 
-			this.btnFoolsMate.Location = new System.Drawing.Point(271, 146);
+			this.btnFoolsMate.Location = new System.Drawing.Point(256, 196);
 			this.btnFoolsMate.Name = "btnFoolsMate";
 			this.btnFoolsMate.Size = new System.Drawing.Size(75, 23);
 			this.btnFoolsMate.TabIndex = 10;
@@ -153,7 +157,7 @@ namespace ChessboardMovement
 			// 
 			// btnEliminate
 			// 
-			this.btnEliminate.Location = new System.Drawing.Point(271, 185);
+			this.btnEliminate.Location = new System.Drawing.Point(256, 237);
 			this.btnEliminate.Name = "btnEliminate";
 			this.btnEliminate.Size = new System.Drawing.Size(75, 23);
 			this.btnEliminate.TabIndex = 11;
@@ -161,11 +165,54 @@ namespace ChessboardMovement
 			this.btnEliminate.UseVisualStyleBackColor = true;
 			this.btnEliminate.Click += new System.EventHandler(this.btnEliminate_Click);
 			// 
+			// Debugging
+			// 
+			this.Debugging.AutoSize = true;
+			this.Debugging.Location = new System.Drawing.Point(12, 153);
+			this.Debugging.Name = "Debugging";
+			this.Debugging.Size = new System.Drawing.Size(59, 13);
+			this.Debugging.TabIndex = 12;
+			this.Debugging.Text = "Debugging";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(253, 169);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(94, 13);
+			this.label2.TabIndex = 13;
+			this.label2.Text = "Pre-loaded Games";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.label4.Location = new System.Drawing.Point(9, 50);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(466, 17);
+			this.label4.TabIndex = 14;
+			this.label4.Text = "Use long algebraic chess notation for orgin and destination coordinates. ";
+			this.label4.Click += new System.EventHandler(this.label4_Click);
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.label5.Location = new System.Drawing.Point(9, 73);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(423, 17);
+			this.label5.TabIndex = 15;
+			this.label5.Text = "Example: Origin = E2 Destination = E4 will move pawn on E2 to E4";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(475, 290);
+			this.Controls.Add(this.label5);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.Debugging);
 			this.Controls.Add(this.btnEliminate);
 			this.Controls.Add(this.btnFoolsMate);
 			this.Controls.Add(this.txtSerialBytes);
@@ -202,6 +249,10 @@ namespace ChessboardMovement
 		private System.Windows.Forms.TextBox txtSerialBytes;
 		private System.Windows.Forms.Button btnFoolsMate;
 		private System.Windows.Forms.Button btnEliminate;
+		private System.Windows.Forms.Label Debugging;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label5;
 	}
 }
 

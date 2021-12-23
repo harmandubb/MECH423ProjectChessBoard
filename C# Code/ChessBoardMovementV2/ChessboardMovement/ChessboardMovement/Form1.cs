@@ -164,5 +164,10 @@ namespace ChessboardMovement
 		{
 			UARTCommands.AddRange(ChessInterface.move("H4", "E1", solenoid, board));
 		}
+
+		private void label4_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
