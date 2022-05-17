@@ -9,13 +9,13 @@
 
 //FLAGS
 volatile unsigned int NORTHFLAG = 0 ;
-volatile unsigned int NORTHEASTFLAG = 0; 
+volatile unsigned int NORTHEASTFLAG = 0;
 volatile unsigned int EASTFLAG = 0;
 volatile unsigned int SOUTHEASTFLAG = 0;
 volatile unsigned int SOUTHFLAG = 0;
-volatile unsigned int SOUTHWESTFLAG = 0; 
+volatile unsigned int SOUTHWESTFLAG = 0;
 volatile unsigned int WESTFLAG = 0;
-volatile unsigned int NORTHWESTFLAG = 0; 
+volatile unsigned int NORTHWESTFLAG = 0;
 
 
 volatile unsigned int ENQUEUEFLAG = 0;
@@ -38,8 +38,8 @@ volatile unsigned int PWMStepperTrigger = 520;
 //stepper motor
 volatile unsigned int leftMotorCW = true;
 volatile unsigned int rightMotorCW = true;
-volatile unsigned int leftMotorOn = true; 
-volatile unsigned int rightMotorOn = true; 
+volatile unsigned int leftMotorOn = true;
+volatile unsigned int rightMotorOn = true;
 
 volatile int leftMotorStepState = 0;
 volatile int rightMotorStepState = 0;
@@ -139,12 +139,12 @@ static const int stepperMotorLookupTable[ROW_SIZE][COLUMN_SIZE] =
 };
 int main(void)
 {
-	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	
+    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
 
-	//---------------Initialization----------------//
 
-	//----------------------CLOCK--------------------------//
+    //---------------Initialization----------------//
+
+    //----------------------CLOCK--------------------------//
 
     //Configure clock
     CSCTL0 = CSKEY;                                            // Write password to modify CS registers
@@ -227,7 +227,7 @@ int main(void)
 
     P1OUT &= ~(BIT1);
 
-	//----------------------UART-RedBoard-----------------//
+    //----------------------UART-RedBoard-----------------//
 
     //Configure ports for UCA0
     P2SEL0 &= ~(BIT0 + BIT1);
@@ -239,18 +239,18 @@ int main(void)
     UCA0MCTLW = 0x4900 + UCOS16 + UCBRF0;
     UCA0IE |= UCRXIE;
 
-	//---------------------------Buffer---------------------//
+    //---------------------------Buffer---------------------//
 
     initialize(&buffer);
 
-	Queue directions;
-	initialize(&directions);
+    Queue directions;
+    initialize(&directions);
 
-	Queue solenoid;
-	initialize(&solenoid);
+    Queue solenoid;
+    initialize(&solenoid);
 
-	//-------------------------Limit Switch-----------------//
-	P4DIR &= ~(BIT0); //Configuring pin 4.0 to be an input
+    //-------------------------Limit Switch-----------------//
+    P4DIR &= ~(BIT0); //Configuring pin 4.0 to be an input
     P4SEL0 &= ~BIT0;
     P4SEL1 &= ~BIT0;
 
@@ -270,8 +270,8 @@ int main(void)
     P1IES &= ~(BIT0); //Rising edge
     P1IFG &= ~BIT0; //Clearning the flag
 
-	//----------------------INTERRUPTS----------------------//
-	//enable interrupt for timer A0
+    //----------------------INTERRUPTS----------------------//
+    //enable interrupt for timer A0
     //TA0CTL |= TAIE;
     //enable compare and capture TA0.0 interrupt
     //TA0CCTL0 |= CCIE;
@@ -293,9 +293,9 @@ int main(void)
                 if (cyclesZeroLEFT == 0){
                     ZEROLEFTDONE = true;
                     cycleCountsLeft = 0;
-                    WESTFLAG = false;
+                    NORTHFLAG = false;
                 } else {
-                    WESTFLAG = true;
+                    NORTHFLAG = true;
                     DONEMOVING = false;
                     cyclesZeroLEFT = cyclesZeroLEFT - 1;
                 }
@@ -305,18 +305,18 @@ int main(void)
                 if (cyclesZeroUP == 0){
                     ZEROUPDONE = true;
                     //cycleCountsLeft = 0;
-                    NORTHFLAG = false;
+                    EASTFLAG = false;
                 } else{
-                    NORTHFLAG = true;
+                    EASTFLAG = true;
                     DONEMOVING = false;
                     cyclesZeroUP = cyclesZeroUP - 1;
                 }
             }
             else if (RESETDOWNDONE){
-                EASTFLAG = true;
+                SOUTHFLAG = true;
                 DONEMOVING = false;
             } else {
-                SOUTHFLAG = true;
+                WESTFLAG = true;
                 DONEMOVING = false;
 
             }
@@ -340,7 +340,7 @@ int main(void)
                 if(currentDirection == 0){
                     NORTHFLAG = 1;
                 }else if(currentDirection == 1){
-                    NORTHEASTTFLAG = 1;
+                    NORTHEASTFLAG = 1;
                 }else if(currentDirection == 2){
                     EASTFLAG = 1;
                 }else if(currentDirection == 3){
@@ -369,83 +369,83 @@ int main(void)
             NORTHFLAG = 0;
             leftMotorCW = true;
             rightMotorCW = true;
-            
-            leftMotorOn = true; 
+
+            leftMotorOn = true;
             rightMotorOn = true;
-            
+
             cycleCountsLeft = cyclesForHalfSquare;
         }
         if(SOUTHFLAG){
             SOUTHFLAG = 0;
             leftMotorCW = false;
             rightMotorCW = false;
-            
-            leftMotorOn = true; 
+
+            leftMotorOn = true;
             rightMotorOn = true;
-            
+
             cycleCountsLeft = cyclesForHalfSquare;
         }
         if(EASTFLAG){
             EASTFLAG = 0;
             leftMotorCW = true;
             rightMotorCW = false;
-            
-            leftMotorOn = true; 
+
+            leftMotorOn = true;
             rightMotorOn = true;
-            
+
             cycleCountsLeft = cyclesForHalfSquare;
         }
         if(WESTFLAG){
             WESTFLAG = 0;
-            leftMotorCW = true;
+            leftMotorCW = false;
             rightMotorCW = true;
-            
-            leftMotorOn = true; 
+
+            leftMotorOn = true;
             rightMotorOn = true;
-            
+
             cycleCountsLeft = cyclesForHalfSquare;
         }
         if(NORTHEASTFLAG){
             NORTHEASTFLAG = 0;
             rightMotorCW = true;
-            
-            leftMotorOn = false; 
+
+            leftMotorOn = false;
             rightMotorOn = true;
-            
+
             cycleCountsLeft = cyclesForHalfDiagonal;
         }
         if(SOUTHEASTFLAG){
             SOUTHEASTFLAG = 0;
             leftMotorCW = false;
-            
-            leftMotorOn = true; 
+
+            leftMotorOn = true;
             rightMotorOn = false;
-            
+
             cycleCountsLeft = cyclesForHalfDiagonal;
         }
         if(SOUTHWESTFLAG){
             SOUTHWESTFLAG = 0;
             rightMotorCW = false;
-            
-            leftMotorOn = false; 
+
+            leftMotorOn = false;
             rightMotorOn = true;
-            
+
             cycleCountsLeft = cyclesForHalfDiagonal;
         }
         if(NORTHWESTFLAG){
             NORTHWESTFLAG = 0;
             leftMotorCW = true;
-            
-            leftMotorOn = true; 
+
+            leftMotorOn = true;
             rightMotorOn = false;
-            
+
             cycleCountsLeft = cyclesForHalfDiagonal;
         }
-        
-        
-        
-                
-        
+
+
+
+
+
 
         //---------------LEFT MOTOR--------------------//
 
@@ -457,7 +457,7 @@ int main(void)
                 else if (leftMotorStepState <= -1) {
                     leftMotorStepState = 7;
                 }
-    
+
                 if (stepperMotorLookupTable[leftMotorStepState][0] == 1) {
                     P3OUT |= BIT0;
                 }else{
@@ -478,7 +478,7 @@ int main(void)
                 }else{
                     P3OUT &= ~BIT3;
                 }
-                
+
             }
 
             //-------------------RIGHT MOTOR------------------//
@@ -489,7 +489,7 @@ int main(void)
                 else if (rightMotorStepState <= -1) {
                    rightMotorStepState = 7;
                 }
-    
+
                 if (stepperMotorLookupTable[rightMotorStepState][0] == 1) {
                     P3OUT |= BIT7;
                 }else{
@@ -510,9 +510,9 @@ int main(void)
                 }else{
                     P3OUT &= ~BIT4;
                 }
-                
+
             }
-            
+
             cycleCountsLeft--; //increment the count of steps
         }
 
@@ -545,7 +545,7 @@ int main(void)
         __delay_cycles(steppingSpeed);
 
     }
-	return 0;
+    return 0;
 }
 
 
@@ -571,7 +571,7 @@ __interrupt void USCI_A0_ISR(void)
 {
     RxByte = UCA0RXBUF;
     while ((UCA0IFG & UCTXIFG) == 0);
-    //UCA0TXBUF = RxByte;//for debugging
+    UCA0TXBUF = RxByte;//for debugging
     enqueue(&buffer, RxByte);
 }
 
