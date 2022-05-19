@@ -36,12 +36,10 @@ def cameraCalibration():
     ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
 
     np.savez("Camera parameters", mtx=mtx,dist=dist)
-    npzfile = np.load("Camera parameters.npz")
-    print(npzfile.files)
-    print(npzfile['mtx'])
+    # npzfile = np.load("Camera parameters.npz")
+    # print(npzfile.files)
+    # print(npzfile['mtx'])
 
-    #print(mtx)
-    #print(dist)
 
     img = cv.imread(images[1])
     h,  w = img.shape[:2]
@@ -58,9 +56,24 @@ def cameraCalibration():
 
     return mtx, dist
 
+def chessboardCornerDetection(frame):
+    numCorners = 10
+    gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
 
+    corners = cv.goodFeaturesToTrack(gray,numCorners, 0.001, 100)
+    corners = np.int0(corners)
 
-cap = cv.VideoCapture(1)
+    for corner in corners:
+        x,y = corner.ravel()
+        cv.circle(frame, (x,y), 5, (0,0,255))
+
+    print(corners)
+
+    cv.imshow('Corners', frame)
+
+    return corners
+
+cap = cv.VideoCapture(0)
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
@@ -78,8 +91,10 @@ while True:
 
     # Our operations on the frame come here
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+
+    chessboardCornerDetection(frame)
     # Display the resulting frame
-    cv.imshow('frame', gray)
+    cv.imshow('frame', frame)
     if cv.waitKey(1) == ord('q'):
         break
 
