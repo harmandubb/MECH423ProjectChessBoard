@@ -3,10 +3,12 @@ from cv2 import cv2 as cv
 import glob
 from Camera import camera
 
+
 if __name__=='__main__':
+
     mtx, dist = camera.cameraCalibration()
 
-    frames = glob.glob('Calibration_Images/test4.jpg')
+    frames = glob.glob('Test_Images/greenphysicaltest8.jpg')
 
     for frame in frames:
         frame = cv.imread(frame)

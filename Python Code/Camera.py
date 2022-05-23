@@ -53,8 +53,8 @@ class camera:
                 cv.drawChessboardCorners(img, chessboardSize, corners2, ret)
                 #cv.imshow('img', img)
                 #imS = cv.resize(img, (960, 540))  
-                cv.imshow('img', img)
-                cv.waitKey(10)
+                #cv.imshow('img', img)
+                #cv.waitKey(10)
 
         ret, mtx, dist, rvecs, tvecs = cv.calibrateCamera(objpoints, imgpoints, gray.shape[::-1], None, None)
 
@@ -123,10 +123,10 @@ class camera:
     def chessboardCornerDetection(cls,frame):
         scale = 3
         frame = cv.resize(frame, (0,0), fx = scale, fy = scale)
-        numCorners = 83
+        numCorners = 16
         gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
 
-        corners = cv.goodFeaturesToTrack(gray,numCorners, 0.00001, 300)
+        corners = cv.goodFeaturesToTrack(gray,numCorners, 0.000001, 500)
         corners = np.int0(corners)
 
         for corner in corners:

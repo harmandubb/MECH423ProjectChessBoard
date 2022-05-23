@@ -11,3 +11,5 @@ Dummby/
 **/RemoteSystemsTempFiles
 **.metadata
 .launches
+.DS_Store
+__pycache__
