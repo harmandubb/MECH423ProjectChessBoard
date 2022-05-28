@@ -1,20 +1,31 @@
 import numpy as np 
-from cv2 import cv2 as cv 
+import cv2 as cv 
 import glob
 from Camera import camera
+from skimage import io, data, filters
 
 
 if __name__=='__main__':
+    black_kernel = np.zeros((7,7))
+    black_kernel[(0,4):(3,6)] = 1
 
-    mtx, dist = camera.cameraCalibration()
+    print(black_kernel)
+    
+    # mtx, dist = camera.cameraCalibration()
 
-    frames = glob.glob('Test_Images/greenphysicaltest8.jpg')
+    # frames = glob.glob('Test_Images/greenphysicaltest9.jpg')
 
-    for frame in frames:
-        frame = cv.imread(frame)
+    # for frame in frames:
+    #     frame = io.imread(frame)
+
+    #     cv.waitKey()
+
+
         #dst = camera.undistortFrame(frame,mtx,dist)
         #corners = camera.chessboardCornerDetection(dst)
-        corners = camera.chessboardCornerDetection(frame)
+        # corners = camera.chessboardCornerDetection(frame)
+
+
 
 
 

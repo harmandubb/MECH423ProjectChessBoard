@@ -1,6 +1,7 @@
 import numpy as np 
-from cv2 import cv2 as cv 
+import cv2 as cv 
 import glob
+from skimage import data, io, filters
 
 class camera: 
     # Class atributes 
@@ -119,6 +120,27 @@ class camera:
 
         return dst
 
+    
+        
+    @classmethod
+    def thresholdCorners(cls, frame):
+        lower_color_bounds = (0,0,0)
+        upper_color_bounds = (50,50,50)
+
+        mask = cv.inRange(frame,lower_color_bounds,upper_color_bounds)
+        
+        rough_image = cv.cvtColor(mask, cv.COLOR_GRAY2BGR)
+
+        cv.imshow("rough_image", rough_image)
+
+        blur_image = cv.medianBlur(rough_image, 5)
+
+        cv.imshow("blur_image", blur_image)
+
+
+        return mask
+
+
     @classmethod
     def chessboardCornerDetection(cls,frame):
         scale = 3
@@ -126,7 +148,9 @@ class camera:
         numCorners = 16
         gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
 
-        corners = cv.goodFeaturesToTrack(gray,numCorners, 0.000001, 500)
+        mask = camera.thresholdCorners(frame)
+
+        corners = cv.goodFeaturesToTrack(mask,numCorners, 0.001, 300)
         corners = np.int0(corners)
 
         for corner in corners:
@@ -138,3 +162,10 @@ class camera:
         cv.waitKey()
 
         return corners
+
+    @classmethod
+    def kernalCorners(cls, frame):
+        #kernels are described with the square color on the top left 
+        black_kernel = np.zeros((7,7))
+        black_kernel[(0,4):(3,6)] = 1
+        
