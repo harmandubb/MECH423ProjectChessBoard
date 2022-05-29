@@ -1,7 +1,11 @@
 import numpy as np 
 import cv2 as cv 
 import glob
-from skimage import data, io, filters
+from skimage import data, io, filters, color
+from scipy import interpolate, ndimage
+from scipy.signal import convolve2d
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeanspip 
 
 class camera: 
     # Class atributes 
@@ -164,8 +168,52 @@ class camera:
         return corners
 
     @classmethod
-    def kernalCorners(cls, frame):
+    def kernelCorners(cls, gray):
+        num_corners = 16
+
+        scaled = np.zeros(gray.shape)
+
+        for i in range (gray.shape[0]):
+            for j in range (gray.shape[1]):
+                scaled[i,j] = np.interp(gray[i,j],[0,1], [-1,1])
+
         #kernels are described with the square color on the top left 
-        black_kernel = np.zeros((7,7))
-        black_kernel[(0,4):(3,6)] = 1
+        white_kernel = np.ones((7,7))
+        white_kernel[0:4,4:7] = -1
+        white_kernel[4:7,0:4] = -1
+
+        black_kernel = -1*np.ones((7,7))
+        black_kernel[0:4,4:7] = 1
+        black_kernel[4:7,0:4] = 1
+
+        black_squares = convolve2d(scaled,black_kernel, mode='same')
+        white_squares = convolve2d(scaled,white_kernel, mode='same')
+        
+        plt.figure(1)
+        plt.imshow(black_squares, cmap='gray')
+        plt.title("Black Kernel mapped")
+        plt.figure(2)
+        plt.imshow(white_squares, cmap='gray')
+        plt.title("White Kernel mapped")
+        
+
+        #cluster to isolate one point to be taken as a corner 
+        corner_intensity = np.zeros(black_squares.shape)
+
+        for i in range(black_squares.shape[0]):
+            for j in range(black_squares.shape[1]):
+                if (abs(black_squares[i][j]) > 10):
+                    corner_intensity[i][j] = black_squares[i][j]
+        plt.figure(3)
+        plt.imshow(corner_intensity, cmap="gray")
+        plt.title("Corner intensity using black kernel")
+        
+        KMeans(num_corners,'k-means++',)
+
+                
+        
+        
+       
+
+
         
