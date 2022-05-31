@@ -5,7 +5,7 @@ from skimage import data, io, filters, color
 from scipy import interpolate, ndimage
 from scipy.signal import convolve2d
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeanspip 
+from sklearn.cluster import KMeans 
 
 class camera: 
     # Class atributes 
@@ -189,30 +189,42 @@ class camera:
         black_squares = convolve2d(scaled,black_kernel, mode='same')
         white_squares = convolve2d(scaled,white_kernel, mode='same')
         
-        plt.figure(1)
+        plt.figure(2)
         plt.imshow(black_squares, cmap='gray')
         plt.title("Black Kernel mapped")
-        plt.figure(2)
-        plt.imshow(white_squares, cmap='gray')
-        plt.title("White Kernel mapped")
-        
 
         #cluster to isolate one point to be taken as a corner 
         corner_intensity = np.zeros(black_squares.shape)
 
         for i in range(black_squares.shape[0]):
             for j in range(black_squares.shape[1]):
-                if (abs(black_squares[i][j]) > 10):
+                if (abs(black_squares[i][j]) > 3.4):
                     corner_intensity[i][j] = black_squares[i][j]
-        plt.figure(3)
-        plt.imshow(corner_intensity, cmap="gray")
-        plt.title("Corner intensity using black kernel")
-        
-        KMeans(num_corners,'k-means++',)
 
-                
+        plt.figure(4)
+        plt.imshow(corner_intensity)
+        plt.title("Corner Intensity")
+
+
+        corner_points = np.argwhere(corner_intensity)
+
+        plt.figure(7)
+        plt.scatter(corner_points[:,1], corner_points[:,0])
+        plt.title("conerpoints visulization")
         
+        Kmean = KMeans(n_clusters=num_corners).fit(corner_points)
+
+
+        plt.figure(5)
+        plt.scatter(corner_points[:,1], corner_points[:,0], c=Kmean.labels_)
+        print(Kmean.cluster_centers_)
+        plt.title("Visualization of clustering")
+
+        plt.figure(6)
+        plt.imshow(gray)
+        plt.scatter(Kmean.cluster_centers_[:,1], Kmean.cluster_centers_[:,0], c='red')
         
+        plt.show()
        
 
 

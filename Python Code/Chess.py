@@ -7,18 +7,12 @@ import matplotlib.pyplot as plt
 
 
 if __name__=='__main__':
-    frames = glob.glob('Test_Images/greentest.jpg')
+    frames = glob.glob('Test_Images/greenphysicaltest9.jpg')
 
     for frame in frames:
         frame = io.imread(frame, as_gray=True)
 
         camera.kernelCorners(frame)
-        io.imshow(frame)
-        plt.show()
-
-        
-
-
 
         #dst = camera.undistortFrame(frame,mtx,dist)
         #corners = camera.chessboardCornerDetection(dst)
