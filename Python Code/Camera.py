@@ -198,7 +198,7 @@ class camera:
 
         for i in range(black_squares.shape[0]):
             for j in range(black_squares.shape[1]):
-                if (abs(black_squares[i][j]) > 3.4):
+                if (abs(black_squares[i][j]) > 3.7):
                     corner_intensity[i][j] = black_squares[i][j]
 
         plt.figure(4)

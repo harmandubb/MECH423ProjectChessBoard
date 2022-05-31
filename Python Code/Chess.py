@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 if __name__=='__main__':
-    frames = glob.glob('Test_Images/greenphysicaltest9.jpg')
+    frames = glob.glob('Test_Images/onepiecetest.jpg')
 
     for frame in frames:
         frame = io.imread(frame, as_gray=True)
