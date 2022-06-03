@@ -225,6 +225,24 @@ class camera:
         plt.scatter(Kmean.cluster_centers_[:,1], Kmean.cluster_centers_[:,0], c='red')
         
         plt.show()
+
+    @classmethod 
+    def cannyCorners(cls, gray):
+
+        plt.figure(1)
+        plt.imshow(gray)
+        plt.title("Raw grayscale image")
+
+        blurred = filters.gaussian(gray, sigma=1)
+
+        plt.figure(2)
+        plt.imshow(blurred)
+        plt.title("Gaussian blurred image")
+
+        plt.show()
+
+        
+
        
 
 
