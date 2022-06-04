@@ -1,7 +1,7 @@
 import numpy as np 
 import cv2 as cv 
 import glob
-from skimage import data, io, filters, color
+from skimage import data, io, filters, color, feature, transform
 from scipy import interpolate, ndimage
 from scipy.signal import convolve2d
 import matplotlib.pyplot as plt
@@ -238,6 +238,46 @@ class camera:
         plt.figure(2)
         plt.imshow(blurred)
         plt.title("Gaussian blurred image")
+
+        canny = feature.canny(blurred,  sigma=2)
+
+        plt.figure(3)
+        plt.imshow(canny)
+        plt.title("Canny Edge detection")
+
+        tested_angles = np.linspace(-np.pi / 2, np.pi / 2, 360, endpoint=False)
+
+        h, theta, d = transform.hough_line(canny, theta=tested_angles)
+
+        print(len(h))
+        print(len(theta))
+        print(len(d))
+
+        plt.figure(4)
+        plt.imshow(np.log(1+h), cmap="gray", aspect=1 / 10)
+        plt.title("Hough space")
+        plt.xlabel("Angles (degrees)")
+        plt.ylabel('Distance (pixels)')
+
+        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=14, min_distance=25, min_angle=1, threshold=10)
+
+        
+
+        print(len(acc))
+        print(len(theta))
+        print(len(d))
+
+        plt.figure(5)
+        plt.imshow(gray, cmap="gray")
+        plt.title("Detected lines")
+
+        print(zip(acc, theta, d))
+
+        for vote, angle, dist in zip(acc, theta, d):
+            (x0,y0) = dist*np.array([np.cos(angle), np.sin(angle)])
+            plt.axline((x0,y0),slope=np.tan(angle+np.pi/2))
+        
+
 
         plt.show()
 
