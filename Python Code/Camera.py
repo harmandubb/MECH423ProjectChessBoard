@@ -1,7 +1,7 @@
 import numpy as np 
 import cv2 as cv 
 import glob
-from skimage import data, io, filters, color, feature, transform
+from skimage import data, io, filters, color, feature, transform, measure
 from scipy import interpolate, ndimage
 from scipy.signal import convolve2d
 import matplotlib.pyplot as plt
@@ -262,11 +262,6 @@ class camera:
         acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=14, min_distance=25, min_angle=1, threshold=10)
 
         
-
-        print(len(acc))
-        print(len(theta))
-        print(len(d))
-
         plt.figure(5)
         plt.imshow(gray, cmap="gray")
         plt.title("Detected lines")
@@ -281,7 +276,84 @@ class camera:
 
         plt.show()
 
+    @classmethod 
+    def findBoard(cls,frame):
+
+        plt.figure(1)
+        plt.imshow(frame, cmap="gray")
+        plt.title("Raw image")
+
+        lower = 0.30
+        upper = 0.5
+
+        perimeter = (frame > lower) & (frame < upper)
+
+        plt.figure(2)
+        plt.imshow(perimeter)
+        plt.title("Threshold Mask")
+
+
+        mask = np.logical_not(perimeter)
+
+        plt.figure(3)
+        plt.imshow(mask)
+        plt.title("Masked to be used in on frame")
+
+        masked = frame
+
+        masked[mask] = 0
+
+        plt.figure(4)
+        plt.imshow(masked, cmap="gray")
+        plt.title("Masked Image")
+
+        contours = measure.find_contours(masked, fully_connected='high')
+
+        plt.figure(5)
+        plt.imshow(frame, cmap="gray")
+        plt.title("contours")
+
+        max_area_index = 0
+        max_area = 0
+        index = 0
+
+        for contour in contours: 
+            contour_cv = np.expand_dims(contour.astype(np.float32), 1)
+            contour_cv = cv.UMat(contour_cv)
+            area = cv.contourArea(contour_cv)
+
+            if max_area < area:
+                max_area = area
+                max_area_index = index
+
+            index = index + 1   
+            
+            plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
+
+
+        plt.figure(6)
+        plt.plot(contours[max_area_index][:, 1], contours[max_area_index][:, 0])
+        plt.title("Chessboard contour found")
+
+        x = contours[max_area_index][:, 1]
+        y = contours[max_area_index][:, 0]
+
+        bottom_right = (x[np.argmax(x+y)],y[np.argmax(x+y)])
+        bottom_left = (x[np.argmax(x-y)],y[np.argmax(x-y)])
+        top_right = (x[np.argmin(x-y)],y[np.argmin(x-y)])
+        top_left = (x[np.argmin(x+y)],y[np.argmin(x+y)])
+
+        board_corners = np.array([bottom_right, bottom_left, top_right, top_left])
+
+        plt.scatter(board_corners[:,0],board_corners[:,1], color="r")
         
+    
+
+        
+
+        plt.show()
+
+
 
        
 

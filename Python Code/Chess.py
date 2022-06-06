@@ -9,14 +9,15 @@ import matplotlib.pyplot as plt
 if __name__=='__main__':
     frames = glob.glob('Test_Images/onepiecetest2.jpg')
 
+
     for frame in frames:
         frame = io.imread(frame, as_gray=True)
+        # frame = io.imread(frame)
 
-        camera.cannyCorners(frame)
 
-        #dst = camera.undistortFrame(frame,mtx,dist)
-        #corners = camera.chessboardCornerDetection(dst)
-        # corners = camera.chessboardCornerDetection(frame)
+        camera.findBoard(frame)
+
+        # camera.cannyCorners(frame)
 
 
 
