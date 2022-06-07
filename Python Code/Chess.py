@@ -11,11 +11,18 @@ if __name__=='__main__':
 
 
     for frame in frames:
+        frame_gray = io.imread(frame, as_gray=True)
+        
+
+
+        src_corners = camera.findBoard(frame_gray)
+
         frame = io.imread(frame, as_gray=True)
-        # frame = io.imread(frame)
 
+        camera.transformBoard(frame,src_corners)
 
-        camera.findBoard(frame)
+        plt.show()
+        
 
         # camera.cannyCorners(frame)
 

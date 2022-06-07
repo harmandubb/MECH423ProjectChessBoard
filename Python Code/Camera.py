@@ -343,32 +343,58 @@ class camera:
         top_right = (x[np.argmin(x-y)],y[np.argmin(x-y)])
         top_left = (x[np.argmin(x+y)],y[np.argmin(x+y)])
 
-        src_corners = np.array([bottom_right, 
-                                bottom_left, 
-                                top_right, 
-                                top_left])
+        src_corners = np.array([top_left,
+                                bottom_left,
+                                bottom_right, 
+                                top_right,
+                                ])
 
         plt.scatter(src_corners[:,0],src_corners[:,1], color="r")
         plt.imshow(frame, cmap="gray")
 
         np.reshape(src_corners,(4,2))
 
-        plt.show()
 
         return src_corners
 
 
     @classmethod 
     def transformBoard(cls, frame, src_corners):
-        width = 900
-        height = 900 
+        width = 800
+        height = 800 
 
-        dst_corners = np.array([[0,0], 
-                                [width-1,0], 
-                                [width-1, height-1], 
-                                [0, height-1]])
+        top_left = src_corners[0]
+        bottom_right = src_corners[2]
+
+
+        # cropped = frame[int(top_left[0]):int(bottom_right[0]), int(top_left[1]):int(bottom_right[1])]
+
+        # plt.figure(1)
+        # plt.imshow(cropped)
+        # plt.title("Cropped Image")
+
+        dst_corners = np.array([[0,0],
+                                [width-1,0],
+                                [width-1, height-1],
+                                [0, height-1]
+                                ])
 
         tform = transform.estimate_transform('projective',src_corners,dst_corners)
+
+        tf_img_warp = transform.warp(frame, tform.inverse, mode='edge')
+
+        plt.figure(1)
+        plt.imshow(tf_img_warp, cmap="gray")
+        plt.title("Transformed chess board")
+
+        cropped = tf_img_warp[0:width-1, 0:height-1]
+
+        plt.figure(2)
+        plt.imshow(cropped,cmap="gray")
+        plt.title("Cropped Imaged")
+
+
+
 
         
 
