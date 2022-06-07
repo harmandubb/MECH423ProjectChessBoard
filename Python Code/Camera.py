@@ -230,7 +230,7 @@ class camera:
     def cannyCorners(cls, gray):
 
         plt.figure(1)
-        plt.imshow(gray)
+        plt.imshow(gray, cmap="gray")
         plt.title("Raw grayscale image")
 
         blurred = filters.gaussian(gray, sigma=1)
@@ -259,7 +259,7 @@ class camera:
         plt.xlabel("Angles (degrees)")
         plt.ylabel('Distance (pixels)')
 
-        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=14, min_distance=25, min_angle=1, threshold=10)
+        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=11, min_distance=25, min_angle=1, threshold=10)
 
         
         plt.figure(5)
@@ -279,39 +279,39 @@ class camera:
     @classmethod 
     def findBoard(cls,frame):
 
-        plt.figure(1)
-        plt.imshow(frame, cmap="gray")
-        plt.title("Raw image")
+        # plt.figure(1)
+        # plt.imshow(frame, cmap="gray")
+        # plt.title("Raw image")
 
         lower = 0.30
         upper = 0.5
 
         perimeter = (frame > lower) & (frame < upper)
 
-        plt.figure(2)
-        plt.imshow(perimeter)
-        plt.title("Threshold Mask")
+        # plt.figure(2)
+        # plt.imshow(perimeter)
+        # plt.title("Threshold Mask")
 
 
         mask = np.logical_not(perimeter)
 
-        plt.figure(3)
-        plt.imshow(mask)
-        plt.title("Masked to be used in on frame")
+        # plt.figure(3)
+        # plt.imshow(mask)
+        # plt.title("Masked to be used in on frame")
 
         masked = frame
 
         masked[mask] = 0
 
-        plt.figure(4)
-        plt.imshow(masked, cmap="gray")
-        plt.title("Masked Image")
+        # plt.figure(4)
+        # plt.imshow(masked, cmap="gray")
+        # plt.title("Masked Image")
 
         contours = measure.find_contours(masked, fully_connected='high')
 
-        plt.figure(5)
-        plt.imshow(frame, cmap="gray")
-        plt.title("contours")
+        # plt.figure(5)
+        # plt.imshow(frame, cmap="gray")
+        # plt.title("contours")
 
         max_area_index = 0
         max_area = 0
@@ -331,9 +331,9 @@ class camera:
             plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
 
 
-        plt.figure(6)
-        plt.plot(contours[max_area_index][:, 1], contours[max_area_index][:, 0])
-        plt.title("Chessboard contour found")
+        # plt.figure(6)
+        # plt.plot(contours[max_area_index][:, 1], contours[max_area_index][:, 0])
+        # plt.title("Chessboard contour found")
 
         x = contours[max_area_index][:, 1]
         y = contours[max_area_index][:, 0]
@@ -383,15 +383,17 @@ class camera:
 
         tf_img_warp = transform.warp(frame, tform.inverse, mode='edge')
 
-        plt.figure(1)
-        plt.imshow(tf_img_warp, cmap="gray")
-        plt.title("Transformed chess board")
+        # plt.figure(1)
+        # plt.imshow(tf_img_warp, cmap="gray")
+        # plt.title("Transformed chess board")
 
-        cropped = tf_img_warp[0:width-1, 0:height-1]
+        cropped = tf_img_warp[25:width-1, 0:height-25]
 
-        plt.figure(2)
-        plt.imshow(cropped,cmap="gray")
-        plt.title("Cropped Imaged")
+        # plt.figure(2)
+        # plt.imshow(cropped,cmap="gray")
+        # plt.title("Cropped Imaged")
+
+        return cropped
 
 
 

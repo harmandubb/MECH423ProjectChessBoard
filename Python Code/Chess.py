@@ -19,7 +19,9 @@ if __name__=='__main__':
 
         frame = io.imread(frame, as_gray=True)
 
-        camera.transformBoard(frame,src_corners)
+        cropped = camera.transformBoard(frame,src_corners)
+
+        camera.cannyCorners(cropped)
 
         plt.show()
         
