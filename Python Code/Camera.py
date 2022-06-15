@@ -1,7 +1,7 @@
 import numpy as np 
 import cv2 as cv 
 import glob
-from skimage import data, io, filters, color, feature, transform, measure
+from skimage import data, io, filters, color, feature, transform, measure, draw
 from scipy import interpolate, ndimage
 from scipy.signal import convolve2d
 import matplotlib.pyplot as plt
@@ -230,49 +230,47 @@ class camera:
         
         plt.show()
 
-    # def defineLine(x0,y0,m):
-
-        
-    #     return 0
-
     @classmethod 
-    def cannyCorners(cls, gray):
-
-        plt.figure(1)
-        plt.imshow(gray, cmap="gray")
-        plt.title("Raw grayscale image")
+    def edgeDetector(cls,gray):
+        # plt.figure(1)
+        # plt.imshow(gray, cmap="gray")
+        # plt.title("Raw grayscale image")
 
         blurred = filters.gaussian(gray, sigma=1)
 
-        plt.figure(2)
-        plt.imshow(blurred)
-        plt.title("Gaussian blurred image")
+        # plt.figure(2)
+        # plt.imshow(blurred)
+        # plt.title("Gaussian blurred image")
 
         canny = feature.canny(blurred,  sigma=2)
 
-        plt.figure(3)
-        plt.imshow(canny)
-        plt.title("Canny Edge detection")
+        return canny
+
+
+    @classmethod 
+    def cannyCorners(cls, canny):
+
+        # plt.figure(3)
+        # plt.imshow(canny)
+        # plt.title("Canny Edge detection")
 
         tested_angles = np.linspace(-np.pi / 2, np.pi / 2, 360, endpoint=False)
 
         h, theta, d = transform.hough_line(canny, theta=tested_angles)
 
 
-        plt.figure(4)
-        plt.imshow(np.log(1+h), cmap="gray", aspect=1 / 10)
-        plt.title("Hough space")
-        plt.xlabel("Angles (degrees)")
-        plt.ylabel('Distance (pixels)')
+        # plt.figure(4)
+        # plt.imshow(np.log(1+h), cmap="gray", aspect=1 / 10)
+        # plt.title("Hough space")
+        # plt.xlabel("Angles (degrees)")
+        # plt.ylabel('Distance (pixels)')
 
         acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=8, min_distance=25, min_angle=1, threshold=10)
 
         
-        plt.figure(5)
-        plt.imshow(gray, cmap="gray")
-        plt.title("Detected lines")
-
-        print(zip(acc, theta, d))
+        # plt.figure(5)
+        # plt.imshow(gray, cmap="gray")
+        # plt.title("Detected lines")
 
         vertical_lines = np.zeros(int(math.sqrt(camera.chessBoardSquares)+1))
         horizontal_lines = np.zeros(int(math.sqrt(camera.chessBoardSquares)+1))
@@ -303,21 +301,7 @@ class camera:
         # corners = np.zeros(int((math.sqrt(camera.chessBoardSquares) + 1)**2))
         corners = [(vertical,horizontal) for vertical,horizontal in itertools.product(vertical_lines,horizontal_lines)]
   
-
-        print("Corners: {0}".format(corners))
-
-        x = []
-        y = []
-
-        for coordinates in corners:
-            x.append(coordinates[0])
-            y.append(coordinates[1])
-
-        plt.figure(6)
-        plt.imshow(gray, cmap="gray")
-        plt.title("Identified Corners")
-        plt.scatter(x,y, c='r')
-
+        return corners 
 
  
     @classmethod 
@@ -439,18 +423,48 @@ class camera:
 
         return cropped
 
+    
+    @classmethod 
+    def cleanupCorners(cls, frame, corners):
 
- 
+        x = []
+        y = []
 
+        for coordinates in corners:
+            x.append(coordinates[0])
+            y.append(coordinates[1])
 
+        plt.figure(1)
+        plt.clf()
+        plt.imshow(frame, cmap="gray")
+        plt.title("Identified Corners")
+        plt.scatter(x,y, c='r')
 
+    @classmethod
+    def identifyPieces(cls, frame, canny):
+
+        plt.figure(1)
+        plt.clf()
+        plt.imshow(canny)
+        plt.title("Canny Edge detection")
 
         
+        # Perform a Hough Transform
+        # The accuracy corresponds to the bin size of a major axis.
+        # The value is chosen in order to get a single high accumulator.
+        # The threshold eliminates low accumulators
+        # result = transform.hough_ellipse(canny, accuracy=20, threshold=250,
+        #                     min_size=100, max_size=120)
+        # result.sort(order='accumulator')
 
+        # # Estimated parameters for the ellipse
+        # best = list(result[-1])
+        # yc, xc, a, b = [int(round(x)) for x in best[1:5]]
+        # orientation = best[5]
 
+        # cy, cx = draw.ellipse_perimeter(yc, xc, a, b, orientation)
 
+        # print(cy)
+        # print(cx)
 
-       
-
-
-        
+        return 0
