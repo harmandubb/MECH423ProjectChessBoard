@@ -6,10 +6,14 @@ from scipy import interpolate, ndimage
 from scipy.signal import convolve2d
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans 
+import sympy as sym
+import math
+import itertools
 
 class camera: 
     # Class atributes 
     chessBoardSideLength = 44
+    chessBoardSquares = 9
 
     def __init__(self):
         pass 
@@ -226,6 +230,11 @@ class camera:
         
         plt.show()
 
+    # def defineLine(x0,y0,m):
+
+        
+    #     return 0
+
     @classmethod 
     def cannyCorners(cls, gray):
 
@@ -249,9 +258,6 @@ class camera:
 
         h, theta, d = transform.hough_line(canny, theta=tested_angles)
 
-        print(len(h))
-        print(len(theta))
-        print(len(d))
 
         plt.figure(4)
         plt.imshow(np.log(1+h), cmap="gray", aspect=1 / 10)
@@ -259,7 +265,7 @@ class camera:
         plt.xlabel("Angles (degrees)")
         plt.ylabel('Distance (pixels)')
 
-        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=11, min_distance=25, min_angle=1, threshold=10)
+        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=8, min_distance=25, min_angle=1, threshold=10)
 
         
         plt.figure(5)
@@ -268,14 +274,52 @@ class camera:
 
         print(zip(acc, theta, d))
 
+        vertical_lines = np.zeros(int(math.sqrt(camera.chessBoardSquares)+1))
+        horizontal_lines = np.zeros(int(math.sqrt(camera.chessBoardSquares)+1))
+        verticalLineCounter = 0
+        horizontalLineCounter = 0
+
         for vote, angle, dist in zip(acc, theta, d):
             (x0,y0) = dist*np.array([np.cos(angle), np.sin(angle)])
-            plt.axline((x0,y0),slope=np.tan(angle+np.pi/2))
+
+            m = np.tan(angle+np.pi/2)
+
+            if ((m < 1) and (m >= 0)):
+                m = 0
+                horizontal_lines[horizontalLineCounter] = y0
+                horizontalLineCounter = horizontalLineCounter + 1 
+            elif ((m >50)):
+                m = 1e16 
+                vertical_lines[verticalLineCounter] = x0
+                verticalLineCounter = verticalLineCounter + 1
+
+            plt.axline((x0,y0),slope=m)
+
         
+        # print("Vertical Lines: {0}".format(vertical_lines))
+        # print("Horizontal Lines: {0}".format(horizontal_lines))
+
+        # Begin to find the corners from the line intersections 
+        # corners = np.zeros(int((math.sqrt(camera.chessBoardSquares) + 1)**2))
+        corners = [(vertical,horizontal) for vertical,horizontal in itertools.product(vertical_lines,horizontal_lines)]
+  
+
+        print("Corners: {0}".format(corners))
+
+        x = []
+        y = []
+
+        for coordinates in corners:
+            x.append(coordinates[0])
+            y.append(coordinates[1])
+
+        plt.figure(6)
+        plt.imshow(gray, cmap="gray")
+        plt.title("Identified Corners")
+        plt.scatter(x,y, c='r')
 
 
-        plt.show()
-
+ 
     @classmethod 
     def findBoard(cls,frame):
 
@@ -387,13 +431,16 @@ class camera:
         # plt.imshow(tf_img_warp, cmap="gray")
         # plt.title("Transformed chess board")
 
-        cropped = tf_img_warp[25:width-1, 0:height-25]
+        cropped = tf_img_warp[35:width-35, 35:height-35 ]
 
         # plt.figure(2)
         # plt.imshow(cropped,cmap="gray")
         # plt.title("Cropped Imaged")
 
         return cropped
+
+
+ 
 
 
 

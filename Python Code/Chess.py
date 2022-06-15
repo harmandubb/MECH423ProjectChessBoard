@@ -1,5 +1,5 @@
 import numpy as np 
-import cv2 as cv 
+# import cv2 as cv 
 import glob
 from Camera import camera
 from skimage import io, data, filters
@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 if __name__=='__main__':
-    frames = glob.glob('Test_Images/onepiecetest2.jpg')
+    frames = glob.glob('Test_Images/miniboardfull.jpg')
 
 
     for frame in frames:
