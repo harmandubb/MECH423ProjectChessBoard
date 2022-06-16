@@ -441,30 +441,32 @@ class camera:
         plt.scatter(x,y, c='r')
 
     @classmethod
-    def identifyPieces(cls, frame, canny):
+    def identifyPieces(cls, frame, canny, num_pieces):
 
-        plt.figure(1)
-        plt.clf()
-        plt.imshow(canny)
-        plt.title("Canny Edge detection")
-
+        # plt.figure(1)
+        # plt.clf()
+        # plt.imshow(canny)
+        # plt.title("Canny Edge detection")
         
-        # Perform a Hough Transform
-        # The accuracy corresponds to the bin size of a major axis.
-        # The value is chosen in order to get a single high accumulator.
-        # The threshold eliminates low accumulators
-        # result = transform.hough_ellipse(canny, accuracy=20, threshold=250,
-        #                     min_size=100, max_size=120)
-        # result.sort(order='accumulator')
+        # Detect two radii
+        hough_radii = np.arange(60, 100, 1)
+        hough_res = transform.hough_circle(canny, hough_radii)
 
-        # # Estimated parameters for the ellipse
-        # best = list(result[-1])
-        # yc, xc, a, b = [int(round(x)) for x in best[1:5]]
-        # orientation = best[5]
+        # plt.figure(2)
+        # plt.imshow(hough_res)
+        # plt.title("Circle Hough transform")
 
-        # cy, cx = draw.ellipse_perimeter(yc, xc, a, b, orientation)
 
-        # print(cy)
-        # print(cx)
+        # Select the most prominent 3 circles
+        accums, cx, cy, radii = transform.hough_circle_peaks(hough_res, hough_radii,
+                                           total_num_peaks=num_pieces, min_xdistance=70, min_ydistance=70)
 
-        return 0
+        fig, ax = plt.subplots(ncols=1, nrows=1)
+        image = color.gray2rgb(frame)
+        for center_y, center_x, radius in zip(cy, cx, radii):
+            circy, circx = draw.circle_perimeter(center_y, center_x, radius)
+            plt.scatter(circx,circy, c="r")
+
+        ax.imshow(image) 
+
+        return circx, circy

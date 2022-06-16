@@ -3,31 +3,18 @@ import numpy as np
 import glob
 from Camera import camera
 from skimage import io, data, filters
+import math
 import matplotlib.pyplot as plt
 
 
-if __name__=='__main__':
-    frames = glob.glob('Test_Images/miniboardfull.jpg')
+class chess: 
 
-
-    for frame in frames:
-        frame_gray = io.imread(frame, as_gray=True)
+    def __init__(self):
+        self.chessBoardSquares = 9
+        self.chessBoardSideSquares = int(math.sqrt(self.chessBoardSquares))
         
-        src_corners = camera.findBoard(frame_gray)
+        #change chess board initialization for the full board implementation
+        self.board = np.ones((self.chessBoardSideSquares, self.chessBoardSideSquares))
 
-        frame = io.imread(frame, as_gray=True)
 
-        cropped = camera.transformBoard(frame,src_corners)
-
-        canny = camera.edgeDetector(cropped)
-
-        corners = camera.cannyCorners(canny)
-
-        camera.cleanupCorners(cropped, corners)
-
-        #detect the pieces
-
-        camera.identifyPieces(cropped, canny)
-
-        plt.show()
         
