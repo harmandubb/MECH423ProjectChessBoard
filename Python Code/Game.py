@@ -24,17 +24,15 @@ if __name__=='__main__':
 
         corners = camera.cannyCorners(canny)
 
-        print(sorted(corners, key=lambda k: [k[1], k[0]]))
-
         camera.cleanupCorners(cropped, corners)
 
         #detect the pieces
 
-        camera.identifyPieces(cropped, canny,9)
+        pieces = camera.identifyPieces(cropped, canny,9)
 
         ch = chess()
 
-        print(ch.board)
+        ch.getCurrentState(corners, pieces)
 
         plt.show()
         

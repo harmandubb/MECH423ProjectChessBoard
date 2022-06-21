@@ -467,6 +467,11 @@ class camera:
             circy, circx = draw.circle_perimeter(center_y, center_x, radius)
             plt.scatter(circx,circy, c="r")
 
-        ax.imshow(image) 
+        ax.imshow(image)
 
-        return circx, circy
+        pieces = []
+
+        for cord in zip(cx,cy):
+            pieces.append(cord)
+
+        return pieces
