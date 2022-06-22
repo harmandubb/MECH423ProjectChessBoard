@@ -458,8 +458,8 @@ class camera:
 
 
         # Select the most prominent 3 circles
-        accums, cx, cy, radii = transform.hough_circle_peaks(hough_res, hough_radii,
-                                           total_num_peaks=num_pieces, min_xdistance=70, min_ydistance=70)
+        accums, cx, cy, radii = transform.hough_circle_peaks(hough_res, hough_radii, num_peaks= num_pieces - 1,
+                                           total_num_peaks=num_pieces, min_xdistance=110, min_ydistance=110)
 
         fig, ax = plt.subplots(ncols=1, nrows=1)
         image = color.gray2rgb(frame)
