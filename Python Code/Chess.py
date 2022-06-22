@@ -23,6 +23,8 @@ class chess:
     def getCurrentState(self, corners, pieces):
         #Sorting corner points known order
 
+        currentBoard = np.zeros([self.chessBoardSideSquares, self.chessBoardSideSquares])
+
         
         corners.sort(key=lambda k: [k[1], k[0]])
         pieces.sort(key=lambda k: [k[1], k[0]])
@@ -33,17 +35,19 @@ class chess:
         print("Pieces:{0}".format(pieces))
 
         identifiedPieces = 0
-        nextRow = 0
+        row = 0
+        col = 0
 
 
         for i in range(self.chessBoardSquares):
             if(i%self.chessBoardSideSquares == 0 and i != 0):
-                nextRow = nextRow + 1
+                row = row + 1
+                col = 0
 
-            upperLeft = corners[i+nextRow]
-            print("First Index: {0}".format(i+nextRow))
-            lowerRight = corners[i+self.chessBoardSideSquares + 2+nextRow] 
-            print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+nextRow))
+            upperLeft = corners[i+row]
+            print("First Index: {0}".format(i+row))
+            lowerRight = corners[i+self.chessBoardSideSquares + 2+row] 
+            print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+row))
 
             print("Upper left: {0}".format(upperLeft))
             print("Lower reft: {0}".format(lowerRight))
@@ -59,14 +63,18 @@ class chess:
                         identifiedPieces = identifiedPieces + 1
                         print("Piece is present {0}".format(identifiedPieces))
 
+                        currentBoard[row][col] = 1
+
                         copy_pieces.remove(piece)
                         break
+
+            col = col + 1 
 
 
             
             # print("Current Pieces: {0}".format(currentPiece))
 
-        return 0
+        return currentBoard
 
 
         

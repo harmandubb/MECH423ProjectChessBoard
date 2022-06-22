@@ -8,7 +8,7 @@ from Chess import chess
 
 
 if __name__=='__main__':
-    frames = glob.glob('Test_Images/miniboardfull.jpg')
+    frames = glob.glob('Test_Images/onepiecetest2.jpg')
 
 
     for frame in frames:
@@ -28,11 +28,13 @@ if __name__=='__main__':
 
         #detect the pieces
 
-        pieces = camera.identifyPieces(cropped, canny,9)
+        pieces = camera.identifyPieces(cropped, canny,1)
 
         ch = chess()
 
-        ch.getCurrentState(corners, pieces)
+        currentState = ch.getCurrentState(corners, pieces)
+
+        print(currentState)
 
         plt.show()
         
