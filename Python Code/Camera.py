@@ -443,14 +443,18 @@ class camera:
     @classmethod
     def identifyPieces(cls, frame, canny, num_pieces):
 
-        # plt.figure(1)
-        # plt.clf()
-        # plt.imshow(canny)
-        # plt.title("Canny Edge detection")
+        plt.figure(99)
+        plt.clf()
+        plt.imshow(canny)
+        plt.title("Canny Edge detection")
         
         # Detect two radii
-        hough_radii = np.arange(60, 100, 1)
+        hough_radii = np.arange(60, 90, 1)
         hough_res = transform.hough_circle(canny, hough_radii)
+
+        print(type(hough_res))
+
+        print(np.max(hough_res))
 
         # plt.figure(2)
         # plt.imshow(hough_res)
@@ -459,7 +463,7 @@ class camera:
 
         # Select the most prominent 3 circles
         accums, cx, cy, radii = transform.hough_circle_peaks(hough_res, hough_radii, num_peaks= num_pieces - 1,
-                                           total_num_peaks=num_pieces, min_xdistance=110, min_ydistance=110)
+                                           total_num_peaks=num_pieces, min_xdistance=120, min_ydistance=120)
 
         fig, ax = plt.subplots(ncols=1, nrows=1)
         image = color.gray2rgb(frame)
