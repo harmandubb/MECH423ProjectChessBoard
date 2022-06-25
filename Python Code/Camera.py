@@ -307,39 +307,42 @@ class camera:
     @classmethod 
     def findBoard(cls,frame):
 
-        # plt.figure(1)
-        # plt.imshow(frame, cmap="gray")
-        # plt.title("Raw image")
+        plt.figure(1)
+        plt.imshow(frame, cmap="gray")
+        plt.title("Raw image")
 
-        lower = 0.30
-        upper = 0.5
+        lower_test = 0.30
+        upper_test = 0.5
 
-        perimeter = (frame > lower) & (frame < upper)
+        lower_board = 0.15
+        upper_board = 0.30
 
-        # plt.figure(2)
-        # plt.imshow(perimeter)
-        # plt.title("Threshold Mask")
+        perimeter = (frame > lower_board) & (frame < upper_board)
+
+        plt.figure(2)
+        plt.imshow(perimeter)
+        plt.title("Threshold Mask")
 
 
         mask = np.logical_not(perimeter)
 
-        # plt.figure(3)
-        # plt.imshow(mask)
-        # plt.title("Masked to be used in on frame")
+        plt.figure(3)
+        plt.imshow(mask)
+        plt.title("Masked to be used in on frame")
 
         masked = frame
 
         masked[mask] = 0
 
-        # plt.figure(4)
-        # plt.imshow(masked, cmap="gray")
-        # plt.title("Masked Image")
+        plt.figure(4)
+        plt.imshow(masked, cmap="gray")
+        plt.title("Masked Image")
 
         contours = measure.find_contours(masked, fully_connected='high')
 
-        # plt.figure(5)
-        # plt.imshow(frame, cmap="gray")
-        # plt.title("contours")
+        plt.figure(5)
+        plt.imshow(frame, cmap="gray")
+        plt.title("contours")
 
         max_area_index = 0
         max_area = 0
@@ -359,9 +362,9 @@ class camera:
             plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
 
 
-        # plt.figure(6)
-        # plt.plot(contours[max_area_index][:, 1], contours[max_area_index][:, 0])
-        # plt.title("Chessboard contour found")
+        plt.figure(6)
+        plt.plot(contours[max_area_index][:, 1], contours[max_area_index][:, 0])
+        plt.title("Chessboard contour found")
 
         x = contours[max_area_index][:, 1]
         y = contours[max_area_index][:, 0]

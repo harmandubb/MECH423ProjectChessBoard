@@ -8,7 +8,7 @@ from Chess import chess
 
 
 if __name__=='__main__':
-    frames = glob.glob('Test_Images/board4.jpg')
+    frames = glob.glob('Board_Images/board2.jpg')
 
 
     for frame in frames:
@@ -16,25 +16,25 @@ if __name__=='__main__':
         
         src_corners = camera.findBoard(frame_gray)
 
-        frame = io.imread(frame, as_gray=True)
+        # frame = io.imread(frame, as_gray=True)
 
-        cropped = camera.transformBoard(frame,src_corners)
+        # cropped = camera.transformBoard(frame,src_corners)
 
-        canny = camera.edgeDetector(cropped)
+        # canny = camera.edgeDetector(cropped)
 
-        corners = camera.cannyCorners(canny)
+        # corners = camera.cannyCorners(canny)
 
-        camera.cleanupCorners(cropped, corners)
+        # camera.cleanupCorners(cropped, corners)
 
-        #detect the pieces
+        # #detect the pieces
 
-        pieces = camera.identifyPieces(cropped, canny,6)
+        # pieces = camera.identifyPieces(cropped, canny,6)
 
-        ch = chess()
+        # ch = chess()
 
-        currentState = ch.getCurrentState(corners, pieces)
+        # currentState = ch.getCurrentState(corners, pieces)
 
-        print(currentState)
+        # print(currentState)
 
         plt.show()
         
