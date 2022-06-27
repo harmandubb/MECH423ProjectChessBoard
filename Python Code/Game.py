@@ -8,33 +8,36 @@ from Chess import chess
 
 
 if __name__=='__main__':
-    frames = glob.glob('Board_Images/board2.jpg')
+    frames = glob.glob('Board_Images/board13.jpg')
 
 
     for frame in frames:
-        frame_gray = io.imread(frame, as_gray=True)
+        gray = np.flip(io.imread(frame, as_gray=True),1)
+        rgg_image = np.flip(io.imread(frame),1)
+
+        src_corners = camera.findBoard(rgg_image, gray)
+
+        # gray = io.imread(frame, as_gray=True)
+
         
-        src_corners = camera.findBoard(frame_gray)
 
-        # frame = io.imread(frame, as_gray=True)
+        cropped = camera.transformBoard(gray,src_corners)
 
-        # cropped = camera.transformBoard(frame,src_corners)
+        canny = camera.edgeDetector(cropped)
 
-        # canny = camera.edgeDetector(cropped)
+        corners = camera.cannyCorners(canny,64, cropped,False)
 
-        # corners = camera.cannyCorners(canny)
+        camera.cleanupCorners(cropped, corners)
 
-        # camera.cleanupCorners(cropped, corners)
+        #detect the pieces
 
-        # #detect the pieces
+        pieces = camera.identifyPieces(cropped, canny,32)
 
-        # pieces = camera.identifyPieces(cropped, canny,6)
+        ch = chess(4*8)
 
-        # ch = chess()
+        currentState = ch.getCurrentState(corners, pieces)
 
-        # currentState = ch.getCurrentState(corners, pieces)
-
-        # print(currentState)
+        print(currentState)
 
         plt.show()
         

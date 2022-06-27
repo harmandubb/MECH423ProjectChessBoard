@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 
 
 class chess: 
-    chessBoardSquares = 9
+    chessBoardSquares = 8*8
     chessBoardSideSquares = int(math.sqrt(chessBoardSquares))
-    numPiecesPresent = 9
+    numPiecesPresent = 4*8
 
-    def __init__(self):
-        self.chessBoardSquares = 9
-        self.numPiecesPresent  = 9
+    def __init__(self, numPieces, chessBoardSquares=64):
+        self.chessBoardSquares = chessBoardSquares
+        self.numPiecesPresent  = numPieces
         self.chessBoardSideSquares = int(math.sqrt(self.chessBoardSquares))
         
         #change chess board initialization for the full board implementation
@@ -31,8 +31,8 @@ class chess:
 
         copy_pieces = pieces
 
-        print("Corners: {0}".format(corners))
-        print("Pieces:{0}".format(pieces))
+        # print("Corners: {0}".format(corners))
+        # print("Pieces:{0}".format(pieces))
 
         identifiedPieces = 0
         row = 0
@@ -46,17 +46,18 @@ class chess:
 
             upperLeft = corners[i+row]
             print("First Index: {0}".format(i+row))
-            lowerRight = corners[i+self.chessBoardSideSquares + 2+row] 
             print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+row))
+            lowerRight = corners[i+self.chessBoardSideSquares + 2+row] 
+            
 
-            print("Upper left: {0}".format(upperLeft))
-            print("Lower reft: {0}".format(lowerRight))
+            # print("Upper left: {0}".format(upperLeft))
+            # print("Lower reft: {0}".format(lowerRight))
 
             for piece in copy_pieces:
                 x = piece[0]
                 y = piece[1]
 
-                print("PieceCoordinates {0}, {1}".format(x,y))
+                # print("PieceCoordinates {0}, {1}".format(x,y))
                 if(upperLeft[0] <= x <= lowerRight[0]):
                     if(upperLeft[1] <= y <= lowerRight[1]):
                         
