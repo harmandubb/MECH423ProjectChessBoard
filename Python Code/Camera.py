@@ -232,22 +232,26 @@ class camera:
         plt.show()
 
     @classmethod 
-    def edgeDetector(cls,gray):
-        plt.figure(1)
-        plt.imshow(gray, cmap="gray")
-        plt.title("Raw grayscale image")
+    def edgeDetector(cls,gray, plots):
+       
 
         blurred = filters.gaussian(gray, sigma=1)
 
-        plt.figure(2)
-        plt.imshow(blurred)
-        plt.title("Gaussian blurred image")
-
         canny = feature.canny(blurred,  sigma=0.75)
 
-        plt.figure(3)
-        plt.imshow(canny)
-        plt.title("Canny Edge Detection Output")
+        if (plots):
+            plt.figure(1)
+            plt.imshow(gray, cmap="gray")
+            plt.title("Raw grayscale image")
+
+            plt.figure(2)
+            plt.imshow(blurred)
+            plt.title("Gaussian blurred image")
+
+            plt.figure(3)
+            plt.imshow(canny)
+            plt.title("Canny Edge Detection Output")
+
 
         return canny
 
@@ -297,15 +301,15 @@ class camera:
 
             m = np.tan(angle+np.pi/2)
 
-            # print("Line Coordinates: ({0},{1})".format(x0,y0))
-
-            # print("Slope: {0}".format(m))
+            if plots:
+                print("Line Coordinates: ({0},{1})".format(x0,y0))
+                print("Slope: {0}".format(m))
 
             if (((m < 1) and (m >= 0)) or ((m > -1) and (m <= 0))):
                 m = 0
                 horizontal_lines[horizontalLineCounter] = y0
                 horizontalLineCounter = horizontalLineCounter + 1 
-            elif ((m >50)):
+            elif ((m >50) or (m <-50)):
                 m = 1e16 
                 vertical_lines[verticalLineCounter] = x0
                 verticalLineCounter = verticalLineCounter + 1
@@ -441,7 +445,7 @@ class camera:
 
 
     @classmethod 
-    def transformBoard(cls, frame, src_corners):
+    def transformBoard(cls, frame, src_corners, plots):
         perimeter_thickness = 110
 
         width = 800
@@ -449,13 +453,6 @@ class camera:
 
         top_left = src_corners[0]
         bottom_right = src_corners[2]
-
-
-        # cropped = frame[int(top_left[0]):int(bottom_right[0]), int(top_left[1]):int(bottom_right[1])]
-
-        plt.figure(1)
-        plt.imshow(frame, cmap="gray")
-        plt.title("Gray Image")
 
         dst_corners = np.array([[0,0],
                                 [width-1,0],
@@ -467,21 +464,31 @@ class camera:
 
         tf_img_warp = transform.warp(frame, tform.inverse, mode='edge')
 
-        plt.figure(2)
-        plt.imshow(tf_img_warp, cmap="gray")
-        plt.title("Transformed chess board")
+
 
         cropped = tf_img_warp[perimeter_thickness:width-(perimeter_thickness), perimeter_thickness:height-(perimeter_thickness)]
 
-        plt.figure(3)
-        plt.imshow(cropped,cmap="gray")
-        plt.title("Cropped Imaged")
+        
+
+        if plots:
+            plt.figure(1)
+            plt.imshow(frame, cmap="gray")
+            plt.title("Gray Image")
+
+            plt.figure(2)
+            plt.imshow(tf_img_warp, cmap="gray")
+            plt.title("Transformed chess board")
+
+            plt.figure(3)
+            plt.imshow(cropped,cmap="gray")
+            plt.title("Cropped Imaged")
+
 
         return cropped
 
     
     @classmethod 
-    def cleanupCorners(cls, frame, corners):
+    def cleanupCorners(cls, frame, corners, plots):
 
         x = []
         y = []
@@ -490,19 +497,15 @@ class camera:
             x.append(coordinates[0])
             y.append(coordinates[1])
 
-        plt.figure(1)
-        plt.clf()
-        plt.imshow(frame, cmap="gray")
-        plt.title("Identified Corners")
-        plt.scatter(x,y, c='r')
+        if plots:
+            plt.figure(1)
+            plt.clf()
+            plt.imshow(frame, cmap="gray")
+            plt.title("Identified Corners")
+            plt.scatter(x,y, c='r')
 
     @classmethod
-    def identifyPieces(cls, frame, canny, num_pieces):
-
-        plt.figure(99)
-        plt.clf()
-        plt.imshow(canny)
-        plt.title("Canny Edge detection")
+    def identifyPieces(cls, frame, canny, num_pieces, plots=False):
         
         # Detect two radii
         smallBoardMax = 90
@@ -514,13 +517,7 @@ class camera:
         hough_radii = np.arange(fullBoardMin, fullBoardMax, 1)
         hough_res = transform.hough_circle(canny, hough_radii)
 
-        print(type(hough_res))
-
-        print(np.max(hough_res))
-
-        # plt.figure(2)
-        # plt.imshow(hough_res)
-        # plt.title("Circle Hough transform")
+       
 
 
         # Select the most prominent 3 circles
@@ -536,13 +533,31 @@ class camera:
         image = color.gray2rgb(frame)
         for center_y, center_x, radius in zip(cy, cx, radii):
             circy, circx = draw.circle_perimeter(center_y, center_x, radius)
-            plt.scatter(circx,circy, c="r")
 
-        ax.imshow(image)
+            if plots:
+                plt.scatter(circx,circy, c="r")
+
+        if plots:
+            ax.imshow(image)
 
         pieces = []
 
         for cord in zip(cx,cy):
             pieces.append(cord)
+
+        if plots:
+
+            plt.figure(1)
+            plt.clf()
+            plt.imshow(canny)
+            plt.title("Canny Edge detection")
+
+            print(type(hough_res))
+
+            print(np.max(hough_res))
+
+            plt.figure(2)
+            plt.imshow(hough_res)
+            plt.title("Circle Hough transform")
 
         return pieces

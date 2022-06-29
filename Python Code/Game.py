@@ -8,36 +8,49 @@ from Chess import chess
 
 
 if __name__=='__main__':
-    frames = glob.glob('Board_Images/board13.jpg')
+
+    NUMSTARTPIECES = 32
+
+    frames = sorted(glob.glob('Fools_Mate/*.jpg'))
+
+    ch = chess(NUMSTARTPIECES)
+
+    turnCounter = 0
 
 
     for frame in frames:
+        #Debuggin be able to see what the algorthum is seeing
+        currentState = ch.getBoardState
+
+
         gray = np.flip(io.imread(frame, as_gray=True),1)
         rgg_image = np.flip(io.imread(frame),1)
 
         src_corners = camera.findBoard(rgg_image, gray)
 
-        # gray = io.imread(frame, as_gray=True)
+        cropped = camera.transformBoard(gray,src_corners, False)
 
-        
-
-        cropped = camera.transformBoard(gray,src_corners)
-
-        canny = camera.edgeDetector(cropped)
+        canny = camera.edgeDetector(cropped, False)
 
         corners = camera.cannyCorners(canny,64, cropped,False)
 
-        camera.cleanupCorners(cropped, corners)
+        camera.cleanupCorners(cropped, corners, False)
 
         #detect the pieces
 
         pieces = camera.identifyPieces(cropped, canny,32)
 
-        ch = chess(4*8)
+        currentPieces = len(pieces)
 
         currentState = ch.getCurrentState(corners, pieces)
 
-        print(currentState)
+        if (turnCounter > 0):
+
+            ch.compareBoardStates(currentState)
+
+        ch.setBoardState(currentState)
+
+        turnCounter = turnCounter + 1
 
         plt.show()
         

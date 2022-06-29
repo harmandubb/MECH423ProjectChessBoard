@@ -12,13 +12,13 @@ class chess:
     chessBoardSideSquares = int(math.sqrt(chessBoardSquares))
     numPiecesPresent = 4*8
 
-    def __init__(self, numPieces, chessBoardSquares=64):
+    def __init__(self, numPieces=32, chessBoardSquares=64):
         self.chessBoardSquares = chessBoardSquares
         self.numPiecesPresent  = numPieces
         self.chessBoardSideSquares = int(math.sqrt(self.chessBoardSquares))
         
         #change chess board initialization for the full board implementation
-        self.board = np.ones((self.chessBoardSideSquares, self.chessBoardSideSquares))
+        self.board = np.zeros((self.chessBoardSideSquares, self.chessBoardSideSquares))
 
     def getCurrentState(self, corners, pieces):
         #Sorting corner points known order
@@ -45,8 +45,8 @@ class chess:
                 col = 0
 
             upperLeft = corners[i+row]
-            print("First Index: {0}".format(i+row))
-            print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+row))
+            # print("First Index: {0}".format(i+row))
+            # print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+row))
             lowerRight = corners[i+self.chessBoardSideSquares + 2+row] 
             
 
@@ -62,7 +62,7 @@ class chess:
                     if(upperLeft[1] <= y <= lowerRight[1]):
                         
                         identifiedPieces = identifiedPieces + 1
-                        print("Piece is present {0}".format(identifiedPieces))
+                        # print("Piece is present {0}".format(identifiedPieces))
 
                         currentBoard[row][col] = 1
 
@@ -71,11 +71,17 @@ class chess:
 
             col = col + 1 
 
-
-            
-            # print("Current Pieces: {0}".format(currentPiece))
-
         return currentBoard
 
+    def setBoardState(self,curBoard):
+        self.board = curBoard
+
+    def getBoardState(self):
+        return self.board
+
+    def compareBoardStates(self, currentBoardState):
+        diffState = currentBoardState - self.board
+
+        print(diffState)
 
         
