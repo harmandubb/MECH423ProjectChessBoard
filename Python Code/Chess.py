@@ -84,4 +84,21 @@ class chess:
 
         print(diffState)
 
+        return diffState
+
+    def convertStateToMove(self, diffState):
+        origin = np.where(diffState == -1)
+        dest = np.where(diffState == 1)
+
+        chessNotationOrigin = str(chr(ord("a") + origin[1][0])) + str(self.chessBoardSideSquares - origin[0][0])
+
+        chessNotationDest = str(chr(ord("a") + dest[1][0])) + str(self.chessBoardSideSquares - dest[0][0])
+
+        # print("origin: {}".format(chessNotationOrigin))
+
+        # print("Destination: {}".format(chessNotationDest))
+
+        move = (chessNotationOrigin, chessNotationDest)
+
+        return move
         

@@ -46,7 +46,9 @@ if __name__=='__main__':
 
         if (turnCounter > 0):
 
-            ch.compareBoardStates(currentState)
+            diffState = ch.compareBoardStates(currentState)
+
+            ch.convertStateToMove(diffState)
 
         ch.setBoardState(currentState)
 
