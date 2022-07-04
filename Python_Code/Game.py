@@ -5,56 +5,84 @@ from Camera import camera
 from skimage import io, data, filters
 import matplotlib.pyplot as plt
 from Chess import chess
+from Website import chessAPI
+
 
 
 if __name__=='__main__':
+    winner = False #implement logic that switches the winner to be true and ending the loop
+    chAPI = chessAPI()
 
-    NUMSTARTPIECES = 32
+    gamesData = chAPI.requestGameInfo()
+    gameData = chAPI.findOpponentGame(gamesData)
+    playerColor = chAPI.getPlayerColor(gameData)
 
-    frames = sorted(glob.glob('Fools_Mate/*.jpg'))
+    while(not winner):
+        if(playerColor == chAPI.getCurrentToMove(gameData)):
+            #Actions to do if it is currently our turn to move
+            #   - Need to check how the board has been changed from the opponent
+            #   - Update the physcial board based on the update 
+            #   - Wait on the player to make a physcial chess board move. This is checked by using the computer vision code 
+            #   - Any change from the previous player move you should consider a move 
+            #   - Once a change is detected on the board we need to update the chess board via selieum
+        else: 
+            #Action to do if we are not to move yet:
+            #   - periodically check updated infromation
+            sleeperTimer = 10 # minutes
+            time.sleep(sleeperTimer*60)
 
-    ch = chess(NUMSTARTPIECES)
-
-    turnCounter = 0
-
-
-    for frame in frames:
-        #Debuggin be able to see what the algorthum is seeing
-        currentState = ch.getBoardState
+            gamesData = chAPI.requestGameInfo()
+            gameData = chAPI.findOpponentGame(gamesData)
 
 
-        gray = np.flip(io.imread(frame, as_gray=True),1)
-        rgg_image = np.flip(io.imread(frame),1)
+    # Below is the vision testing code to be integrated
 
-        src_corners = camera.findBoard(rgg_image, gray)
+    # NUMSTARTPIECES = 32
 
-        cropped = camera.transformBoard(gray,src_corners, False)
+    # frames = sorted(glob.glob('Fools_Mate/*.jpg'))
 
-        canny = camera.edgeDetector(cropped, False)
+    # ch = chess(NUMSTARTPIECES)
 
-        corners = camera.cannyCorners(canny,64, cropped,False)
+    # turnCounter = 0
 
-        camera.cleanupCorners(cropped, corners, False)
 
-        #detect the pieces
+    # for frame in frames:
+    #     #Debuggin be able to see what the algorthum is seeing
+    #     currentState = ch.getBoardState
 
-        pieces = camera.identifyPieces(cropped, canny,32)
 
-        currentPieces = len(pieces)
+    #     gray = np.flip(io.imread(frame, as_gray=True),1)
+    #     rgg_image = np.flip(io.imread(frame),1)
 
-        currentState = ch.getCurrentState(corners, pieces)
+    #     src_corners = camera.findBoard(rgg_image, gray)
 
-        if (turnCounter > 0):
+    #     cropped = camera.transformBoard(gray,src_corners, False)
 
-            diffState = ch.compareBoardStates(currentState)
+    #     canny = camera.edgeDetector(cropped, False)
 
-            ch.convertStateToMove(diffState)
+    #     corners = camera.cannyCorners(canny,64, cropped,False)
 
-        ch.setBoardState(currentState)
+    #     camera.cleanupCorners(cropped, corners, False)
 
-        ch.stockfishMess()
+    #     #detect the pieces
 
-        turnCounter = turnCounter + 1
+    #     pieces = camera.identifyPieces(cropped, canny,32)
 
-        plt.show()
+    #     currentPieces = len(pieces)
+
+    #     currentState = ch.getCurrentState(corners, pieces)
+
+    #     if (turnCounter > 0):
+
+    #         diffState = ch.compareBoardStates(currentState)
+
+    #         ch.convertStateToMove(diffState)
+
+    #     ch.setBoardState(currentState)
+
+    #     ch.stockfishMess()
+
+    #     turnCounter = turnCounter + 1
+
+    #     plt.show()
         

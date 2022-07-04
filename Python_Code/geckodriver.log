@@ -954,3 +954,5 @@ DevTools listening on ws://localhost:50979/devtools/browser/d20d84a9-f066-4450-b
 JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
 JavaScript error: , line 0: uncaught exception: Object
 JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist

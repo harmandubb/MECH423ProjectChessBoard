@@ -1,3 +1,4 @@
+import json
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -12,50 +13,106 @@ sys.path.insert(1,'../Credentials')
 import google
 
 
-
-PATH = "/Users/harmandeepdubb/Documents/Chess Board Project/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver"
-
-
-profile = webdriver.FirefoxProfile(
-    "/Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/zxgi3khf.default-release")
-
-    # s14duu3r.default
-
-profile.set_preference("dom.webdriver.enabled", False)
-profile.set_preference('useAutomationExtension', False)
-profile.update_preferences()
-desired = DesiredCapabilities.FIREFOX
+# PATH = "/Users/harmandeepdubb/Documents/Chess Board Project/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver"
 
 
-driver = webdriver.Firefox(firefox_profile=profile,
-                            executable_path=PATH,
-                            desired_capabilities=desired)
+# profile = webdriver.FirefoxProfile(
+#     "/Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/zxgi3khf.default-release")
 
-driver.get("https://www.chess.com/home")
+#     # s14duu3r.default
 
-if (driver.current_url == "https://www.chess.com/login"):
-    #First time login route
-    driver.get("https://www.chess.com/login/google")
-    userBox = driver.find_element(By.NAME, "identifier")
+# profile.set_preference("dom.webdriver.enabled", False)
+# profile.set_preference('useAutomationExtension', False)
+# profile.update_preferences()
+# desired = DesiredCapabilities.FIREFOX
+
+
+# driver = webdriver.Firefox(firefox_profile=profile,
+#                             executable_path=PATH,
+#                             desired_capabilities=desired)
+
+# driver.get("https://www.chess.com/home")
+
+# if (driver.current_url == "https://www.chess.com/login"):
+#     #First time login route
+#     driver.get("https://www.chess.com/login/google")
+#     userBox = driver.find_element(By.NAME, "identifier")
     
-    time.sleep(2)
+#     time.sleep(2)
 
-    userBox.send_keys(google.username)
-    userBox.send_keys(Keys.RETURN)
+#     userBox.send_keys(google.username)
+#     userBox.send_keys(Keys.RETURN)
 
-gameBox = driver.find_element(By.CLASS_NAME, "daily-game-grid-item-bottom")    
-gameBox.click()
+# gameBox = driver.find_element(By.CLASS_NAME, "daily-game-grid-item-bottom")    
+# gameBox.click()
 
-#now we are in the game state
-dailyGameURL = driver.current_url
+# #now we are in the game state
+# dailyGameURL = driver.current_url
 
-print("Type is: {}".format(type(dailyGameURL)))
+# print(dailyGameURL)
 
-print(dailyGameURL)
+# IDIndex = dailyGameURL.rfind("/")
 
-IDIndex = dailyGameURL.rfind("/")
+# gameID = dailyGameURL[IDIndex+1:len(dailyGameURL)-1]
 
-gameID = dailyGameURL[IDIndex+1:len(dailyGameURL)-1]
+# print(gameID)
 
-print(gameID)
+# # I need to know whos turn it is inorder to choose what needs to occur next. 
+
+import requests
+import json
+
+class chessAPI: 
+    username = ""
+    opponent = ""
+    def __init__(self, username = "harmandeepdubb", opponent= "chessmaestro979") -> None:
+        self.username = username
+        self.opponent = opponent
+        pass
+
+    def requestGameInfo(self, GameID= None) -> json:
+        URL = "https://api.chess.com/pub/player/" + (self.username) + "/games"
+
+        r = requests.get(URL)
+
+        return r.json()
+
+    def findOpponentGame(self, jsonGamesData) -> json:
+        # print(json.dumps(jsonGamesData, indent=4))
+        # print(json.dumps(jsonGamesData["games"], indent=4))
+
+        # Assume only one game match is happening right now
+        games = jsonGamesData["games"]
+
+
+        for game in games: 
+            if (self.opponent in game["white"] or self.opponent in game["black"]):
+                # print(game)
+                return game
+
+    def getPlayerColor(self,jsonGameData) -> str:
+        print(json.dumps(jsonGameData, indent=4))
+
+        playerColor = ""
+
+        if(self.username in jsonGameData["white"]):
+            playerColor = "white"
+        elif(self.username in jsonGameData["black"]):
+            playerColor = "black"
+
+        print(playerColor)
+        return playerColor
+
+    def getCurrentToMove(self, jsonGameDate) -> str:
+        return game["turn"]
+            
+        
+
+chAPI = chessAPI()
+
+gamesData = chAPI.requestGameInfo()
+gameData = chAPI.findOpponentGame(gamesData)
+playerColor = chAPI.getPlayerColor(gameData)
+currentToMove = chAPI.
+
 
