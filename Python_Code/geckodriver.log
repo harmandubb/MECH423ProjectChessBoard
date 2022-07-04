@@ -1,0 +1,956 @@
+1656809046190	geckodriver	INFO	Listening on 127.0.0.1:62089
+1656809046209	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62090" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileUhaW7k"
+1656809046846	Marionette	INFO	Marionette enabled
+1656809046875	Marionette	INFO	Listening on port 62095
+WebDriver BiDi listening on ws://localhost:62090
+Read port: 62095
+1656809047085	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileUhaW7k/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:62090/devtools/browser/c6b33830-0907-4b66-ae44-b21f422b478e
+1656809060503	Marionette	INFO	Stopped listening on port 62095
+1656809073404	geckodriver	INFO	Listening on 127.0.0.1:62362
+1656809073436	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62363" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileiMPse3"
+1656809074423	Marionette	INFO	Marionette enabled
+1656809074460	Marionette	INFO	Listening on port 62388
+WebDriver BiDi listening on ws://localhost:62363
+Read port: 62388
+1656809074704	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileiMPse3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:62363/devtools/browser/6ab520b6-52df-48ff-ba94-91efb3cbad86
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://www.chess.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=i4-aaZo0StgZiU10_ocz7bxlA5_mT4JYuf_pKy3T4Oo&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 1912 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656809402974	geckodriver	INFO	Listening on 127.0.0.1:62706
+1656809403491	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62707" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile09C4qw"
+1656809404206	Marionette	INFO	Marionette enabled
+1656809404247	Marionette	INFO	Listening on port 62714
+WebDriver BiDi listening on ws://localhost:62707
+Read port: 62714
+1656809404537	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile09C4qw/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:62707/devtools/browser/7cbf2ee9-801e-4875-8359-60e54f75ae0c
+1656809415916	Marionette	INFO	Stopped listening on port 62714
+1656809430123	geckodriver	INFO	Listening on 127.0.0.1:62779
+1656809430635	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62780" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileG78NZC"
+1656809431009	Marionette	INFO	Marionette enabled
+1656809431056	Marionette	INFO	Listening on port 62787
+WebDriver BiDi listening on ws://localhost:62780
+Read port: 62787
+1656809431401	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileG78NZC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:62780/devtools/browser/efa802e5-b96b-461d-a833-d93c3db40dde
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1656810019413	geckodriver	INFO	Listening on 127.0.0.1:63311
+1656810019932	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63312" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileTR3q03"
+1656810020656	Marionette	INFO	Marionette enabled
+1656810020684	Marionette	INFO	Listening on port 63320
+WebDriver BiDi listening on ws://localhost:63312
+Read port: 63320
+1656810020992	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileTR3q03/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63312/devtools/browser/6e2a0204-e8b8-4cd8-85a6-1d942d695813
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=x_bIpAgOvZN10uXTPBD_mBWiRKFJW3GDdVarneNMlWA&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 4060 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656810032879	Marionette	INFO	Stopped listening on port 63320
+1656810034046	Marionette	INFO	Stopped listening on port 62787
+1656833436930	Marionette	INFO	Stopped listening on port 62388
+1656833450104	geckodriver	INFO	Listening on 127.0.0.1:64125
+1656833450615	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64126" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile5FEuEZ"
+1656833451189	Marionette	INFO	Marionette enabled
+1656833451214	Marionette	INFO	Listening on port 64138
+Read port: 64138
+WebDriver BiDi listening on ws://localhost:64126
+1656833451510	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile5FEuEZ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:64126/devtools/browser/1ea03758-eb3c-4336-b8ea-2046eaf76858
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=pI1tolpsgG_iMxxgnjBUl4Qcdwo_wkoMIBbGVl2Pnow&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 689 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+1656834743984	Marionette	INFO	Stopped listening on port 64138
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1656834767559	geckodriver	INFO	Listening on 127.0.0.1:65244
+1656834768052	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65245" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileuHFmLM"
+1656834768612	Marionette	INFO	Marionette enabled
+1656834768641	Marionette	INFO	Listening on port 65252
+WebDriver BiDi listening on ws://localhost:65245
+Read port: 65252
+1656834768865	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileuHFmLM/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65245/devtools/browser/8618fde4-59bf-4b91-a1be-f33f83263197
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=NF-lrdx2EoE4qEH9htceOyewOIQmmsL7sQgMtCELEMY&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 3610 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+1656834874444	Marionette	INFO	Stopped listening on port 65252
+JavaScript error: resource://autofill/FormAutofillChild.jsm, line 108: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1656834876085	geckodriver	INFO	Listening on 127.0.0.1:65325
+1656834876094	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65326" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilerjTSTz"
+1656834876470	Marionette	INFO	Marionette enabled
+1656834876517	Marionette	INFO	Listening on port 65331
+WebDriver BiDi listening on ws://localhost:65326
+Read port: 65331
+1656834876853	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilerjTSTz/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65326/devtools/browser/522f21c1-8bcc-4b8d-a5d4-fabc57ce00da
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=fsKOFjwIbSmeqlyWF_CnSTBBCYmBhNpr3vB94xHWINE&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 1960 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656834896953	geckodriver	INFO	Listening on 127.0.0.1:65390
+1656834896971	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65391" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile5oQ2bT"
+1656834897499	Marionette	INFO	Marionette enabled
+1656834897526	Marionette	INFO	Listening on port 65396
+WebDriver BiDi listening on ws://localhost:65391
+Read port: 65396
+1656834897746	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile5oQ2bT/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:65391/devtools/browser/2e3a2f45-ca94-4433-8244-e93e9941184b
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=ldllA0OoFQtoST7owtit1RpsUY-EAbbe5z4qh42s7Vk&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 5576 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656835004444	geckodriver	INFO	Listening on 127.0.0.1:49175
+1656835004973	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49176" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileo3HCCu"
+1656835005639	Marionette	INFO	Marionette enabled
+1656835005666	Marionette	INFO	Listening on port 49183
+WebDriver BiDi listening on ws://localhost:49176
+Read port: 49183
+1656835005983	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileo3HCCu/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49176/devtools/browser/6dc747e8-505a-4903-9dc8-8e0ea5bfbef7
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=bloMDH0HTY3Ag5oGPo7nxVzu0cNOGGgqP44HV1Xdn0s&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 6198 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656835093087	geckodriver	INFO	Listening on 127.0.0.1:49606
+1656835093605	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49607" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileXN83V6"
+1656835094639	Marionette	INFO	Marionette enabled
+1656835094664	Marionette	INFO	Listening on port 49614
+WebDriver BiDi listening on ws://localhost:49607
+Read port: 49614
+1656835095191	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileXN83V6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49607/devtools/browser/f845e25d-7b89-4b22-b4a5-142f06193f2c
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=8fGZuYYxOUXpQpmYn_XRo5xTBBU-F5dY3Te7RcTih00&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 3319 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+1656835118186	geckodriver	INFO	Listening on 127.0.0.1:49678
+1656835118706	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49679" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileT5eeuC"
+1656835119561	Marionette	INFO	Marionette enabled
+1656835119588	Marionette	INFO	Listening on port 49686
+WebDriver BiDi listening on ws://localhost:49679
+Read port: 49686
+1656835119900	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileT5eeuC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49679/devtools/browser/6f07822a-e9ff-412e-bdb2-d68344ce8904
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=l4dfWgICKRbfMyJIxsgZ0YGOyNApE2XWPEMyQNxQDeY&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 6847 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1656835141745	Marionette	INFO	Stopped listening on port 49686
+1656835144227	Marionette	INFO	Stopped listening on port 49614
+JavaScript error: resource://autofill/FormAutofillChild.jsm, line 108: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1656835380809	geckodriver	INFO	Listening on 127.0.0.1:49950
+1656835381320	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49951" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileta1zTl"
+1656835381969	Marionette	INFO	Marionette enabled
+1656835381992	Marionette	INFO	Listening on port 49959
+WebDriver BiDi listening on ws://localhost:49951
+Read port: 49959
+1656835382228	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileta1zTl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49951/devtools/browser/6b248a13-b9fb-401f-96fc-3b0992da96de
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=Yda6m1CoMPSbLwNeYbcJPGDBCF1lf4LPfosw08SzcTE&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 4363 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656835390109	Marionette	INFO	Stopped listening on port 49959
+1656835392199	Marionette	INFO	Stopped listening on port 49183
+1656835397855	Marionette	INFO	Stopped listening on port 65396
+1656835398538	Marionette	INFO	Stopped listening on port 65331
+1656835473992	geckodriver	INFO	Listening on 127.0.0.1:50130
+1656835474004	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50131" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilesdaqtI"
+1656835474515	Marionette	INFO	Marionette enabled
+1656835474539	Marionette	INFO	Listening on port 50136
+WebDriver BiDi listening on ws://localhost:50131
+Read port: 50136
+1656835474780	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilesdaqtI/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50131/devtools/browser/13256d21-5280-420c-bb32-3d59f88c873d
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=zDKgJzqR5Q6jgPOqfKiVgCOGeZYZ4nUsuwmpFCCJwtw&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 5924 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656835492703	Marionette	INFO	Stopped listening on port 50136
+1656835518526	geckodriver	INFO	Listening on 127.0.0.1:50320
+1656835518537	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50321" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4bmiwc"
+1656835519062	Marionette	INFO	Marionette enabled
+1656835519086	Marionette	INFO	Listening on port 50326
+WebDriver BiDi listening on ws://localhost:50321
+Read port: 50326
+1656835519355	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4bmiwc/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50321/devtools/browser/9ce33bee-9fb7-496d-8687-3e28097a610e
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=tpHq_YpNYTKDSNHGvdQXa_9JQX2VgiW2KiYuPHNhtkQ&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 669 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+1656835768316	geckodriver	INFO	Listening on 127.0.0.1:50551
+1656835768832	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50552" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileoNW9pW"
+1656835769404	Marionette	INFO	Marionette enabled
+1656835769433	Marionette	INFO	Listening on port 50559
+WebDriver BiDi listening on ws://localhost:50552
+Read port: 50559
+1656835769728	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileoNW9pW/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50552/devtools/browser/76ff117c-fbbc-477f-a9fc-dc5323329942
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=vn4FpLBLXW2JDIt1yMIGHvt-2lODHqwYK3r5q5ePTSA&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 6927 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=vn4FpLBLXW2JDIt1yMIGHvt-2lODHqwYK3r5q5ePTSA&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 2030 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=vn4FpLBLXW2JDIt1yMIGHvt-2lODHqwYK3r5q5ePTSA&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto&flowName=GeneralOAuthFlow line 2 > eval line 7715 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=vn4FpLBLXW2JDIt1yMIGHvt-2lODHqwYK3r5q5ePTSA&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto&flowName=GeneralOAuthFlow line 2 > eval line 3419 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656835818924	Marionette	INFO	Stopped listening on port 50559
+1656835821558	Marionette	INFO	Stopped listening on port 50326
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1656836939709	geckodriver	INFO	Listening on 127.0.0.1:51724
+1656836940221	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "51725" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile1fGNFf"
+1656836940829	Marionette	INFO	Marionette enabled
+1656836940855	Marionette	INFO	Listening on port 51747
+WebDriver BiDi listening on ws://localhost:51725
+Read port: 51747
+1656836941126	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile1fGNFf/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51725/devtools/browser/c3f9de0a-fe10-468c-8fa0-da78324fd3e2
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=1NXabaQ1-ivpjArl-LOn0vHDJOsxAXietNsMN9SBK2M&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 4508 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=1NXabaQ1-ivpjArl-LOn0vHDJOsxAXietNsMN9SBK2M&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 414 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656836949074	Marionette	INFO	Stopped listening on port 51747
+1656864439930	geckodriver	INFO	Listening on 127.0.0.1:54281
+1656864440447	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54282" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileJO1kw5"
+1656864441079	Marionette	INFO	Marionette enabled
+1656864441101	Marionette	INFO	Listening on port 54289
+WebDriver BiDi listening on ws://localhost:54282
+Read port: 54289
+1656864441346	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileJO1kw5/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54282/devtools/browser/38d316a8-3c03-4f0c-905b-6be831be48e2
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=EEQw0XlyxfNL24jAu7Z3wLxc_zG01dGjZCb_SLcBdOk&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 6734 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=EEQw0XlyxfNL24jAu7Z3wLxc_zG01dGjZCb_SLcBdOk&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 2681 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656864832410	Marionette	INFO	Stopped listening on port 54289
+console.error: services.settings: 
+  Message: TypeError: NetworkError: Network request failed
+  Stack:
+    fetch/</request.onerror@resource://services-settings/Utils.jsm:237:26
+
+console.warn: services.settings: main/addons-manager-settings sync interrupted by shutdown
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+console.warn: services.settings: main/devtools-compatibility-browsers sync interrupted by shutdown
+console.warn: services.settings: security-state/cert-revocations sync interrupted by shutdown
+console.warn: services.settings: security-state/intermediates sync interrupted by shutdown
+console.warn: services.settings: security-state/onecrl sync interrupted by shutdown
+1656864834051	geckodriver	INFO	Listening on 127.0.0.1:54939
+1656864834563	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54940" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileGs6mh3"
+1656864834939	Marionette	INFO	Marionette enabled
+1656864834988	Marionette	INFO	Listening on port 54947
+WebDriver BiDi listening on ws://localhost:54940
+Read port: 54947
+1656864835328	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileGs6mh3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54940/devtools/browser/c7849cf8-2980-4eef-be31-d23d0ec7a359
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=97xidZpTTQa4wItcoCQLqG0xC90dlHI94DEeI1EZUr4&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 4617 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=97xidZpTTQa4wItcoCQLqG0xC90dlHI94DEeI1EZUr4&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 5958 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656864887482	geckodriver	INFO	Listening on 127.0.0.1:55083
+1656864887502	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "55084" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilesgaMwh"
+1656864887867	Marionette	INFO	Marionette enabled
+1656864887912	Marionette	INFO	Listening on port 55089
+WebDriver BiDi listening on ws://localhost:55084
+Read port: 55089
+1656864888248	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilesgaMwh/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55084/devtools/browser/b053a5b5-85bf-48d1-8818-a617d90e19f6
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=Xi2z-aUYu4mIfMzOLmLle_axus_t2UAoXV1vpkfkD6s&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 6557 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=Xi2z-aUYu4mIfMzOLmLle_axus_t2UAoXV1vpkfkD6s&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 5600 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=Xi2z-aUYu4mIfMzOLmLle_axus_t2UAoXV1vpkfkD6s&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto&flowName=GeneralOAuthFlow line 2 > eval line 7331 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=Xi2z-aUYu4mIfMzOLmLle_axus_t2UAoXV1vpkfkD6s&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto&flowName=GeneralOAuthFlow line 2 > eval line 244 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656864911061	Marionette	INFO	Stopped listening on port 55089
+1656865157891	Marionette	INFO	Stopped listening on port 54947
+1656865159694	geckodriver	INFO	Listening on 127.0.0.1:55352
+1656865160210	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "55353" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileadyD3z"
+1656865160766	Marionette	INFO	Marionette enabled
+1656865160792	Marionette	INFO	Listening on port 55360
+WebDriver BiDi listening on ws://localhost:55353
+Read port: 55360
+1656865161096	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileadyD3z/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55353/devtools/browser/2363fb5d-e8ab-478b-9b5c-8a297e8de599
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=9-jC2_MpV1ci3xekre4m1wQ8dlbxVuGmYjCiePiia58&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 5155 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://accounts.google.com"
+JavaScript warning: https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=407636599248-65fjsu5h2o11er1bfjnb9ultft2246n9.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.chess.com%2Flogin%2Fgoogle%2Fredirect&state=9-jC2_MpV1ci3xekre4m1wQ8dlbxVuGmYjCiePiia58&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&approval_prompt=auto line 2 > eval line 4039 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656866597182	geckodriver	INFO	Listening on 127.0.0.1:57263
+1656866598572	Marionette	INFO	Stopped listening on port 55360
+1656866612233	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57264" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFPYCRd"
+1656866612667	Marionette	INFO	Marionette enabled
+1656866612767	Marionette	INFO	Listening on port 57275
+WebDriver BiDi listening on ws://localhost:57264
+Read port: 57275
+1656866613209	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57264/devtools/browser/511af3a1-f089-403c-904f-9964b8034d77
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3255 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3907 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5694 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+2022-07-03 09:43:44.804 firefox-bin[18931:803163] -[NSPersistentUIWindowSnapshotter writeWindowSnapshot:length:width:height:bytesPerRow:toFile:inDirectory:encryptingWithKey:uuid:checksum:fd:]: 0 == ftruncate(fd, finalFileSize) failed on line 803: No such file or directory
+2022-07-03 09:43:44.805 firefox-bin[18931:803163] -[NSPersistentUIWindowSnapshotter writeWindowSnapshot:length:width:height:bytesPerRow:toFile:inDirectory:encryptingWithKey:uuid:checksum:fd:]: 0 == ftruncate(fd, fileLength) failed on line 874: No such file or directory
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2907 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5103 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 7695 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 969 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4707 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+SourceActor threw an exception: [Exception... "Failed to open input source 'chrome://browser/content/certerror/aboutNetErrorCodes.js'"  nsresult: "0x805303f4 (<unknown>)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: mainThreadFetch/< :: line 699"  data: yes]
+Stack: mainThreadFetch/<@resource://devtools/shared/DevToolsUtils.js:699:15
+mainThreadFetch@resource://devtools/shared/DevToolsUtils.js:545:10
+_fetchURLContents@resource://devtools/server/actors/utils/sources-manager.js:446:22
+urlContents@resource://devtools/server/actors/utils/sources-manager.js:410:17
+_resurrectSource@resource://devtools/server/actors/thread.js:2121:35
+addAllSources@resource://devtools/server/actors/thread.js:1482:14
+watch@resource://devtools/server/actors/resources/sources.js:62:17
+watchResources@resource://devtools/server/actors/resources/index.js:288:19
+_watchTargetResources@resource://devtools/server/actors/targets/target-actor-mixin.js:161:24
+addSessionDataEntry@resource://devtools/server/actors/targets/target-actor-mixin.js:53:20
+_addSessionDataEntry@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:556:24
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:465:21
+Line: 699, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 699: Failed to open input source 'chrome://browser/content/certerror/aboutNetErrorCodes.js'
+JavaScript error: resource://devtools/server/actors/utils/sources-manager.js, line 432: TypeError: channel is null
+JavaScript error: resource://devtools/server/actors/utils/sources-manager.js, line 432: TypeError: channel is null
+JavaScript error: resource://devtools/server/actors/utils/sources-manager.js, line 432: TypeError: channel is null
+JavaScript error: resource://devtools/server/actors/utils/sources-manager.js, line 432: TypeError: channel is null
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967481"
+console.error: "Unable to find target with innerWindowId:4294967505"
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2001 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5031 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967512"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967523"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967552"
+console.error: "Unable to find target with innerWindowId:4294967559"
+console.error: "Unable to find target with innerWindowId:4294967559"
+console.error: "Unable to find target with innerWindowId:4294967564"
+console.error: "Unable to find target with innerWindowId:4294967564"
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 7587 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2501 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3367: TypeError: data.frameData.id is null
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://tr.brand-display.com/tracking/api/pageview?id=7213130e-6c35-4c14-851c-a92a9014fa90&a_id=c5f8d308-2576-380b-86b4-31381bb332fb&agid=0e0156f6-39b4-411a-ac11-0c07abf1a47b&uid=53d83121-c81f-ed9e-cd72b521&url=https%253A%252F%252Fcdn.brand-display.com%252Fmisc%252Fknx69305%252F7213130e-6c35-4c14-851c-a92a9014fa90%252Findex.html%253Ft%253D1656090383956%2526k%253D8697950852009812%2526geo%253DCAN%2526language%253Den%2526redirect_chain%253Dn%2526a_id%253Dc5f8d308-2576-380b-86b4-31381bb332fb%2526exchange_id%253Dbidswitch%2526campaign_id%253D67a9b4ec-fa70-4af1-b3cb-3b696bbbcb7b%2526geo%253DCAN%2526language%253Den%2526publisher_id%253Dthemediagrid_6QY7B4%2526universal_site_id%253Dthemediagrid_e5e11a%2526source_url_enc%253Dhttps%25253A%25252F%25252Fwww.chess.com%25252Fhome%2526agid%253D0e0156f6-39b4-411a-ac11-0c07abf1a47b%2526crid%253D7213130e_6c35_4c14_851c_a92a9014fa90%2526lat%253D49.1%2526l&extra=%257B%2522adunit%2522%253A%25228697950852009812%2522%257D&d=1&_t=1656866779075&bf=3f4f93f4581a3177e8ed79b30b045713&itp=true, line 1: SyntaxError: unexpected token: ':'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967578"
+console.error: "Unable to find target with innerWindowId:4294967610"
+console.error: "Unable to find target with innerWindowId:4294967610"
+console.error: "Unable to find target with innerWindowId:4294967620"
+console.error: "Unable to find target with innerWindowId:4294967620"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967605"
+console.error: "Unable to find target with innerWindowId:4294967605"
+console.error: "Unable to find target with innerWindowId:4294967614"
+console.error: "Unable to find target with innerWindowId:4294967614"
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2778 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 6613 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967628"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967632"
+console.error: "Unable to find target with innerWindowId:4294967656"
+console.error: "Unable to find target with innerWindowId:4294967656"
+console.error: "Unable to find target with innerWindowId:4294967662"
+console.error: "Unable to find target with innerWindowId:4294967662"
+1656866845723	Marionette	INFO	Stopped listening on port 57275
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1656866853419	geckodriver	INFO	Listening on 127.0.0.1:58075
+1656866867072	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58076" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofiledw34WV"
+1656866867502	Marionette	INFO	Marionette enabled
+1656866867595	Marionette	INFO	Listening on port 58086
+WebDriver BiDi listening on ws://localhost:58076
+Read port: 58086
+1656866867983	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:58076/devtools/browser/3a889ff5-9df3-448c-aa8a-114efdb74229
+1656866870960	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5949 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.js7k.com/ix/talon-1.0.40.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5701 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4317 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4827 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.error: "Error when attaching target:" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967469/thread1, type isAttached failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nattachThread@resource://devtools/client/fronts/targets/target-mixin.js:552:49\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: resource://devtools/client/framework/toolbox.js, line 3367: TypeError: data.frameData.id is null
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967414"
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2509 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967507/layout23, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 482 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656866922713	Marionette	INFO	Stopped listening on port 58086
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1656866929335	geckodriver	INFO	Listening on 127.0.0.1:58464
+1656866943158	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58465" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilenH0upu"
+1656866943557	Marionette	INFO	Marionette enabled
+1656866943645	Marionette	INFO	Listening on port 58475
+WebDriver BiDi listening on ws://localhost:58465
+Read port: 58475
+1656866944047	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:58465/devtools/browser/8c2959af-3b35-43af-9cc3-1a1e02aaa727
+1656866946985	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4561 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+SourceActor threw an exception: [Exception... "Failed to open input source 'chrome://browser/content/certerror/aboutNetErrorCodes.js'"  nsresult: "0x805303f4 (<unknown>)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: mainThreadFetch/< :: line 699"  data: yes]
+Stack: mainThreadFetch/<@resource://devtools/shared/DevToolsUtils.js:699:15
+mainThreadFetch@resource://devtools/shared/DevToolsUtils.js:545:10
+_fetchURLContents@resource://devtools/server/actors/utils/sources-manager.js:446:22
+urlContents@resource://devtools/server/actors/utils/sources-manager.js:410:17
+_resurrectSource@resource://devtools/server/actors/thread.js:2121:35
+addAllSources@resource://devtools/server/actors/thread.js:1482:14
+watch@resource://devtools/server/actors/resources/sources.js:62:17
+watchResources@resource://devtools/server/actors/resources/index.js:288:19
+_watchTargetResources@resource://devtools/server/actors/targets/target-actor-mixin.js:161:24
+addSessionDataEntry@resource://devtools/server/actors/targets/target-actor-mixin.js:53:20
+_addSessionDataEntry@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:556:24
+receiveMessage@resource://devtools/server/connectors/js-window-actor/DevToolsFrameChild.jsm:465:21
+Line: 699, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 699: Failed to open input source 'chrome://browser/content/certerror/aboutNetErrorCodes.js'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.brand-display.com/sv/js/fingerprint2.min.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://tr.brand-display.com/tracking/api/pageview?id=7213130e-6c35-4c14-851c-a92a9014fa90&a_id=8c2d2d01-c7eb-3d77-a719-a712aa6fcfcf&agid=0e0156f6-39b4-411a-ac11-0c07abf1a47b&uid=68838578-904f-380c-ecb2d987&url=https%253A%252F%252Fcdn.brand-display.com%252Fmisc%252Fknx69305%252F7213130e-6c35-4c14-851c-a92a9014fa90%252Findex.html%253Ft%253D1656090383956%2526k%253D8697950852009812%2526geo%253DCAN%2526language%253Den%2526redirect_chain%253Dn%2526a_id%253D8c2d2d01-c7eb-3d77-a719-a712aa6fcfcf%2526exchange_id%253Dbidswitch%2526campaign_id%253D67a9b4ec-fa70-4af1-b3cb-3b696bbbcb7b%2526geo%253DCAN%2526language%253Den%2526publisher_id%253Dthemediagrid_6QY7B4%2526universal_site_id%253Dthemediagrid_e5e11a%2526source_url_enc%253Dhttps%25253A%25252F%25252Fwww.chess.com%25252Fhome%2526agid%253D0e0156f6-39b4-411a-ac11-0c07abf1a47b%2526crid%253D7213130e_6c35_4c14_851c_a92a9014fa90%2526lat%253D49.1%2526l&extra=%257B%2522adunit%2522%253A%25228697950852009812%2522%257D&d=1&_t=1656866985273&bf=3f4f93f4581a3177e8ed79b30b045713&itp=true, line 1: SyntaxError: unexpected token: ':'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967384"
+1656867018702	geckodriver	INFO	Listening on 127.0.0.1:58900
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967413/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967413/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal4294967413/inspectorActor4, type getWalker failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+_getWalker@resource://devtools/client/fronts/inspector.js:90:30
+initialize@resource://devtools/client/fronts/inspector.js:79:12
+
+1656867026367	Marionette	INFO	Stopped listening on port 58475
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1656867033744	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58901" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilejYRnIV"
+1656867034135	Marionette	INFO	Marionette enabled
+1656867034224	Marionette	INFO	Listening on port 58914
+WebDriver BiDi listening on ws://localhost:58901
+Read port: 58914
+1656867034611	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:58901/devtools/browser/d9bb3b56-a6be-4879-b252-3a357ba1c7a4
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3950 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 391 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967480"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967489"
+console.error: "Unable to find target with innerWindowId:4294967508"
+console.error: "Unable to find target with innerWindowId:4294967508"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967538"
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5382 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.error: "Error while calling actor 'domwalker's method 'getEmbedderElement'" "Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode]"
+console.error: ({})
+console.warn: "Error while destroying front:" "inspector" (new Error("Protocol error (NS_ERROR_FAILURE): Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode] from: server0.conn0.windowGlobal4294967584/domwalker22 (resource://devtools/server/actors/inspector/document-walker.js:79:0)", "resource://devtools/shared/protocol/Front.js", 365))
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Protocol error (NS_ERROR_FAILURE): Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode] from: server0.conn0.windowGlobal4294967584/domwalker22 (resource://devtools/server/actors/inspector/document-walker.js:79:0)", "resource://devtools/shared/protocol/Front.js", 365))
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 365: Error: Protocol error (NS_ERROR_FAILURE): Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [inIDeepTreeWalker.currentNode] from: server0.conn0.windowGlobal4294967584/domwalker22 (resource://devtools/server/actors/inspector/document-walker.js:79:0)
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967542"
+console.error: "Unable to find target with innerWindowId:4294967565"
+console.error: "Unable to find target with innerWindowId:4294967565"
+console.error: "Unable to find target with innerWindowId:4294967575"
+console.error: "Unable to find target with innerWindowId:4294967575"
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967556/layout44, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967567/layout134, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967551"
+console.error: "Unable to find target with innerWindowId:4294967588"
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5555 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 7202 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3614 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.error: "Error when attaching target:" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967665/thread1, type isAttached failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\nattachThread@resource://devtools/client/fronts/targets/target-mixin.js:552:49\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2145 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967667/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: "Failed to start [root-node] legacy listener for target null" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967667/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\n_getWalker@resource://devtools/client/fronts/inspector.js:90:30\ninitialize@resource://devtools/client/fronts/inspector.js:79:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: resource://devtools/shared/protocol/Front.js, line 106: Error: Connection closed, pending request to server0.conn0.windowGlobal4294967667/inspectorActor4, type getWalker failed
+
+Request stack:
+request@resource://devtools/shared/protocol/Front.js:292:14
+generateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19
+_getWalker@resource://devtools/client/fronts/inspector.js:90:30
+initialize@resource://devtools/client/fronts/inspector.js:79:12
+
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967630"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://cdn.js7k.com/ix/talon-1.0.40.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967647"
+console.error: "Unable to find target with innerWindowId:4294967647"
+console.error: "Unable to find target with innerWindowId:4294967647"
+console.error: "Unable to find target with innerWindowId:4294967647"
+Handler function threw an exception: [Exception... "Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIHttpChannelInternal.remoteAddress]"  nsresult: "0x80040111 (NS_ERROR_NOT_AVAILABLE)"  location: "JS frame :: resource://devtools/server/actors/network-monitor/network-observer.js :: _onResponseHeader :: line 985"  data: no]
+Stack: _onResponseHeader@resource://devtools/server/actors/network-monitor/network-observer.js:985:5
+_dispatchActivity@resource://devtools/server/actors/network-monitor/network-observer.js:558:14
+NetworkObserver.prototype.observeActivity<@resource://devtools/server/actors/network-monitor/network-observer.js:667:12
+exports.makeInfallible/<@resource://devtools/shared/ThreadSafeDevToolsUtils.js:103:22
+Line: 985, column: 0
+console.error: ({})
+1656867252852	geckodriver	INFO	Listening on 127.0.0.1:59721
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967674"
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967677/layout51, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal4294967683/layout134, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:292:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:46:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:171:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:449:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.error: "Unable to find target with innerWindowId:4294967687"
+1656867271401	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59722" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw"
+1656867271796	Marionette	INFO	Marionette enabled
+1656867271902	Marionette	INFO	Listening on port 59757
+WebDriver BiDi listening on ws://localhost:59722
+Read port: 59757
+1656867272576	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:59722/devtools/browser/33ae55c3-4b41-4136-b175-58e927cb5b63
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+1656867277456	Marionette	INFO	Stopped listening on port 58914
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4NWebw/thumbnails) because it does not exist
+1656892190060	Marionette	INFO	Stopped listening on port 59757
+1656892213624	geckodriver	INFO	Listening on 127.0.0.1:62916
+1656892228225	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62917" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2YoJ6R"
+1656892228582	Marionette	INFO	Marionette enabled
+1656892228675	Marionette	INFO	Listening on port 62932
+WebDriver BiDi listening on ws://localhost:62917
+Read port: 62932
+1656892228994	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:62917/devtools/browser/3b572b31-fe2d-4dc0-9796-93274f725cc1
+1656892232207	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript error: , line 0: uncaught exception: Object
+1656892286630	geckodriver	INFO	Listening on 127.0.0.1:63057
+1656892287296	Marionette	INFO	Stopped listening on port 62932
+1656892299588	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63058" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileCbHuhG"
+1656892299887	Marionette	INFO	Marionette enabled
+1656892299985	Marionette	INFO	Listening on port 63067
+WebDriver BiDi listening on ws://localhost:63058
+Read port: 63067
+1656892300401	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63058/devtools/browser/37ad77a9-3a98-474d-977f-21bc6562985a
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5493 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 7042 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4152 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 6851 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 6470 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4926 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5978 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2044 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656892346282	Marionette	INFO	Stopped listening on port 63067
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1656892349038	geckodriver	INFO	Listening on 127.0.0.1:63582
+1656892361683	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63583" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileodJUa1"
+1656892361963	Marionette	INFO	Marionette enabled
+1656892362059	Marionette	INFO	Listening on port 63648
+WebDriver BiDi listening on ws://localhost:63583
+Read port: 63648
+1656892362490	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63583/devtools/browser/51c34801-b58e-4867-913b-43b47d497c1d
+1656892365462	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656892432585	geckodriver	INFO	Listening on 127.0.0.1:63812
+1656892432712	Marionette	INFO	Stopped listening on port 63648
+1656892445626	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63813" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileB75PkU"
+1656892445895	Marionette	INFO	Marionette enabled
+1656892445985	Marionette	INFO	Listening on port 63822
+WebDriver BiDi listening on ws://localhost:63813
+Read port: 63822
+1656892446397	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63813/devtools/browser/c617df6d-4231-483f-8ccb-0d8246ca854a
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+1656892461561	Marionette	INFO	Stopped listening on port 63822
+1656892468870	geckodriver	INFO	Listening on 127.0.0.1:63940
+1656892484684	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63941" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile9xzUny"
+1656892484952	Marionette	INFO	Marionette enabled
+1656892485048	Marionette	INFO	Listening on port 63985
+WebDriver BiDi listening on ws://localhost:63941
+Read port: 63985
+1656892485499	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63941/devtools/browser/f1eaa23a-3401-4776-9b38-855421b4a15b
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4021 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5234 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 7584 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3180 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 1689 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 394 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5700 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+1656892543234	geckodriver	INFO	Listening on 127.0.0.1:64520
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4630 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5068 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 1781 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656892559345	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64521" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile5yrzD1"
+1656892559663	Marionette	INFO	Marionette enabled
+1656892559765	Marionette	INFO	Listening on port 64572
+WebDriver BiDi listening on ws://localhost:64521
+Read port: 64572
+1656892560347	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:64521/devtools/browser/b8995404-2554-4660-b986-13638dfc0093
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 679 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 6069 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 7589 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4275 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 7768 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1656892586531	Marionette	INFO	Stopped listening on port 64572
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 4291 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 5950 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 183 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 6944 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 1478 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 2142 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1656892625391	geckodriver	INFO	Listening on 127.0.0.1:65122
+1656892638900	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65123" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile1Ie7Vu"
+1656892639156	Marionette	INFO	Marionette enabled
+1656892639246	Marionette	INFO	Listening on port 65197
+WebDriver BiDi listening on ws://localhost:65123
+Read port: 65197
+1656892639644	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:65123/devtools/browser/c7eee586-9593-4224-9c9d-2851fb9a60b1
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript error: https://www.chess.com/bundles/app/js/chat-next.client.51ac2a6a.js, line 1: Error: Request aborted
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3545 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 1883 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 944 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3184 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/SDwrgNAjdQsa4VNQPO_RFNWmztQcb_iohgsAvJm3iSQ.js line 2 > eval line 3220 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://warp.media.net/rtb/resource/adperformance.js?v=35e90bcdc8, line 1: NS_ERROR_NOT_INITIALIZED: 
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1656892677135	Marionette	INFO	Stopped listening on port 65197
+1656892681284	Marionette	INFO	Stopped listening on port 63985
+1656892962831	geckodriver	INFO	Listening on 127.0.0.1:50549
+1656892979773	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50550" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileeRd9Yf"
+1656892980109	Marionette	INFO	Marionette enabled
+1656892980253	Marionette	INFO	Listening on port 50572
+WebDriver BiDi listening on ws://localhost:50550
+Read port: 50572
+1656892980970	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:50550/devtools/browser/5b71b9e5-bb84-47ae-bd3a-6a0d8ec1d378
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+1656892996319	Marionette	INFO	Stopped listening on port 50572
+1656892998853	geckodriver	INFO	Listening on 127.0.0.1:50721
+1656893016298	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50722" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilek3Y1q8"
+1656893016606	Marionette	INFO	Marionette enabled
+1656893016708	Marionette	INFO	Listening on port 50758
+Read port: 50758
+WebDriver BiDi listening on ws://localhost:50722
+1656893017295	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:50722/devtools/browser/0c5bd897-165a-4ee5-b0df-395870d2816c
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript error: , line 0: uncaught exception: Object
+1656893055285	Marionette	INFO	Stopped listening on port 50758
+[Parent 21055, IPC I/O Parent] WARNING: pipe error: Socket is not connected: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_posix.cc:705
+1656893064864	geckodriver	INFO	Listening on 127.0.0.1:50978
+1656893081042	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "50979" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p"
+1656893081363	Marionette	INFO	Marionette enabled
+1656893081470	Marionette	INFO	Listening on port 51073
+WebDriver BiDi listening on ws://localhost:50979
+Read port: 51073
+1656893082079	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:50979/devtools/browser/d20d84a9-f066-4450-b440-cb1477a5515a
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.0ab15c16.js, line 79: Error: Request failed with status code 404
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
