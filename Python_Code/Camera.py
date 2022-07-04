@@ -561,3 +561,27 @@ class camera:
             plt.title("Circle Hough transform")
 
         return pieces
+
+    @classmethod
+    def getCurrentBoardLayout(cls,frame):
+        gray = np.flip(io.imread(frame, as_gray=True),1)
+
+        rgb_image = np.flip(io.imread(frame),1)
+
+        src_corners = camera.findBoard(rgb_image, gray)
+
+        cropped = camera.transformBoard(gray,src_corners, False)
+
+        canny = camera.edgeDetector(cropped, False)
+
+        corners = camera.cannyCorners(canny,64, cropped,False)
+
+        camera.cleanupCorners(cropped, corners, False)
+
+        #detect the pieces
+
+        pieces = camera.identifyPieces(cropped, canny,32)
+
+        currentPieces = len(pieces)
+
+        currentState = ch.getCurrentState(corners, pieces)
