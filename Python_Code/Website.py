@@ -4,6 +4,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+import numpy as np
+
 import time
 
 import sys 
@@ -63,12 +65,31 @@ import requests
 import json
 
 class chessAPI: 
+    chessBoardSideLength = 8
+    chessBoardSquares = 8*8
+
     username = ""
     opponent = ""
+    jasonGameData = {}
+    
+
     def __init__(self, username = "harmandeepdubb", opponent= "chessmaestro979") -> None:
         self.username = username
         self.opponent = opponent
-        pass
+
+        URL = "https://api.chess.com/pub/player/" + (self.username) + "/games"
+
+        r = requests.get(URL)
+
+        jsonGamesData = r.json()
+
+        games = jsonGamesData["games"]
+
+        for game in games: 
+            if (self.opponent in game["white"] or self.opponent in game["black"]):
+                self.jsonGameData = game
+                break
+    
 
     def requestGameInfo(self, GameID= None) -> json:
         URL = "https://api.chess.com/pub/player/" + (self.username) + "/games"
@@ -90,29 +111,51 @@ class chessAPI:
                 # print(game)
                 return game
 
-    def getPlayerColor(self,jsonGameData) -> str:
-        print(json.dumps(jsonGameData, indent=4))
+    def getPlayerColor(self) -> str:
+        print(json.dumps(self.jsonGameData, indent=4))
 
         playerColor = ""
 
-        if(self.username in jsonGameData["white"]):
+        if(self.username in self.jsonGameData["white"]):
             playerColor = "white"
-        elif(self.username in jsonGameData["black"]):
+        elif(self.username in self.jsonGameData["black"]):
             playerColor = "black"
 
         print(playerColor)
         return playerColor
 
-    def getCurrentToMove(self, jsonGameDate) -> str:
-        return game["turn"]
+    def getCurrentToMove(self) -> str:
+        return self.jsonGameData["turn"]
+
+    def getBoardState(self) -> str:
+        fen = self.jsonGameData["fen"]
+
+        print(fen)
+
+        board = np.zeros([8,8])
+
+        row = 0
+        col = 0
+
+        # need to decode the string in order to get the general board set up 
+        for val in fen:
+            if val.isdigit():
+                num = int(val)
+                col = col + num
+            elif (val == "/"):
+                row = row + 1
+                col = 0
+            elif (val == " "):
+                return board
+            else: 
+                board[row,col] = 1
+                col = col + 1
             
         
 
 chAPI = chessAPI()
 
-gamesData = chAPI.requestGameInfo()
-gameData = chAPI.findOpponentGame(gamesData)
-playerColor = chAPI.getPlayerColor(gameData)
-currentToMove = chAPI.
+playerColor = chAPI.getPlayerColor()
+board = chAPI.getBoardState()
 
 

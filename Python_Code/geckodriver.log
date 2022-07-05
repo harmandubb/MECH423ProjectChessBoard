@@ -957,3 +957,6 @@ JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Cou
 JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
 JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
 JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
+1656910509693	Marionette	INFO	Stopped listening on port 51073
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.

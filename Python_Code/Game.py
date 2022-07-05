@@ -13,9 +13,7 @@ if __name__=='__main__':
     winner = False #implement logic that switches the winner to be true and ending the loop
     chAPI = chessAPI()
 
-    gamesData = chAPI.requestGameInfo()
-    gameData = chAPI.findOpponentGame(gamesData)
-    playerColor = chAPI.getPlayerColor(gameData)
+    playerColor = chAPI.getPlayerColor()
 
     while(not winner):
         if(playerColor == chAPI.getCurrentToMove(gameData)):
