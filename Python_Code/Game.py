@@ -5,32 +5,50 @@ from Camera import camera
 from skimage import io, data, filters
 import matplotlib.pyplot as plt
 from Chess import chess
-from Website import chessAPI
+from Website import chessAPI, BrowerControl
+
+import time
 
 
 
 if __name__=='__main__':
     winner = False #implement logic that switches the winner to be true and ending the loop
     chAPI = chessAPI()
+    ch = chess()
+    browerControl = BrowerControl()
 
     playerColor = chAPI.getPlayerColor()
 
+
     while(not winner):
-        if(playerColor == chAPI.getCurrentToMove(gameData)):
+        # if it is our turn
+        if(playerColor == chAPI.getCurrentToMove()):
             #Actions to do if it is currently our turn to move
             #   - Need to check how the board has been changed from the opponent
+            currentBoard = chAPI.getBoardState()
+            #   - Figure out how the chess.com board has changed
+            diffState = ch.compareBoardStates(currentBoard)
             #   - Update the physcial board based on the update 
-            #   - Wait on the player to make a physcial chess board move. This is checked by using the computer vision code 
-            #   - Any change from the previous player move you should consider a move 
+            #   - TODO: Pull in the C# code to update the board 
+
+            #   -update the chessboard state in software
+            ch.setBoardState(currentBoard)
+
+            #   - Wait on the player to make a physcial chess board move. 
+            #           -This is checked by using the computer vision code or using an interupt from the serial microcontroller
+            #           - TODO: Figure out if a interupt can occur at this point. 
+
             #   - Once a change is detected on the board we need to update the chess board via selieum
+        
+        #If it is the other person's turn
         else: 
             #Action to do if we are not to move yet:
             #   - periodically check updated infromation
             sleeperTimer = 10 # minutes
             time.sleep(sleeperTimer*60)
 
-            gamesData = chAPI.requestGameInfo()
-            gameData = chAPI.findOpponentGame(gamesData)
+            chAPI.requestGameInfo()
+            chAPI.findOpponentGame(gamesData)
 
 
     # Below is the vision testing code to be integrated
