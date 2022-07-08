@@ -87,18 +87,7 @@ class chessAPI:
         self.username = username
         self.opponent = opponent
 
-        URL = "https://api.chess.com/pub/player/" + (self.username) + "/games"
-
-        r = requests.get(URL)
-
-        jsonGamesData = r.json()
-
-        games = jsonGamesData["games"]
-
-        for game in games: 
-            if (self.opponent in game["white"] or self.opponent in game["black"]):
-                self.jsonGameData = game
-                break
+        chessAPI.updateGame()
     
 
     def requestGameInfo(self, GameID= None) -> json:
@@ -120,6 +109,21 @@ class chessAPI:
             if (self.opponent in game["white"] or self.opponent in game["black"]):
                 # print(game)
                 return game
+    
+    
+    def updateGame(self) -> None:
+        URL = "https://api.chess.com/pub/player/" + (self.username) + "/games"
+
+        r = requests.get(URL)
+
+        jsonGamesData = r.json()
+
+        games = jsonGamesData["games"]
+
+        for game in games: 
+            if (self.opponent in game["white"] or self.opponent in game["black"]):
+                self.jsonGameData = game
+                break
 
     def getPlayerColor(self) -> str:
         print(json.dumps(self.jsonGameData, indent=4))

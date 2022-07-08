@@ -5,6 +5,9 @@ from Camera import camera
 from skimage import io, data, filters
 import math
 import matplotlib.pyplot as plt
+from enum import Enum
+
+import Pyserial as serial
 
 from stockfish import Stockfish
 
@@ -88,6 +91,14 @@ class chess:
 
         return diffState
 
+    def convertDiffStateToCoordinates(self, diffState):
+        origin = np.where(diffState == -1)
+        dest = np.where(diffState == 1)
+
+        coordinates = [origin, dest]
+
+        return coordinates
+
     def convertStateToMove(self, diffState):
         origin = np.where(diffState == -1)
         dest = np.where(diffState == 1)
@@ -104,10 +115,27 @@ class chess:
 
         return move
 
-    def stockfishMess(self):
-        sf = Stockfish(path="/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages")
+class Solenoid:
 
-        return 0
+    def __init__(self) -> None:
+        self.location = (0,0)
+    
+    def setLocation(self, newLocation) -> None:
+        self.location = newLocation
+    
+    def getLocation(self) -> tuple(int):
+        return self.location
+
+class Directions(Enum):
+    UP = 51
+    RIGHT = 48 
+    DOWN = 49
+    LEFT = 50
 
 
-        
+
+
+class ChessInterface:
+    
+    def __init__(self) -> None:
+        pass

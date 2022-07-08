@@ -47,8 +47,7 @@ if __name__=='__main__':
             sleeperTimer = 10 # minutes
             time.sleep(sleeperTimer*60)
 
-            chAPI.requestGameInfo()
-            chAPI.findOpponentGame(gamesData)
+            chAPI.updateGame()
 
 
     # Below is the vision testing code to be integrated
