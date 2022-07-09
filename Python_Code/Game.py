@@ -29,8 +29,11 @@ if __name__=='__main__':
             #   - Figure out how the chess.com board has changed
             diffState = ch.compareBoardStates(currentBoard)
             #   - Update the physcial board based on the update 
-            #   - TODO: Pull in the C# code to update the board 
-
+            #   - TODO: Pull in the C# code to update the board
+            #   
+            #   -Convert the diff state into relative coordinates:
+            
+            
             #   -update the chessboard state in software
             ch.setBoardState(currentBoard)
 

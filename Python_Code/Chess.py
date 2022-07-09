@@ -99,7 +99,7 @@ class chess:
     def getBoardState(self):
         return self.board
 
-    def compareBoardStates(self, currentBoardState):
+    def getDiffBoardState(self, currentBoardState):
         diffState = currentBoardState - self.board
 
         print(diffState)
@@ -152,6 +152,14 @@ class chess:
 
         return relativeCoordinates
 
+    def conductOpponentMove(self, opponentMoveBoard):
+        diffState = self.getDiffBoardState(opponentMoveBoard)
+        coordinates = self.convertDiffStateToCoordinates(diffState)
+        relativeCoordinates = self.getRelativeCoordinates(coordinates[0], coordinates[1])
+
+        #get the movement UART commands that are needed to show the board as is on chess.com
+
+
     def moveToNECorner(self, solenoidOn):
         commands = [
             bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.UP.to_bytes(2,'big')]),
@@ -196,7 +204,7 @@ class chess:
 
         return commands
 
-    def move(self,origin, dest):
+    def moveCalculatoin(self,origin, dest):
         UARTCommands = []
         solenoidOn = True
 
@@ -204,9 +212,8 @@ class chess:
         if(chess.isPiecePresent(dest)):
             solenoidOn = False
             # eliminate the piece at the destination
-            eliminateDestPiecerelativeCoordinates = self.getRelativeCoordinates(self.getSolenoidLocation(), dest)
             UARTCommands.extend(self.moveToNECorner(solenoidOn))
-            UARTCommands.extend(self.moveToDestination(solenoidOn, eliminateDestPiecerelativeCoordinates))
+            UARTCommands.extend(self.moveToDestination(solenoidOn, dest))
             UARTCommands.extend(self.moveToCenter(solenoidOn))
 
             self.setSolenoidLocation(dest)
@@ -214,25 +221,20 @@ class chess:
             # eliminate the piece
             solenoidOn = True
             UARTCommands.extend(self.moveToNECorner(solenoidOn))
-            UARTCommands.extend()   #add the code to move to the edge of the board
-            UARTCommands.extend(self.moveHalfToLeft(solenoidOn))
+            UARTCommands.extend(self.pieceElimination(dest))   #add the code to move to the edge of the board
 
-            # can drop the piece
             solenoidOn = False
-            for i in range(3):
-                UARTCommands.extend(self.moveHalfToRight(solenoidOn))
 
             UARTCommands.extend(self.moveToCenter(solenoidOn))
 
+            
             # Update the solenoid location 
-
-            self.setSolenoidLocation(dest[0], 0) #Can make this dropping of the piece more smarter once the initial system is made better
+            self.setSolenoidLocation((dest[0], 0)) #Can make this dropping of the piece more smarter once the initial system is made better
 
         # need to move solenoid to origin location 
 
         solenoidOn = False
 
-        goToOriginRelativeCoordinate = self.getRelativeCoordinates(self.getSolenoidLocation(),origin)
         UARTCommands.extend(self.moveToNECorner(solenoidOn))
         UARTCommands.extend(self.moveToDestination(solenoidOn,origin))
         UARTCommands.extend(self.moveToCenter(solenoidOn))
@@ -283,6 +285,33 @@ class chess:
 
 
         return commands
+
+    def pieceElimination(self,pieceLocation):
+        # creating a simple eliminatino algorithum that jsut tosses pieces to the left side of the board: 
+        # algorithum assumes the piece is already on the NE corner of a square
+
+        # move to the square that is on the edge of the board
+        solenoidOn = True
+        edgeOfBoard = pieceLocation()
+        edgeOfBoard[1] = 0  #this takes us to the NE edge of the square
+
+        commands = []
+
+        commands.extend(self.moveToDestination(solenoidOn, edgeOfBoard))
+
+        # need to move the appropiate amount off the board
+        # If on the left you would need to move I square over to the left
+        for i in range(3):
+            commands.extend(self.moveHalfToLeft(solenoidOn))
+
+        #turn off the solenoid to come back to the board
+        solenoidOn = False
+        for i in range(3):
+            commands.extend(self.moveHalfToRight(solenoidOn))
+        
+        #this bring us back to the NE of the edge square
+
+        #leave the implementation to center the solenoid to the main code
 
     def sendMovementCommands(self, UARTCommands):
         sleepTimer = 1 #sec
