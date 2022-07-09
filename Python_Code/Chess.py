@@ -1,3 +1,4 @@
+import time
 import numpy as np 
 # import cv2 as cv 
 import glob
@@ -35,9 +36,9 @@ class chess:
         self.solenoidLocation = (0,0)
 
         # ChessIO
-        ser = serial.Serial()
-        ser.baudrate = baudrate
-        ser.port = "COM4"
+        self.ser = serial.Serial()
+        self.ser.baudrate = baudrate
+        self.ser.port = "COM4"
         self.aAsciValue = (97).to_bytes(2,'big')
         
         
@@ -284,7 +285,17 @@ class chess:
         return commands
 
     def sendMovementCommands(self, UARTCommands):
+        sleepTimer = 1 #sec
+
+        while(len(UARTCommands) > 0):
+            if(not self.ser.is_open()):
+                self.ser.open()
+            self.ser.write(UARTCommands.pop(0))
+
+            time.sleep(sleepTimer)
         
+        self.ser.close()
+            
+                
 
 
-chessIO = ChessIO()
