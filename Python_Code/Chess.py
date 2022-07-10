@@ -24,7 +24,7 @@ class chess:
     chessBoardSideSquares = int(math.sqrt(chessBoardSquares))
     numPiecesPresent = 4*8
 
-    def __init__(self, numPieces=32, chessBoardSquares=64, baudrate=9600, COM="COM1"):
+    def __init__(self, numPieces=32, chessBoardSquares=64, baudrate=9600):
 
         #Board Parameters
         self.chessBoardSquares = chessBoardSquares
@@ -39,13 +39,23 @@ class chess:
         # ChessIO
         self.ser = serial.Serial()
         self.ser.baudrate = baudrate
-        self.ser.port = COM
+
+        ports = serial.tools.list_ports.comports()
+
+        for port, desc, hwid in ports: 
+            # print(port)
+            # print(desc)
+            if ("MSP430" in desc):
+                self.ser.port = port
+                print("MSP430 is on COMport {}".format(self.ser.port))
+
         self.aAsciValue = (97).to_bytes(2,'big')
 
-        # self.ser.open()
+        self.ser.open()
         
-        print(str.encode("READY"))
-        # self.ser.write(str.encode("READY"))
+        self.ser.write(str.encode("READY"))
+
+        self.ser.close()
 
     def getCurrentState(self, corners, pieces):
         #Sorting corner points known order
@@ -159,9 +169,8 @@ class chess:
     def conductOpponentMove(self, opponentMoveBoard):
         diffState = self.getDiffBoardState(opponentMoveBoard)
         coordinates = self.convertDiffStateToCoordinates(diffState)
-        relativeCoordinates = self.getRelativeCoordinates(coordinates[0], coordinates[1])
-
-        #get the movement UART commands that are needed to show the board as is on chess.com
+        UARTCommands = self.moveCalculation(coordinates[0], coordinates[1])
+        self.sendMovementCommands(UARTCommands)
 
 
     def moveToNECorner(self, solenoidOn):
@@ -208,7 +217,7 @@ class chess:
 
         return commands
 
-    def moveCalculatoin(self,origin, dest):
+    def moveCalculation(self,origin, dest):
         UARTCommands = []
         solenoidOn = True
 
@@ -323,17 +332,17 @@ class chess:
         while(len(UARTCommands) > 0):
             if(not self.ser.is_open()):
                 self.ser.open()
-            self.ser.write(UARTCommands.pop(0))
+
+            byte = UARTCommands.pop(0)
+
+            print(byte)
+            self.ser.write(byte)
 
             time.sleep(sleepTimer)
         
         self.ser.close()
+
+    def move(self, ):
+        self.moveCalculatoin()
             
-                
-
 ch = chess()
-
-ports = serial.tools.list_ports.comports()
-
-for port in ports: 
-    print(port)
