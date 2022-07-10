@@ -42,14 +42,10 @@ class chess:
         self.ser.port = COM
         self.aAsciValue = (97).to_bytes(2,'big')
 
-        self.ser.open()
+        # self.ser.open()
+        
         print(str.encode("READY"))
-        self.ser.write(str.encode("READY"))
-
-
-        
-        
-        
+        # self.ser.write(str.encode("READY"))
 
     def getCurrentState(self, corners, pieces):
         #Sorting corner points known order
@@ -336,3 +332,8 @@ class chess:
                 
 
 ch = chess()
+
+ports = serial.tools.list_ports.comports()
+
+for port in ports: 
+    print(port)
