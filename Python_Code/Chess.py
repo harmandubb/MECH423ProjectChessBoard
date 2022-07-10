@@ -1,12 +1,13 @@
 import time
 import numpy as np 
-# import cv2 as cv 
+from enum import Enum
+import math
+
 import glob
 from Camera import camera
 from skimage import io, data, filters
-import math
 import matplotlib.pyplot as plt
-from enum import Enum
+
 
 import serial 
 import serial.tools.list_ports
@@ -23,7 +24,7 @@ class chess:
     chessBoardSideSquares = int(math.sqrt(chessBoardSquares))
     numPiecesPresent = 4*8
 
-    def __init__(self, numPieces=32, chessBoardSquares=64, baudrate=9600):
+    def __init__(self, numPieces=32, chessBoardSquares=64, baudrate=9600, COM="COM1"):
 
         #Board Parameters
         self.chessBoardSquares = chessBoardSquares
@@ -38,8 +39,15 @@ class chess:
         # ChessIO
         self.ser = serial.Serial()
         self.ser.baudrate = baudrate
-        self.ser.port = "COM4"
+        self.ser.port = COM
         self.aAsciValue = (97).to_bytes(2,'big')
+
+        self.ser.open()
+        print(str.encode("READY"))
+        self.ser.write(str.encode("READY"))
+
+
+        
         
         
 
@@ -327,4 +335,4 @@ class chess:
             
                 
 
-
+ch = chess()
