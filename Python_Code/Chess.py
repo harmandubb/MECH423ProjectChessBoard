@@ -172,6 +172,7 @@ class chess:
         UARTCommands = self.moveCalculation(coordinates[0], coordinates[1])
         self.sendMovementCommands(UARTCommands)
 
+        return UARTCommands
 
     def moveToNECorner(self, solenoidOn):
         commands = [
@@ -341,8 +342,4 @@ class chess:
             time.sleep(sleepTimer)
         
         self.ser.close()
-
-    def move(self, ):
-        self.moveCalculatoin()
             
-ch = chess()

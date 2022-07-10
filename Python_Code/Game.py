@@ -27,18 +27,13 @@ if __name__=='__main__':
             #   - Need to check how the board has been changed from the opponent
             currentBoard = chAPI.getBoardState()
             #   - Figure out how the chess.com board has changed
-            diffState = ch.compareBoardStates(currentBoard)
             #   - Update the physcial board based on the update 
-            #   - TODO: Pull in the C# code to update the board
-            #   
-            #   -Convert the diff state into relative coordinates:
-            
-            
+            diffState = ch.conductOpponentMove(currentBoard)
             #   -update the chessboard state in software
             ch.setBoardState(currentBoard)
 
             #   - Wait on the player to make a physcial chess board move. 
-            #           -This is checked by using the computer vision code or using an interupt from the serial microcontroller
+            #           -This is checked using a timer or using an interupt from the serial microcontroller
             #           - TODO: Figure out if a interupt can occur at this point. 
 
             #   - Once a change is detected on the board we need to update the chess board via selieum

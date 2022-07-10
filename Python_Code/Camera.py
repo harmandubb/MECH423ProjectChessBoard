@@ -563,7 +563,7 @@ class camera:
         return pieces
 
     @classmethod
-    def getCurrentBoardLayout(cls,frame):
+    def getCornerAndPiecePlacement(cls,frame):
         gray = np.flip(io.imread(frame, as_gray=True),1)
 
         rgb_image = np.flip(io.imread(frame),1)
@@ -582,6 +582,5 @@ class camera:
 
         pieces = camera.identifyPieces(cropped, canny,32)
 
-        currentPieces = len(pieces)
 
-        currentState = ch.getCurrentState(corners, pieces)
+        return corners, pieces
