@@ -40,22 +40,27 @@ class chess:
         self.ser = serial.Serial()
         self.ser.baudrate = baudrate
 
-        ports = serial.tools.list_ports.comports()
+        # ports = serial.tools.list_ports.comports(include_links=True)
+        ports = glob.glob('/dev/tty.*')
 
-        for port, desc, hwid in ports: 
-            # print(port)
-            # print(desc)
-            if ("MSP430" in desc):
-                self.ser.port = port
-                print("MSP430 is on COMport {}".format(self.ser.port))
+        for port in ports: 
+            print(port)
+
+        # for port, desc, hwid in ports: 
+        #     print(port)
+        #     print(desc)
+        #     print(hwid)
+        #     if ("MSP430" in desc):
+        #         self.ser.port = port
+        #         print("MSP430 is on COMport {}".format(self.ser.port))
 
         self.aAsciValue = (97).to_bytes(2,'big')
 
-        self.ser.open()
+        # self.ser.open()
         
-        self.ser.write(str.encode("READY"))
+        # self.ser.write(str.encode("READY"))
 
-        self.ser.close()
+        # self.ser.close()
 
     def getCurrentState(self, corners, pieces):
         #Sorting corner points known order
@@ -342,4 +347,5 @@ class chess:
             time.sleep(sleepTimer)
         
         self.ser.close()
-            
+
+ch = chess()
