@@ -13,11 +13,21 @@ import serial
 import serial.tools.list_ports
 
 
-class Direction(Enum):
-    UP = 51
-    RIGHT = 48 
-    DOWN = 49
-    LEFT = 50  
+# class Direction(Enum):
+#     # UP = (51).to_bytes(2, "big")
+#     # RIGHT = (48).to_bytes(2,"big") 
+#     # DOWN = (49).to_bytes(2,"big")
+#     # LEFT = (50).to_bytes(2,"big")  
+
+#     UP = 51
+#     RIGHT = 48 
+#     DOWN = 49
+#     LEFT = 50  
+
+UP = 51
+RIGHT = 48
+DOWN = 49
+LEFT = 50
 
 class chess: 
     chessBoardSquares = 8*8
@@ -34,27 +44,26 @@ class chess:
         self.board = np.zeros((self.chessBoardSideSquares, self.chessBoardSideSquares))
 
         # Solenoid 
-        self.solenoidLocation = (0,0)
+        self.solenoidLocation = (7,0)
+        print("Solenoid Type: {}".format(type(self.solenoidLocation)))
 
         # ChessIO
         self.ser = serial.Serial()
         self.ser.baudrate = baudrate
+        self.ser.write_timeout = 1 #sec
 
-        # ports = serial.tools.list_ports.comports(include_links=True)
-        ports = glob.glob('/dev/tty.*')
+        ports = serial.tools.list_ports.comports()
 
-        for port in ports: 
+        for port, desc, hwid in ports: 
             print(port)
+            print(desc)
+            print(hwid)
+            if ("MSP430" in desc):
+                self.ser.port = port
+                print("MSP430 is on COMport {}".format(self.ser.port))
 
-        # for port, desc, hwid in ports: 
-        #     print(port)
-        #     print(desc)
-        #     print(hwid)
-        #     if ("MSP430" in desc):
-        #         self.ser.port = port
-        #         print("MSP430 is on COMport {}".format(self.ser.port))
-
-        self.aAsciValue = (97).to_bytes(2,'big')
+        # self.aAsciValue = (97).to_bytes(2,'big')
+        self.aAsciValue = 97
 
         # self.ser.open()
         
@@ -121,13 +130,12 @@ class chess:
     def getDiffBoardState(self, currentBoardState):
         diffState = currentBoardState - self.board
 
-        print(diffState)
-
         return diffState
 
     def convertDiffStateToCoordinates(self, diffState):
-        origin = np.where(diffState == -1)
-        dest = np.where(diffState == 1)
+        origin = np.array(np.where(diffState == -1)).flatten()
+       
+        dest = np.array(np.where(diffState == 1)).flatten()
 
         coordinates = [origin, dest]
 
@@ -167,11 +175,17 @@ class chess:
 
     # ---------------------------CHESSIO----------------------------
     def getRelativeCoordinates(self, origin, dest):
+
+        print("First: {}".format(dest))
+        print("Secound: {}".format(origin))
+        print(self.getBoardState)
+
         relativeCoordinates = (dest[1] - origin[1], dest[0] - origin[0])
 
         return relativeCoordinates
 
     def conductOpponentMove(self, opponentMoveBoard):
+        
         diffState = self.getDiffBoardState(opponentMoveBoard)
         coordinates = self.convertDiffStateToCoordinates(diffState)
         UARTCommands = self.moveCalculation(coordinates[0], coordinates[1])
@@ -181,44 +195,44 @@ class chess:
 
     def moveToNECorner(self, solenoidOn):
         commands = [
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.UP.to_bytes(2,'big')]),
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.RIGHT.to_bytes(2,'big')])
+            bytearray([self.aAsciValue, solenoidOn, UP]),
+            bytearray([self.aAsciValue, solenoidOn, RIGHT])
         ]
 
         return commands
     
     def moveToCenter(self, solenoidOn):
         commands = [
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.DOWN.to_bytes(2,'big')]),
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.LEFT.to_bytes(2,'big')])
+            bytearray([self.aAsciValue, solenoidOn, DOWN]),
+            bytearray([self.aAsciValue, solenoidOn, LEFT])
         ]
 
         return commands
 
     def moveHalfToLeft(self,solenoidOn):
         commands = [
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.LEFT.to_bytes(2,'big')]),
+            bytearray([self.aAsciValue, solenoidOn, LEFT]),
         ]
 
         return commands
 
     def moveHalfToRight(self,solenoidOn):
         commands = [
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.RIGHT.to_bytes(2,'big')]),
+            bytearray([self.aAsciValue, solenoidOn, RIGHT]),
         ]
 
         return commands
 
     def moveHalfToUP(self,solenoidOn):
         commands = [
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.UP.to_bytes(2,'big')]),
+            bytearray([self.aAsciValue, solenoidOn, UP]),
         ]
 
         return commands
 
     def moveHalfToDown(self,solenoidOn):
         commands = [
-            bytearray([self.aAsciValue, solenoidOn.to_bytes(2,'big'), Direction.DOWN.to_bytes(2,'big')]),
+            bytearray([self.aAsciValue, solenoidOn, DOWN]),
         ]
 
         return commands
@@ -228,7 +242,7 @@ class chess:
         solenoidOn = True
 
         # Determine if we need to move a piece out of the way
-        if(chess.isPiecePresent(dest)):
+        if(self.isPiecePresent(dest)):
             solenoidOn = False
             # eliminate the piece at the destination
             UARTCommands.extend(self.moveToNECorner(solenoidOn))
@@ -262,7 +276,7 @@ class chess:
 
         # Conduct the player's move 
         solenoidOn = True 
-        moveRelativeCoordinate = self.getRelativeCoordinates(self.getSolenoidLocation(),dest)
+        moveRelativeCoordinate = self.getRelativeCoordinates(self.solenoidLocation,dest)
         UARTCommands.extend(self.moveToNECorner(solenoidOn))
         UARTCommands.extend(self.moveToDestination(solenoidOn,dest))
         UARTCommands.extend(self.moveToCenter(solenoidOn))
@@ -274,32 +288,43 @@ class chess:
 
         return UARTCommands
 
+    def isPiecePresent(self, location):
+        result = False
+        boardState = self.getBoardState()
+
+        if (boardState[location[0]][location[1]] == 1):
+            result = True
+
+        return result
+
+
     def moveToDestination(self, solenoidOn, dest):
-        relativeDestCoordinates = self.getRelativeCoordinates(self.getSolenoidLocation, dest)
+       
+        relativeDestCoordinates = self.getRelativeCoordinates(self.getSolenoidLocation(), dest)
 
         commands = []
 
         if (relativeDestCoordinates[1] > 0):
-            UPDOWN = Direction.UP
+            UPDOWN = UP
         else:
-            UPDOWN = Direction.DOWN
+            UPDOWN = DOWN
 
         if(relativeDestCoordinates[0] > 0):
-            RIGHTLEFT = Direction.RIGHT
+            RIGHTLEFT = RIGHT
         else:
-            RIGHTLEFT = Direction.LEFT
+            RIGHTLEFT = LEFT
 
         # move up and down first 
-        for i in range(math.abs(relativeDestCoordinates[1])):
+        for i in range(abs(relativeDestCoordinates[1])):
             # need two half steps to move one square
             for j in range(2):
-                temp = bytearray([self.aAsciValue, solenoidOn.to_byte(2,'big'), UPDOWN.to_byte(2,'big')])
+                temp = bytearray([self.aAsciValue, solenoidOn, UPDOWN])
                 commands.extend(temp) 
 
         # move left and right
-        for i in range(math.abs(relativeDestCoordinates[0])):
+        for i in range(abs(relativeDestCoordinates[0])):
             # need two half steps to move one square
-            temp = bytearray([self.aAsciValue, solenoidOn.to_byte(2,"big"), RIGHTLEFT.to_byte(2,"big")])
+            temp = bytearray([self.aAsciValue, solenoidOn, RIGHTLEFT])
             commands.extend(temp)
 
 
@@ -333,10 +358,11 @@ class chess:
         #leave the implementation to center the solenoid to the main code
 
     def sendMovementCommands(self, UARTCommands):
-        sleepTimer = 1 #sec
+        sleepTimer = 0.1 #sec
 
         while(len(UARTCommands) > 0):
-            if(not self.ser.is_open()):
+            
+            if(not self.ser.is_open):
                 self.ser.open()
 
             byte = UARTCommands.pop(0)
