@@ -4,7 +4,7 @@ from Camera import camera
 
 class TestingSerialCommunication(unittest.TestCase): 
 
-    def test_moveCalculation(self): 
+    def test_calculateOpponentMove(self): 
 
         ch = chess()
         
@@ -22,26 +22,32 @@ class TestingSerialCommunication(unittest.TestCase):
 
         curBoardState = ch.getCurrentState(corners, pieces)
 
-        UARTCommands = ch.conductOpponentMove(curBoardState)
+        UARTCommands = ch.calculateOpponentMove(curBoardState)
 
         actualCommands = []
 
         # moving to pawn place
-        # actualCommands.extend(ch.moveToNECorner(False))
-        # for i in range(2):
-        #     actualCommands.extend(ch.moveHalfToUP(False))
-        # for j in range(8):
-        #     actualCommands.extend(ch.moveHalfToRight(False))
-        # actualCommands.extend(ch.moveToCenter(False))
+        actualCommands.extend(ch.moveToNECorner(False))
+        for i in range(2):
+            actualCommands.extend(ch.moveHalfToUP(False))
+        for j in range(8):
+            actualCommands.extend(ch.moveHalfToRight(False))
+        actualCommands.extend(ch.moveToCenter(False))
 
-        # # moving pawn to new position 
-        # actualCommands.extend(ch.moveToNECorner(True))
-        # for i in range(2):
-        #     actualCommands.extend(ch.moveHalfToUP(True))
-        # actualCommands.extend(ch.moveToCenter(True))
+        # moving pawn to new position 
+        actualCommands.extend(ch.moveToNECorner(True))
+        for i in range(2):
+            actualCommands.extend(ch.moveHalfToUP(True))
+        actualCommands.extend(ch.moveToCenter(True))
+
+        
+        # print("Actual Commands {}".format(actualCommands))
+        # print("Actual Commands length: {}".format(len(actualCommands)))
+        # print("UARTCommands -:{}".format(UARTCommands))
+        # print("UARTCommands length: {}".format(len(UARTCommands)))
 
 
-        # self.assertEqual(UARTCommands, actualCommands, "It should be 10")
+        self.assertEqual(UARTCommands, actualCommands, "It should be 10")
 
 
 if __name__ == '__main__':  
