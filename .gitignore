@@ -13,3 +13,4 @@ Dummby/
 .launches
 .DS_Store
 __pycache__
+**/Credentials
