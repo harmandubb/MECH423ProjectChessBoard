@@ -31,8 +31,7 @@ class BrowerControl:
     desired = DesiredCapabilities.FIREFOX
 
 
-    def __init__(self, gameID) -> None:
-        self.gameID = gameID
+    def __init__(self) -> None:
         pass
 
     def inputMove(self, gameURL) -> None:
@@ -80,38 +79,22 @@ class chessAPI:
 
     username = ""
     opponent = ""
-    jasonGameData = {}
+    jsonGameData = {}
+    gameURL = ""
+    playerColor = ""
     
+
 
     def __init__(self, username = "harmandeepdubb", opponent= "chessmaestro979") -> None:
         self.username = username
         self.opponent = opponent
 
-        chessAPI.updateGame()
-    
+        self.jsonGameData = self.requestGameInfo()
+        self.gameURL = self.getGameURL()
+        self.playerColor = self.getPlayerColor()
 
-    def requestGameInfo(self, GameID= None) -> json:
-        URL = "https://api.chess.com/pub/player/" + (self.username) + "/games"
-
-        r = requests.get(URL)
-
-        return r.json()
-
-    def findOpponentGame(self, jsonGamesData) -> json:
-        # print(json.dumps(jsonGamesData, indent=4))
-        # print(json.dumps(jsonGamesData["games"], indent=4))
-
-        # Assume only one game match is happening right now
-        games = jsonGamesData["games"]
-
-
-        for game in games: 
-            if (self.opponent in game["white"] or self.opponent in game["black"]):
-                # print(game)
-                return game
-    
-    
-    def updateGame(self) -> None:
+        
+    def requestGameInfo(self) -> None:
         URL = "https://api.chess.com/pub/player/" + (self.username) + "/games"
 
         r = requests.get(URL)
@@ -122,8 +105,11 @@ class chessAPI:
 
         for game in games: 
             if (self.opponent in game["white"] or self.opponent in game["black"]):
-                self.jsonGameData = game
-                break
+                return game
+
+
+    def getGameURL(self) -> str:
+        return self.jsonGameData["url"]
 
     def getPlayerColor(self) -> str:
         print(json.dumps(self.jsonGameData, indent=4))
@@ -170,9 +156,13 @@ class chessAPI:
             
         
 
-chAPI = chessAPI()
+# chAPI = chessAPI()
 
-playerColor = chAPI.getPlayerColor()
-board = chAPI.getBoardState()
+# playerColor = chAPI.getPlayerColor()
+# board = chAPI.getBoardState()
+
+bc = BrowerControl()
+
+bc.inputMove()
 
 
