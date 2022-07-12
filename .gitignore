@@ -14,3 +14,4 @@ Dummby/
 .DS_Store
 __pycache__
 **/Credentials
+**/geckodriver.log

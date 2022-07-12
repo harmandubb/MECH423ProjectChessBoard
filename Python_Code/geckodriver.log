@@ -960,3 +960,32 @@ JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Cou
 JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileFQ370p/thumbnails) because it does not exist
 1656910509693	Marionette	INFO	Stopped listening on port 51073
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1657607962584	geckodriver	INFO	Listening on 127.0.0.1:53277
+1657607981511	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53278" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilekUh2za"
+1657607982103	Marionette	INFO	Marionette enabled
+1657607982209	Marionette	INFO	Listening on port 53290
+WebDriver BiDi listening on ws://localhost:53278
+Read port: 53290
+1657607982924	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:53278/devtools/browser/4b286516-0676-4416-8682-9e5c393e5a17
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.712c1941.js, line 79: Error: Request failed with status code 404
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/k_X99N4Bu7LAEiAV5XH-2E-AmSxVmuYLUAxNMPpeAtI.js line 2 > eval line 3976 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-0DjVsCVQnFb_-&moatClientLevel2=qfm&moatClientLevel3=b94ba783-2361-4516-90a6-b29df01d72e0&moatClientLevel4=0972190d-6a0d-451e-a200-c9913381817e&uid=5Ae1QeoA5BO2V7ET5gPhQeoAsxO3DuVLt1LiEeZSv0CrmfMk, line 245: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.js7k.com/ix/talon-1.0.40.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1657608177911	Marionette	INFO	Stopped listening on port 53290
+1657608187252	geckodriver	INFO	Listening on 127.0.0.1:53810
+1657608202792	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53811" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileZoCelg"
+1657608203285	Marionette	INFO	Marionette enabled
+1657608203389	Marionette	INFO	Listening on port 53855
+WebDriver BiDi listening on ws://localhost:53811
+Read port: 53855
+1657608203806	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:53811/devtools/browser/dd385109-a0f4-4298-b4d5-5a53a0696e55
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.712c1941.js, line 79: Error: Request failed with status code 404
+JavaScript error: , line 0: uncaught exception: Object

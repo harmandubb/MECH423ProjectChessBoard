@@ -53,6 +53,32 @@ class BrowerControl:
         
         driver.get(gameURL)
 
+        pieceLayout = driver.execute_script('''
+            function coords(elem){
+                var n = elem.getBoundingClientRect()
+                return {top:n.top, left:n.left, width:n.width, height:n.height}
+            }
+            var pieces = []
+            for (var i = 1; i < 9; i++){
+                if (i > 6 || i < 3){
+                    pieces.push(Array.from((new Array(8)).keys()).map(function(x){
+                    var square = document.querySelector(`.piece.square-${x+1}${i}`)
+                    return {...coords(square), piece:square.getAttribute('class').split(' ')[1]}
+                    }));
+                }
+                else{
+                    pieces.push(Array.from((new Array(8)).keys()).map(function(x){
+                    var arr = pieces[pieces.length-1]
+                    return {left:arr[x].left, top:arr[x].top - arr[x].height, 
+                        width:arr[x].width, height:arr[x].height, piece:null}
+                    }));
+                }
+            }
+            return pieces
+            ''')[::-1]
+
+        print(pieceLayout)
+
         # gameBox = driver.find_element(By.CLASS_NAME, "daily-game-grid-item-bottom")    
         # gameBox.click()
 
@@ -156,13 +182,10 @@ class chessAPI:
             
         
 
-# chAPI = chessAPI()
-
-# playerColor = chAPI.getPlayerColor()
-# board = chAPI.getBoardState()
+chAPI = chessAPI()
 
 bc = BrowerControl()
 
-bc.inputMove()
+bc.inputMove(chAPI.gameURL)
 
 
