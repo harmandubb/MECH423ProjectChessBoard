@@ -9,6 +9,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.common.action_chains import ActionChains
 
 sys.path.insert(1,'../Credentials')
 import google
@@ -79,22 +80,20 @@ class BrowerControl:
 
         print(pieceLayout)
 
-        # gameBox = driver.find_element(By.CLASS_NAME, "daily-game-grid-item-bottom")    
-        # gameBox.click()
+        time.sleep(2)
 
-        # #now we are in the game state
-        # dailyGameURL = driver.current_url
+        print("Clicking piece now")
 
-        # print(dailyGameURL)
+        click_square(pieceLayout[0][0], driver)
 
-        # IDIndex = dailyGameURL.rfind("/")
 
-        # gameID = dailyGameURL[IDIndex+1:len(dailyGameURL)-1]
+def click_square(square, driver):
+   elem = driver.execute_script('''return document.querySelector('chess-board')''')
+   ac = ActionChains(driver)
+   ac.move_to_element(elem).move_by_offset(1, square['top']+int(square['width']*2)).click().perform()
 
-        # print(gameID)
-
-        #Parse out the squares on the chess board here
-
+   print("Preformed the context Click")
+#    ac.move_to_element(elem).move_by_offset(square['left']+int(square['width']/2), square['top']+int(square['width']/2)).context_click().perform()
 
 
 
@@ -111,7 +110,9 @@ class chessAPI:
     
 
 
-    def __init__(self, username = "harmandeepdubb", opponent= "chessmaestro979") -> None:
+    def __init__(self, username = "harmandeepdubb", opponent= "max_bian") -> None:
+
+        # Reece = chessmaestro979
         self.username = username
         self.opponent = opponent
 
