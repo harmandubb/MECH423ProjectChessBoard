@@ -32,10 +32,12 @@ class BrowerControl:
     desired = DesiredCapabilities.FIREFOX
 
 
-    def __init__(self) -> None:
-        pass
 
-    def inputMove(self, gameURL) -> None:
+    def __init__(self) -> None:
+        self.pieceLayout = None
+        self.pixelWidth = 105
+
+    def inputMove(self, gameURL, origin = 0, dest = 0) -> None:
         driver = webdriver.Firefox(firefox_profile=self.profile,
                                     executable_path=self.PATH,
                                     desired_capabilities=self.desired)
@@ -54,49 +56,66 @@ class BrowerControl:
         
         driver.get(gameURL)
 
-        boardInfo = driver.execute_script('''
-            function coords(elem){
-                var n = elem.getBoundingClientRect()
-                return {top:n.top, left:n.left, width:n.width, height:n.height}
-            }
-            var pieces = []
-            for (var i = 1; i < 9; i++){
-                if (i > 6 || i < 3){
-                    pieces.push(Array.from((new Array(8)).keys()).map(function(x){
-                    var square = document.querySelector(`.piece.square-${x+1}${i}`)
-                    return {...coords(square), piece:square.getAttribute('class').split(' ')[1]}
-                    }));
+        if(self.pieceLayout == None):
+
+            boardInfo = driver.execute_script('''
+                function coords(elem){
+                    var n = elem.getBoundingClientRect()
+                    return {top:n.top, left:n.left, width:n.width, height:n.height}
                 }
-                else{
-                    pieces.push(Array.from((new Array(8)).keys()).map(function(x){
-                    var arr = pieces[pieces.length-1]
-                    return {left:arr[x].left, top:arr[x].top - arr[x].height, 
-                        width:arr[x].width, height:arr[x].height, piece:null}
-                    }));
+                var pieces = []
+                for (var i = 1; i < 9; i++){
+                    if (i > 6 || i < 3){
+                        pieces.push(Array.from((new Array(8)).keys()).map(function(x){
+                        var square = document.querySelector(`.piece.square-${x+1}${i}`)
+                        return {...coords(square), piece:square.getAttribute('class').split(' ')[1]}
+                        }));
+                    }
+                    else{
+                        pieces.push(Array.from((new Array(8)).keys()).map(function(x){
+                        var arr = pieces[pieces.length-1]
+                        return {left:arr[x].left, top:arr[x].top - arr[x].height, 
+                            width:arr[x].width, height:arr[x].height, piece:null}
+                        }));
+                    }
                 }
-            }
-            return pieces
-            ''')[::-1]
+                return pieces
+                ''')[::-1]
 
 
-        pixelWidth = boardInfo[0][0]['width']
+            self.pixelWidth = boardInfo[0][0]['width']
 
-        time.sleep(2)
+            time.sleep(2)
 
-        pieceLayout = createOffsetMap(pixelWidth)
+            self.pieceLayout = createOffsetMap(self.pixelWidth)
 
-        click_square(pieceLayout[1][6], pixelWidth, driver)
+        origin = self.pieceLayout[6][0]
+        dest = self.pieceLayout[5][0]
+
+        dragAndDropPiece(origin, dest, self.pixelWidth, driver)
 
 
 def click_square(pieceOffset,width, driver):
    elem = driver.execute_script('''return document.querySelector('chess-board')''')
    ac = ActionChains(driver)
-# Horizontal translation before verticle translation
-# Reset the position to be at 0 0 
+   
+   # Horizontal translation before verticle translatio
+   # Reset the position to be at 0 0
+
    ac.move_to_element(elem).move_by_offset(int(-3.5*width) + pieceOffset["right"], int(-3.5*width) + pieceOffset["down"]).click().perform()
 
    print("Preformed the context Click")
 #    ac.move_to_element(elem).move_by_offset(square['left']+int(square['width']/2), square['top']+int(square['width']/2)).context_click().perform()
+
+def dragAndDropPiece(origin, dest, width, driver):
+    elem = driver.execute_script('''return document.querySelector('chess-board')''')
+    ac = ActionChains(driver)
+    
+    # Horizontal translation before verticle translatio
+    # # Reset the position to be at 0 0
+     
+    ac.move_to_element(elem).move_by_offset(int(-3.5*width) + origin["right"], int(-3.5*width) + origin["down"]).click_and_hold().move_to_element(elem).move_by_offset(int(-3.5*width) + dest["right"], int(-3.5*width) + dest["down"]).click().perform()
+    
 
 def createOffsetMap(pixelWidth):
     rightOffset = 0 
@@ -220,6 +239,6 @@ chAPI = chessAPI()
 
 bc = BrowerControl()
 
-bc.inputMove(chAPI.gameURL)
+bc.inputMove(chAPI.gameURL, )
 
 
