@@ -3128,3 +3128,447 @@ Read port: 63480
 DevTools listening on ws://localhost:63455/devtools/browser/4ae24171-f012-492c-a483-73ccf58e328e
 1657867553123	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
 JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2THu6t/thumbnails) because it does not exist
+1657948095825	Marionette	INFO	Stopped listening on port 63480
+1657948099216	geckodriver	INFO	Listening on 127.0.0.1:56526
+1657948118467	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56527" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile4euUgw"
+1657948118918	Marionette	INFO	Marionette enabled
+1657948119020	Marionette	INFO	Listening on port 56546
+WebDriver BiDi listening on ws://localhost:56527
+Read port: 56546
+1657948119461	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:56527/devtools/browser/a5f4aab0-4e44-41c6-88f1-05b10781bb82
+JavaScript error: , line 0: uncaught exception: Object
+1657948147474	Marionette	INFO	Stopped listening on port 56546
+1657948201924	geckodriver	INFO	Listening on 127.0.0.1:56668
+1657948220679	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56669" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileHA6CUI"
+1657948221079	Marionette	INFO	Marionette enabled
+1657948221170	Marionette	INFO	Listening on port 56680
+WebDriver BiDi listening on ws://localhost:56669
+Read port: 56680
+1657948221642	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:56669/devtools/browser/ffc3a4a5-9919-4a5a-a2db-529f1848f798
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657948251514	Marionette	INFO	Stopped listening on port 56680
+1657948257993	geckodriver	INFO	Listening on 127.0.0.1:56788
+1657948279992	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56789" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilewIZujw"
+1657948280447	Marionette	INFO	Marionette enabled
+1657948280552	Marionette	INFO	Listening on port 56834
+WebDriver BiDi listening on ws://localhost:56789
+Read port: 56834
+1657948281035	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:56789/devtools/browser/d81a6a1d-425e-4a52-a6f0-9f934ad8f9b4
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: , line 0: uncaught exception: Object
+1657948337556	Marionette	INFO	Stopped listening on port 56834
+1657948343660	geckodriver	INFO	Listening on 127.0.0.1:56896
+1657948361028	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56897" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilesUVnU1"
+1657948361432	Marionette	INFO	Marionette enabled
+1657948361524	Marionette	INFO	Listening on port 56907
+WebDriver BiDi listening on ws://localhost:56897
+Read port: 56907
+1657948362006	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:56897/devtools/browser/777a049b-9f29-4207-bb39-b05c11bbff4f
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657948400369	Marionette	INFO	Stopped listening on port 56907
+1657948404888	geckodriver	INFO	Listening on 127.0.0.1:57017
+1657948424930	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57018" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2GtDYT"
+1657948425328	Marionette	INFO	Marionette enabled
+1657948425428	Marionette	INFO	Listening on port 57049
+WebDriver BiDi listening on ws://localhost:57018
+Read port: 57049
+1657948425904	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57018/devtools/browser/6805e132-fb2f-4ae3-9979-1a53da6c9315
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657948463809	Marionette	INFO	Stopped listening on port 57049
+1657948469663	geckodriver	INFO	Listening on 127.0.0.1:57162
+1657948487721	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57163" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilenMvNBF"
+1657948488127	Marionette	INFO	Marionette enabled
+1657948488242	Marionette	INFO	Listening on port 57172
+WebDriver BiDi listening on ws://localhost:57163
+Read port: 57172
+1657948488691	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57163/devtools/browser/b5b93999-c36c-444e-b5ac-ec1a6624eed1
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657948563225	Marionette	INFO	Stopped listening on port 57172
+1657948569154	geckodriver	INFO	Listening on 127.0.0.1:57289
+1657948587808	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57290" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileSPKZ0M"
+1657948588279	Marionette	INFO	Marionette enabled
+1657948588391	Marionette	INFO	Listening on port 57298
+WebDriver BiDi listening on ws://localhost:57290
+Read port: 57298
+1657948588937	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57290/devtools/browser/87c594c9-bd97-4e2a-bf1c-6279672bb274
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+JavaScript error: , line 0: uncaught exception: Object
+1657948616236	Marionette	INFO	Stopped listening on port 57298
+1657948621658	geckodriver	INFO	Listening on 127.0.0.1:57362
+1657948639988	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57363" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilek6DBmD"
+1657948640376	Marionette	INFO	Marionette enabled
+1657948640492	Marionette	INFO	Listening on port 57377
+WebDriver BiDi listening on ws://localhost:57363
+Read port: 57377
+1657948641078	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57363/devtools/browser/3af809a7-d263-48da-aa02-ffedca6e3d0e
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+1657948675017	Marionette	INFO	Stopped listening on port 57377
+1657948679509	geckodriver	INFO	Listening on 127.0.0.1:57438
+1657948702627	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57439" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilel8UwP3"
+1657948703085	Marionette	INFO	Marionette enabled
+1657948703269	Marionette	INFO	Listening on port 57524
+WebDriver BiDi listening on ws://localhost:57439
+Read port: 57524
+1657948704035	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57439/devtools/browser/4057acb9-18a4-4300-8d2f-c69a2766aba5
+1657948707026	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+1657948727703	Marionette	INFO	Stopped listening on port 57524
+1657948733757	geckodriver	INFO	Listening on 127.0.0.1:57661
+1657948752532	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57662" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileJUlkNc"
+1657948752928	Marionette	INFO	Marionette enabled
+1657948753051	Marionette	INFO	Listening on port 57675
+WebDriver BiDi listening on ws://localhost:57662
+Read port: 57675
+1657948753543	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57662/devtools/browser/3bf46e76-e7ff-4d3e-8544-249f86e4ede2
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657948784797	Marionette	INFO	Stopped listening on port 57675
+1657948791087	geckodriver	INFO	Listening on 127.0.0.1:57789
+1657948809463	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57790" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilemkvcuP"
+1657948809859	Marionette	INFO	Marionette enabled
+1657948809959	Marionette	INFO	Listening on port 57799
+WebDriver BiDi listening on ws://localhost:57790
+Read port: 57799
+1657948810438	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57790/devtools/browser/cc12f2bb-8cad-4254-8049-8274992b0486
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/_j1ezhpSwBWUHEITOmC2IR4vOiGfDYio7V63aY1ETrc.js line 2 > eval line 5582 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://eus.rubiconproject.com/usync.js, line 4: SecurityError: The operation is insecure.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-59tkW2SaFnxuP&moatClientLevel2=qfm&moatClientLevel3=4c36adf0-c1ae-455c-a331-537d1ec8bc34&moatClientLevel4=ba70fda2-c545-470e-9644-a887a902349b&uid=CkfuWlhM7wMJR7sHDUG5AVgQvVFdFr0BARK7WwtFvVV3dv9W, line 245: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/_j1ezhpSwBWUHEITOmC2IR4vOiGfDYio7V63aY1ETrc.js line 2 > eval line 6500 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://cdn.js7k.com/ix/talon-1.0.40.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1657948839232	Marionette	INFO	Stopped listening on port 57799
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1657948846177	geckodriver	INFO	Listening on 127.0.0.1:58339
+1657948865528	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58340" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileISx5rN"
+1657948865939	Marionette	INFO	Marionette enabled
+1657948866036	Marionette	INFO	Listening on port 58354
+WebDriver BiDi listening on ws://localhost:58340
+Read port: 58354
+1657948866511	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:58340/devtools/browser/f2480a65-fe7f-491c-90bf-4808bb3a8145
+JavaScript error: , line 0: uncaught exception: Object
+1657948902978	geckodriver	INFO	Listening on 127.0.0.1:58456
+1657948924080	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58457" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileN3NsmT"
+1657948924533	Marionette	INFO	Marionette enabled
+1657948924644	Marionette	INFO	Listening on port 58466
+WebDriver BiDi listening on ws://localhost:58457
+Read port: 58466
+1657948925261	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:58457/devtools/browser/d93a61d7-ea2f-4e6b-bd75-41ca25a232c2
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657948942650	Marionette	INFO	Stopped listening on port 58466
+1657948943745	Marionette	INFO	Stopped listening on port 58354
+1657948949672	geckodriver	INFO	Listening on 127.0.0.1:58564
+1657948966949	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58565" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilePhrl2l"
+1657948967352	Marionette	INFO	Marionette enabled
+1657948967461	Marionette	INFO	Listening on port 58574
+WebDriver BiDi listening on ws://localhost:58565
+Read port: 58574
+1657948967977	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:58565/devtools/browser/be551b67-2c22-4077-8cf2-fe3ac32011f7
+JavaScript error: , line 0: uncaught exception: Object
+1657949007090	Marionette	INFO	Stopped listening on port 58574
+1657949017880	geckodriver	INFO	Listening on 127.0.0.1:58678
+1657949035033	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58679" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileD392tL"
+1657949035433	Marionette	INFO	Marionette enabled
+1657949035540	Marionette	INFO	Listening on port 58688
+WebDriver BiDi listening on ws://localhost:58679
+Read port: 58688
+1657949035979	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:58679/devtools/browser/9565decc-bc2c-4c5c-a65d-2cb5aa0bc0f3
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileD392tL/thumbnails) because it does not exist
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+JavaScript error: resource://gre/actors/PictureInPictureChild.jsm, line 404: InvalidStateError: JSWindowActorChild.contentWindow getter: Cannot access property 'contentWindow' after actor 'PictureInPictureToggle' has been destroyed
+1657951135516	Marionette	INFO	Stopped listening on port 58688
+1657951139863	geckodriver	INFO	Listening on 127.0.0.1:59411
+1657951161141	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "59412" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileThX55A"
+1657951161639	Marionette	INFO	Marionette enabled
+1657951161757	Marionette	INFO	Listening on port 59430
+Read port: 59430
+WebDriver BiDi listening on ws://localhost:59412
+1657951162226	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:59412/devtools/browser/d55d65b3-ddab-4dde-9ccb-9194f10a3dad
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://www.chess.com/bundles/app/js/play-vendors__stable.client.774a7116.js, line 126: Error: Request failed with status code 404
+JavaScript error: https://www.chess.com/bundles/app/js/profile.client.319ae31d.js, line 79: Error: Request failed with status code 404
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1657952129760	Marionette	INFO	Stopped listening on port 59430
+1657952985409	geckodriver	INFO	Listening on 127.0.0.1:62668
+1657953011595	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62669" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileymj4vD"
+1657953012130	Marionette	INFO	Marionette enabled
+1657953012246	Marionette	INFO	Listening on port 62752
+WebDriver BiDi listening on ws://localhost:62669
+Read port: 62752
+1657953012848	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:62669/devtools/browser/00a07dd7-f9a1-4759-aa41-80ff2006d801
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657953064984	geckodriver	INFO	Listening on 127.0.0.1:62961
+1657953086161	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62962" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2rKhjA"
+1657953086778	Marionette	INFO	Marionette enabled
+1657953086898	Marionette	INFO	Listening on port 63014
+WebDriver BiDi listening on ws://localhost:62962
+Read port: 63014
+Read port: 63014
+1657953088282	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:62962/devtools/browser/bf857cac-4301-4b5b-af51-3582c60c25a9
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657953128057	geckodriver	INFO	Listening on 127.0.0.1:63234
+1657953152668	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63235" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilenEEPeL"
+1657953153161	Marionette	INFO	Marionette enabled
+1657953153271	Marionette	INFO	Listening on port 63295
+WebDriver BiDi listening on ws://localhost:63235
+Read port: 63295
+1657953153850	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63235/devtools/browser/efc2ace6-9591-4995-b63c-c3ef0792456a
+1657953157144	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileymj4vD/thumbnails) because it does not exist
+1657953181732	geckodriver	INFO	Listening on 127.0.0.1:63435
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilenEEPeL/thumbnails) because it does not exist
+1657953206808	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63436" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile0rq4RW"
+1657953207239	Marionette	INFO	Marionette enabled
+1657953207352	Marionette	INFO	Listening on port 63491
+WebDriver BiDi listening on ws://localhost:63436
+Read port: 63491
+1657953208021	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63436/devtools/browser/cf10b305-a801-4750-8de3-28148b3f3993
+JavaScript error: , line 0: uncaught exception: Object
+1657953231769	Marionette	INFO	Stopped listening on port 62752
+1657953233213	Marionette	INFO	Stopped listening on port 63014
+1657953234713	Marionette	INFO	Stopped listening on port 63295
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile0rq4RW/thumbnails) because it does not exist
+1657953238043	Marionette	INFO	Stopped listening on port 63491
+1657953244139	geckodriver	INFO	Listening on 127.0.0.1:63650
+1657953261774	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63651" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilejt6tgj"
+1657953262173	Marionette	INFO	Marionette enabled
+1657953262277	Marionette	INFO	Listening on port 63667
+WebDriver BiDi listening on ws://localhost:63651
+Read port: 63667
+1657953262771	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63651/devtools/browser/783c34a6-34d7-441b-8c24-3372dea0ece9
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.91524876.js, line 1: Error: Request aborted
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.4499dbef.js, line 79: Error: Request aborted
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: Could not get children of file(/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilejt6tgj/thumbnails) because it does not exist
+1657953309660	Marionette	INFO	Stopped listening on port 63667
+1657953313902	geckodriver	INFO	Listening on 127.0.0.1:63786
+1657953338032	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63787" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileGmg2OV"
+1657953338435	Marionette	INFO	Marionette enabled
+1657953338547	Marionette	INFO	Listening on port 63844
+Read port: 63844
+WebDriver BiDi listening on ws://localhost:63787
+1657953339099	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63787/devtools/browser/36bf922f-968b-45b4-8700-4a43a9af4a8d
+JavaScript error: , line 0: uncaught exception: Object
+1657953366322	geckodriver	INFO	Listening on 127.0.0.1:63961
+1657953389555	Marionette	INFO	Stopped listening on port 63844
+1657953389815	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63962" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilep0rbcM"
+1657953390312	Marionette	INFO	Marionette enabled
+1657953390423	Marionette	INFO	Listening on port 64034
+WebDriver BiDi listening on ws://localhost:63962
+Read port: 64034
+1657953390922	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:63962/devtools/browser/b2d4a19f-6641-4e23-bb84-99825ffe6c07
+1657953393683	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657953415596	geckodriver	INFO	Listening on 127.0.0.1:64188
+1657953435350	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64189" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofilenIlPKF"
+1657953435740	Marionette	INFO	Marionette enabled
+1657953435859	Marionette	INFO	Listening on port 64204
+WebDriver BiDi listening on ws://localhost:64189
+Read port: 64204
+1657953436441	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:64189/devtools/browser/6ea4ef16-5b20-4330-965e-1942bf846c64
+JavaScript error: , line 0: uncaught exception: Object
+1657953472190	geckodriver	INFO	Listening on 127.0.0.1:64401
+1657953491574	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64402" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofileti0hwK"
+1657953492031	Marionette	INFO	Marionette enabled
+1657953492136	Marionette	INFO	Listening on port 64452
+WebDriver BiDi listening on ws://localhost:64402
+Read port: 64452
+1657953492694	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:64402/devtools/browser/f7c36ce3-829e-419e-b198-d10145a37e61
+1657953495930	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657953526143	geckodriver	INFO	Listening on 127.0.0.1:64613
+1657953546459	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64614" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/0b/0v2kdxb16lx165yht8h3pmnr0000gn/T/rust_mozprofile2UpK9C"
+1657953547053	Marionette	INFO	Marionette enabled
+1657953547256	Marionette	INFO	Listening on port 64633
+WebDriver BiDi listening on ws://localhost:64614
+Read port: 64633
+1657953548206	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:64614/devtools/browser/9cfb0a6b-d3c8-47e4-af7b-61ea726a6a81
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: uncaught exception: Object
+1657953622966	Marionette	INFO	Stopped listening on port 64452
+1657953623772	Marionette	INFO	Stopped listening on port 64204
+1657953624674	Marionette	INFO	Stopped listening on port 64034
+1657953646278	Marionette	INFO	Stopped listening on port 64633

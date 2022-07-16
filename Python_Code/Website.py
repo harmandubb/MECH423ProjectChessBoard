@@ -54,7 +54,7 @@ class BrowerControl:
         
         driver.get(gameURL)
 
-        pieceLayout = driver.execute_script('''
+        boardInfo = driver.execute_script('''
             function coords(elem){
                 var n = elem.getBoundingClientRect()
                 return {top:n.top, left:n.left, width:n.width, height:n.height}
@@ -78,22 +78,55 @@ class BrowerControl:
             return pieces
             ''')[::-1]
 
-        print(pieceLayout)
+
+        pixelWidth = boardInfo[0][0]['width']
 
         time.sleep(2)
 
-        print("Clicking piece now")
+        pieceLayout = createOffsetMap(pixelWidth)
 
-        click_square(pieceLayout[0][0], driver)
+        click_square(pieceLayout[1][6], pixelWidth, driver)
 
 
-def click_square(square, driver):
+def click_square(pieceOffset,width, driver):
    elem = driver.execute_script('''return document.querySelector('chess-board')''')
    ac = ActionChains(driver)
-   ac.move_to_element(elem).move_by_offset(1, square['top']+int(square['width']*2)).click().perform()
+# Horizontal translation before verticle translation
+# Reset the position to be at 0 0 
+   ac.move_to_element(elem).move_by_offset(int(-3.5*width) + pieceOffset["right"], int(-3.5*width) + pieceOffset["down"]).click().perform()
 
    print("Preformed the context Click")
 #    ac.move_to_element(elem).move_by_offset(square['left']+int(square['width']/2), square['top']+int(square['width']/2)).context_click().perform()
+
+def createOffsetMap(pixelWidth):
+    rightOffset = 0 
+    downOffset = 0 
+    pieceLayout = []
+    pieceRow = []
+
+    for i in range(7):
+        for j in range(7):
+            pieceDictionary = {
+                "right": rightOffset*pixelWidth,
+                "down": downOffset*pixelWidth
+            }
+
+            pieceRow.append(pieceDictionary)
+            
+            rightOffset = rightOffset + 1
+
+        print(pieceRow)
+        pieceLayout.append(pieceRow.copy())
+        pieceRow.clear()
+
+        rightOffset = 0
+        downOffset = downOffset + 1
+
+    
+    print(pieceLayout)
+
+    return pieceLayout
+
 
 
 
