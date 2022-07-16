@@ -37,7 +37,7 @@ class BrowerControl:
         self.pieceLayout = None
         self.pixelWidth = 105
 
-    def inputMove(self, gameURL, origin = 0, dest = 0) -> None:
+    def inputMove(self, gameURL, origin = (6,0), dest = (5,0)) -> None:
         driver = webdriver.Firefox(firefox_profile=self.profile,
                                     executable_path=self.PATH,
                                     desired_capabilities=self.desired)
@@ -89,10 +89,14 @@ class BrowerControl:
 
             self.pieceLayout = createOffsetMap(self.pixelWidth)
 
-        origin = self.pieceLayout[6][0]
-        dest = self.pieceLayout[5][0]
+        originOffset = self.pieceLayout[origin[0]][origin[1]]
+        destOffset = self.pieceLayout[dest[0]][dest[1]]
 
-        dragAndDropPiece(origin, dest, self.pixelWidth, driver)
+        dragAndDropPiece(originOffset, destOffset, self.pixelWidth, driver)
+
+        time.sleep(1)
+
+        submitMove(driver)
 
 
 def click_square(pieceOffset,width, driver):
@@ -116,6 +120,16 @@ def dragAndDropPiece(origin, dest, width, driver):
      
     ac.move_to_element(elem).move_by_offset(int(-3.5*width) + origin["right"], int(-3.5*width) + origin["down"]).click_and_hold().move_to_element(elem).move_by_offset(int(-3.5*width) + dest["right"], int(-3.5*width) + dest["down"]).click().perform()
     
+
+def submitMove(driver):
+    submit = driver.find_element(By.CSS_SELECTOR,"span.checkmark")
+
+    print(submit)
+
+    ac = ActionChains(driver)
+
+    ac.move_to_element(submit).click().perform()
+
 
 def createOffsetMap(pixelWidth):
     rightOffset = 0 
@@ -239,6 +253,6 @@ chAPI = chessAPI()
 
 bc = BrowerControl()
 
-bc.inputMove(chAPI.gameURL, )
+bc.inputMove(chAPI.gameURL)
 
 
