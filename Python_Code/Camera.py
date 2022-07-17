@@ -584,3 +584,20 @@ class camera:
 
 
         return corners, pieces
+
+    @classmethod 
+    def captureImage(cls):
+        videoCaptureObject = cv.VideoCapture(0)
+        result = True
+
+        while(result):
+            ret,frame = videoCaptureObject.read()
+            cv.imwrite("CurrentBoard.jpg",frame)
+            result = False
+
+        videoCaptureObject.release()
+
+        cv.destroyAllWindows()
+
+
+camera.captureImage()

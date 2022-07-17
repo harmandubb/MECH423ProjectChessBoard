@@ -15,6 +15,7 @@ if __name__=='__main__':
     winner = False #implement logic that switches the winner to be true and ending the loop
     chAPI = chessAPI()
     ch = chess()
+    cam = camera()
     browerControl = BrowerControl()
 
     playerColor = chAPI.getPlayerColor()
@@ -36,7 +37,10 @@ if __name__=='__main__':
             #           -This is checked using a timer or using an interupt from the serial microcontroller
             #           - TODO: Figure out if a interupt can occur at this point. 
 
+            #   - Use Computer vision to see what the chess board move is
+            
             #   - Once a change is detected on the board we need to update the chess board via selieum
+
         
         #If it is the other person's turn
         else: 

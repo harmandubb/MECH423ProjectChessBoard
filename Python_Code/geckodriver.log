@@ -3864,3 +3864,4 @@ Read port: 52787
 DevTools listening on ws://localhost:52776/devtools/browser/b95c58e9-7959-4dee-898d-3e434a191c6f
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
 JavaScript error: , line 0: uncaught exception: Object
+1657958986817	Marionette	INFO	Stopped listening on port 52787
