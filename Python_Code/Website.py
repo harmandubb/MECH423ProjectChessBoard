@@ -37,7 +37,7 @@ class BrowerControl:
         self.pieceLayout = None
         self.pixelWidth = 105
 
-    def inputMove(self, gameURL, origin = (6,0), dest = (5,0)) -> None:
+    def inputMove(self, gameURL, origin, dest) -> None:
         driver = webdriver.Firefox(firefox_profile=self.profile,
                                     executable_path=self.PATH,
                                     desired_capabilities=self.desired)

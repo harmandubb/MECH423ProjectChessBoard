@@ -15,7 +15,7 @@ if __name__=='__main__':
     winner = False #implement logic that switches the winner to be true and ending the loop
     chAPI = chessAPI()
     ch = chess()
-    cam = camera()
+
     browerControl = BrowerControl()
 
     playerColor = chAPI.getPlayerColor()
@@ -37,9 +37,27 @@ if __name__=='__main__':
             #           -This is checked using a timer or using an interupt from the serial microcontroller
             #           - TODO: Figure out if a interupt can occur at this point. 
 
+            # Take picture of the board 
+            camera.captureImage() 
+
             #   - Use Computer vision to see what the chess board move is
-            
+            frame = "CurrentBoard.jpg"
+            corners, pieces = camera.getCornerAndPiecePlacement(frame)
+            visionBoard = ch.getCurrentState(corners,pieces)
+
+            # Determine the coordinates that would dictate how to move in selenium 
+            coordinates = ch.getDiffCoordinates(visionBoard)
+
+            origin = coordinates[0]
+            dest = coordinates[1]
             #   - Once a change is detected on the board we need to update the chess board via selieum
+            browerControl.inputMove(chAPI.gameURL, origin, dest)
+            # once chess.com has been updated the locally stored chess setup can be updated
+
+            ch.setBoardState(visionBoard)
+
+
+           
 
         
         #If it is the other person's turn

@@ -132,6 +132,13 @@ class chess:
 
         return coordinates
 
+    def getDiffCoordinates(self, currentBoardState):
+        diffState = self.getDiffBoardState(currentBoardState)
+
+        coordinates = self.convertDiffStateToCoordinates(diffState)
+
+        return coordinates
+
     def convertStateToMove(self, diffState):
         origin = np.where(diffState == -1)
         dest = np.where(diffState == 1)
