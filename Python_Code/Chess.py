@@ -388,4 +388,48 @@ class chess:
         
         self.ser.close()
 
+    def listenToPlayerMessages(self):
+        buffer = []
+        correctDataFlag = False
+
+        if(not self.ser.is_open):
+            self.ser.open()
+        
+        while(not correctDataFlag):
+            buffer.append(self.ser.read())
+            time.sleep(1) #sleep so we can get all of the data from the microporcessor in
+            data_left = self.ser.inWaiting()
+            buffer.append(self.ser.read(data_left))
+
+            if (buffer.pop(0) == (255).to_bytes(2,"big")):
+                message = buffer
+
+        return message
+
+    def determineIfPlayerHasMoved(self, message):
+        result = False
+        print(message)
+
+        if (message.pop(0) == (1).to_bytes(2,"big")):
+            print("Player has made a move")
+            result = True
+
+        return result
+
+
+    def waitForPlayerToMove(self):
+        message = self.listenToPlayerMessages()
+
+        return(self.determineIfPlayerHasMoved(message))
+
+        
+
+
+        
+
+        
+        
+            
+
+
 ch = chess()
