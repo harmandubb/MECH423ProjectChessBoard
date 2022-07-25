@@ -235,7 +235,7 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=1)
+        blurred = filters.gaussian(gray, sigma=0.35)
 
         canny = feature.canny(blurred,  sigma=0.75)
 
@@ -309,10 +309,12 @@ class camera:
                 m = 0
                 horizontal_lines[horizontalLineCounter] = y0
                 horizontalLineCounter = horizontalLineCounter + 1 
-            elif ((m >50) or (m <-50)):
+                # print("Above is a horizontal line")
+            elif ((m >30) or (m <-30)):
                 m = 1e16 
                 vertical_lines[verticalLineCounter] = x0
                 verticalLineCounter = verticalLineCounter + 1
+                # print("Above is a vertical Line")
             if plots:
                 plt.axline((x0,y0),slope=m) 
 
@@ -338,26 +340,29 @@ class camera:
         return h_mask & s_mask & v_mask
 
     @classmethod 
-    def findBoard(cls,frame, gray):
+    def findBoard(cls,frame, gray, plots=False):
 
         
-
-        # plt.figure(1)
-        # plt.imshow(frame)
-        # plt.title("Raw image")
-
-        # lower_test = 0.30
-        # upper_test = 0.5
-
-        # perimeter = (frame > lower_test) & (frame < upper_test)
+        if plots:
+            plt.figure(1)
+            plt.imshow(frame)
+            plt.title("Raw image")
 
         #Pink
-        hlow = 0.85
-        hhigh = 0.95
-        slow = 0.55
-        shigh = 1
-        vlow = 0.35
-        vhigh = 0.8
+        # hlow = 0.85
+        # hhigh = 0.95
+        # slow = 0.55
+        # shigh = 1
+        # vlow = 0.35
+        # vhigh = 0.8
+
+        #Pink Mark 2
+        hlow = 0.70
+        hhigh = 1
+        slow = 0.3
+        shigh = 0.7
+        vlow = 0.3
+        vhigh = 0.7
 
         # #green
         # hlow = 0.15
@@ -369,35 +374,39 @@ class camera:
 
         hsv_image = color.rgb2hsv(frame)
 
-        # print(hsv_image)
+        if plots:
+            print(hsv_image)    
 
         perimeter = camera.threshold_hsv(hsv_image, hlow, hhigh, slow, shigh, vlow, vhigh)
 
-    
-        # plt.figure(2)
-        # plt.imshow(perimeter)
-        # plt.title("Threshold Mask")
+        if plots:
+            plt.figure(2)
+            plt.imshow(perimeter)
+            plt.title("Threshold Mask")
 
 
         mask = np.logical_not(perimeter)
 
-        # plt.figure(3)
-        # plt.imshow(mask)
-        # plt.title("Masked to be used in on frame")
+        if plots:
+            plt.figure(3)
+            plt.imshow(mask)
+            plt.title("Masked to be used in on frame")
 
         masked = np.copy(gray)
 
         masked[mask] = 0
 
-        # plt.figure(4)
-        # plt.imshow(masked, cmap="gray")
-        # plt.title("Masked Image")
+        if plots:
+            plt.figure(4)
+            plt.imshow(masked, cmap="gray")
+            plt.title("Masked Image")
 
         contours = measure.find_contours(mask, fully_connected='high')
 
-        # plt.figure(5)
-        # plt.imshow(frame, cmap="gray")
-        # plt.title("contours")
+        if plots:
+            plt.figure(5)
+            plt.imshow(frame, cmap="gray")
+            plt.title("contours")
 
         max_area_index = 0
         max_area = 0
@@ -413,13 +422,14 @@ class camera:
                 max_area_index = index
 
             index = index + 1   
-            
-        #     plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
 
+            if plots:
+                plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
 
-        # plt.figure(6)
-        # plt.plot(contours[max_area_index][:, 1], contours[max_area_index][:, 0])
-        # plt.title("Chessboard contour found")
+        if plots:
+            plt.figure(6)
+            plt.plot(contours[max_area_index][:, 1], contours[max_area_index][:, 0])
+            plt.title("Chessboard contour found")
 
         x = contours[max_area_index][:, 1]
         y = contours[max_area_index][:, 0]
@@ -434,9 +444,9 @@ class camera:
                                 bottom_right, 
                                 top_right,
                                 ])
-
-        # plt.scatter(src_corners[:,0],src_corners[:,1], color="r")
-        # plt.imshow(frame, cmap="gray")
+        if plots:
+            plt.scatter(src_corners[:,0],src_corners[:,1], color="r")
+            plt.imshow(frame, cmap="gray")
 
         np.reshape(src_corners,(4,2))
 
@@ -445,8 +455,8 @@ class camera:
 
 
     @classmethod 
-    def transformBoard(cls, frame, src_corners, plots):
-        perimeter_thickness = 110
+    def transformBoard(cls, frame, src_corners, plots=False):
+        perimeter_thickness = 50
 
         width = 800
         height = 800 
@@ -506,13 +516,17 @@ class camera:
 
     @classmethod
     def identifyPieces(cls, frame, canny, num_pieces, plots=False):
+
+        if plots: 
+            plt.figure(0)
+            plt.imshow(canny)
         
         # Detect two radii
         smallBoardMax = 90
         smallBoardMin = 60 
 
         fullBoardMax = 30
-        fullBoardMin = 15
+        fullBoardMin = 20
 
         hough_radii = np.arange(fullBoardMin, fullBoardMax, 1)
         hough_res = transform.hough_circle(canny, hough_radii)
@@ -545,22 +559,22 @@ class camera:
         for cord in zip(cx,cy):
             pieces.append(cord)
 
-        if plots:
+        # if plots:
 
-            plt.figure(1)
-            plt.clf()
-            plt.imshow(canny)
-            plt.title("Canny Edge detection")
+        #     plt.figure(2)
+        #     plt.clf()
+        #     plt.imshow(canny)
+        #     plt.title("Canny Edge detection")
 
-            print(type(hough_res))
+        #     print(type(hough_res))
 
-            print(np.max(hough_res))
+        #     print(np.max(hough_res))
 
-            plt.figure(2)
-            plt.imshow(hough_res)
-            plt.title("Circle Hough transform")
+        #     plt.figure(2)
+        #     plt.imshow(hough_res)
+        #     plt.title("Circle Hough transform")
 
-        return pieces
+        # return pieces
 
     @classmethod
     def getCornerAndPiecePlacement(cls,frame):
@@ -599,5 +613,52 @@ class camera:
 
         cv.destroyAllWindows()
 
+    @classmethod
+    def transformBoardSide(cls,frame):
+        rotated = transform.rotate(frame,90)
 
-camera.captureImage()
+        return rotated
+
+    @classmethod
+    def getCornerAndPiecePlacementOfSideBoard(cls,frame, plots=False):
+        gray = transform.rotate(np.flip(io.imread(frame, as_gray=True),1),angle=-90)
+
+        
+
+        rgb_image = transform.rotate(np.flip(io.imread(frame),1), angle=-90)
+        if plots:
+            plt.figure(1)
+            plt.imshow(gray)
+            plt.figure(2)
+            plt.imshow(rgb_image)
+
+        src_corners = camera.findBoard(rgb_image, gray, plots=True)
+
+        # cropped = camera.transformBoard(gray,src_corners, plots=True)
+
+        # canny = camera.edgeDetector(cropped, plots=False)
+
+        # corners = camera.cannyCorners(canny,64, cropped,plots=False)
+
+        # camera.cleanupCorners(cropped, corners, plots=False)
+
+        # # # detect the pieces
+
+        # pieces = camera.identifyPieces(cropped, canny,32, plots=True)
+
+
+        # return corners, pieces
+
+
+if __name__ == "__main__":
+    frames = glob.glob("Side_images/*.jpg")
+
+    for frame in frames: 
+        camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
+
+    
+    plt.show()
+
+
+
+
