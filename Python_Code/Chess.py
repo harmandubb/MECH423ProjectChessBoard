@@ -4,7 +4,7 @@ from enum import IntEnum
 import math
 
 import glob
-from Camera import camera
+# from Camera import camera
 from skimage import io, data, filters
 import matplotlib.pyplot as plt
 
@@ -72,8 +72,8 @@ class chess:
 
         copy_pieces = pieces
 
-        # print("Corners: {0}".format(corners))
-        # print("Pieces:{0}".format(pieces))
+        print("Corners: {0}".format(corners))
+        print("Pieces:{0}".format(pieces))
 
         identifiedPieces = 0
         row = 0
@@ -91,17 +91,18 @@ class chess:
         
             # print("Upper left: {0}".format(upperLeft))
             # print("Lower reft: {0}".format(lowerRight))
+            print("Square Coordinates: ({}, {})".format(upperLeft, lowerRight))
 
             for piece in copy_pieces:
                 x = piece[0]
                 y = piece[1]
 
-                # print("PieceCoordinates {0}, {1}".format(x,y))
+                print("PieceCoordinates {0}, {1}".format(x,y))
                 if(upperLeft[0] <= x <= lowerRight[0]):
                     if(upperLeft[1] <= y <= lowerRight[1]):
                         
                         identifiedPieces = identifiedPieces + 1
-                        # print("Piece is present {0}".format(identifiedPieces))
+                        print("Piece is present {0}".format(identifiedPieces))
 
                         currentBoard[row][col] = 1
 

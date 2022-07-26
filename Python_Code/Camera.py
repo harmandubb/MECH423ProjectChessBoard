@@ -1,3 +1,4 @@
+from pickle import FALSE
 from cv2 import threshold
 import numpy as np 
 import cv2 as cv 
@@ -235,9 +236,9 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=0.35)
+        blurred = filters.gaussian(gray, sigma=0.40)
 
-        canny = feature.canny(blurred,  sigma=0.75)
+        canny = feature.canny(blurred,  sigma=0.6)
 
         if (plots):
             plt.figure(1)
@@ -284,15 +285,19 @@ class camera:
             plt.xlabel("Angles (degrees)")
             plt.ylabel('Distance (pixels)')
 
-        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=30, min_angle=1, threshold=10)
+        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=40, min_angle=1, threshold=10)
 
         if plots:
             plt.figure(5)
             plt.imshow(gray, cmap="gray")
             plt.title("Detected lines")
 
-        vertical_lines = np.zeros(int(math.sqrt(boardSquares)+1))
-        horizontal_lines = np.zeros(int(math.sqrt(boardSquares)+1))
+        # vertical_lines = np.zeros(int(math.sqrt(boardSquares)+1))
+        # horizontal_lines = np.zeros(int(math.sqrt(boardSquares)+1))
+
+        vertical_lines = []
+        horizontal_lines = []
+
         verticalLineCounter = 0
         horizontalLineCounter = 0
 
@@ -306,24 +311,46 @@ class camera:
                 print("Slope: {0}".format(m))
 
             if (((m < 1) and (m >= 0)) or ((m > -1) and (m <= 0))):
-                m = 0
-                horizontal_lines[horizontalLineCounter] = y0
+                # m = 0
+                # horizontal_lines[horizontalLineCounter] = y0
+                b = y0-m*x0
+                horizontal_lines.append([x0, y0, m, b])
                 horizontalLineCounter = horizontalLineCounter + 1 
                 # print("Above is a horizontal line")
             elif ((m >30) or (m <-30)):
                 m = 1e16 
-                vertical_lines[verticalLineCounter] = x0
+                # vertical_lines[verticalLineCounter] = x0
+                vertical_lines.append(x0)
                 verticalLineCounter = verticalLineCounter + 1
                 # print("Above is a vertical Line")
+
+        
             if plots:
-                plt.axline((x0,y0),slope=m) 
+                plt.axline((x0,y0),slope=m)
+
+
+        corners = []
+
+        vertical_lines.sort()
+        horizontal_lines.sort(key=lambda x:x[3])
+
+        print("Sorted Vertical Lines: {}".format(vertical_lines))
+        print("Sorted Horizontal lines: {}".format(horizontal_lines))
+        
+
+        for (x0,y0,m,b) in horizontal_lines:
+            for x in vertical_lines:
+                y = m*(x-x0) + y0
+                corners.append([x,y])
+
 
         if plots:
             print("Vertical Lines: {0}".format(vertical_lines))
             print("Horizontal Lines: {0}".format(horizontal_lines))
+            print("Corners: {}".format(corners))
 
         # Begin to find the corners from the line intersections 
-        corners = [(vertical,horizontal) for vertical,horizontal in itertools.product(vertical_lines,horizontal_lines)]
+        # corners = [(vertical,horizontal) for vertical,horizontal in itertools.product(vertical_lines,horizontal_lines)]
   
         return corners 
 
@@ -499,21 +526,8 @@ class camera:
     
     @classmethod 
     def cleanupCorners(cls, frame, corners, plots):
-
-        x = []
-        y = []
-
-        for coordinates in corners:
-            x.append(coordinates[0])
-            y.append(coordinates[1])
-
-        if plots:
-            plt.figure(1)
-            plt.clf()
-            plt.imshow(frame, cmap="gray")
-            plt.title("Identified Corners")
-            plt.scatter(x,y, c='r')
-
+        return 0
+        
     @classmethod
     def identifyPieces(cls, frame, canny, num_pieces, plots=False):
 
@@ -574,7 +588,7 @@ class camera:
         #     plt.imshow(hough_res)
         #     plt.title("Circle Hough transform")
 
-        # return pieces
+        return pieces
 
     @classmethod
     def getCornerAndPiecePlacement(cls,frame):
@@ -632,30 +646,36 @@ class camera:
             plt.figure(2)
             plt.imshow(rgb_image)
 
-        src_corners = camera.findBoard(rgb_image, gray, plots=True)
+        src_corners = camera.findBoard(rgb_image, gray, plots=False)
 
-        # cropped = camera.transformBoard(gray,src_corners, plots=True)
+        cropped = camera.transformBoard(gray,src_corners, plots=False)
 
-        # canny = camera.edgeDetector(cropped, plots=False)
+        canny = camera.edgeDetector(cropped, plots=False)
 
-        # corners = camera.cannyCorners(canny,64, cropped,plots=False)
+        corners = camera.cannyCorners(canny,64, cropped,plots=True)
 
-        # camera.cleanupCorners(cropped, corners, plots=False)
+        camera.cleanupCorners(cropped, corners, plots=False )
 
-        # # # detect the pieces
+        # # detect the pieces
 
-        # pieces = camera.identifyPieces(cropped, canny,32, plots=True)
+        pieces = camera.identifyPieces(cropped, canny,32, plots=False)
+
+        print("pieces present in function")
+
+        print(pieces)
 
 
-        # return corners, pieces
+        return corners, pieces
 
 
 if __name__ == "__main__":
     frames = glob.glob("Side_images/*.jpg")
 
-    for frame in frames: 
-        camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
 
+    for frame in frames: 
+        corners, pieces = camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
+
+        print("Corners propoer orders: {}".format(corners))
     
     plt.show()
 
