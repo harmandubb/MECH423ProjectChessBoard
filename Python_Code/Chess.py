@@ -64,16 +64,19 @@ class chess:
 
     def getCurrentState(self, corners, pieces):
         #Sorting corner points known order
+        
+        print("Corners: {}".format(corners))
+        print("pieces: {}".format(pieces))
 
         currentBoard = np.zeros([self.chessBoardSideSquares, self.chessBoardSideSquares])
 
-        corners.sort(key=lambda k: [k[1], k[0]])
-        pieces.sort(key=lambda k: [k[1], k[0]])
+        # corners.sort(key=lambda k: [k[1], k[0]])
+        # pieces.sort(key=lambda k: [k[1], k[0]])
 
         copy_pieces = pieces
 
-        print("Corners: {0}".format(corners))
-        print("Pieces:{0}".format(pieces))
+        # print("Corners: {0}".format(corners))
+        # print("Pieces:{0}".format(pieces))
 
         identifiedPieces = 0
         row = 0
@@ -89,15 +92,15 @@ class chess:
             # print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+row))
             lowerRight = corners[i+self.chessBoardSideSquares + 2+row] 
         
-            # print("Upper left: {0}".format(upperLeft))
-            # print("Lower reft: {0}".format(lowerRight))
-            print("Square Coordinates: ({}, {})".format(upperLeft, lowerRight))
+            print("Upper Left: {0}".format(upperLeft))
+            print("Lower Right: {0}".format(lowerRight))
+            # print("Square Coordinates: ({}, {})".format(upperLeft, lowerRight))
 
             for piece in copy_pieces:
                 x = piece[0]
                 y = piece[1]
 
-                print("PieceCoordinates {0}, {1}".format(x,y))
+                # print("PieceCoordinates {0}, {1}".format(x,y))
                 if(upperLeft[0] <= x <= lowerRight[0]):
                     if(upperLeft[1] <= y <= lowerRight[1]):
                         

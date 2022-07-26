@@ -652,13 +652,13 @@ class camera:
 
         canny = camera.edgeDetector(cropped, plots=False)
 
-        corners = camera.cannyCorners(canny,64, cropped,plots=True)
+        corners = camera.cannyCorners(canny,64, cropped,plots=False)
 
-        camera.cleanupCorners(cropped, corners, plots=False )
+        camera.cleanupCorners(cropped, corners, plots=True)
 
         # # detect the pieces
 
-        pieces = camera.identifyPieces(cropped, canny,32, plots=False)
+        pieces = camera.identifyPieces(cropped, canny,32, plots=True)
 
         print("pieces present in function")
 

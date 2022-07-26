@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     for frame in frames: 
         corners, pieces = camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
-        # currentState = ch.getCurrentState(corners,pieces)
+        currentState = ch.getCurrentState(corners,pieces)
     
-        # print(currentState)
+        print(currentState)
     plt.show()
