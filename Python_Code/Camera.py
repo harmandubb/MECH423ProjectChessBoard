@@ -236,9 +236,9 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=0.40)
+        blurred = filters.gaussian(gray, sigma=0.4)
 
-        canny = feature.canny(blurred,  sigma=0.6)
+        canny = feature.canny(blurred,  sigma=0.5)
 
         if (plots):
             plt.figure(1)
@@ -285,7 +285,7 @@ class camera:
             plt.xlabel("Angles (degrees)")
             plt.ylabel('Distance (pixels)')
 
-        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=40, min_angle=1, threshold=10)
+        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=40, min_angle=1, threshold=5)
 
         if plots:
             plt.figure(5)
@@ -466,6 +466,11 @@ class camera:
         top_right = (x[np.argmin(x-y)],y[np.argmin(x-y)])
         top_left = (x[np.argmin(x+y)],y[np.argmin(x+y)])
 
+        # src_corners = [top_left,
+        #                 bottom_left,
+        #                 bottom_right,
+        #                 top_right]
+
         src_corners = np.array([top_left,
                                 bottom_left,
                                 bottom_right, 
@@ -483,7 +488,7 @@ class camera:
 
     @classmethod 
     def transformBoard(cls, frame, src_corners, plots=False):
-        perimeter_thickness = 50
+        perimeter_thickness = 0
 
         width = 800
         height = 800 
@@ -628,18 +633,50 @@ class camera:
         cv.destroyAllWindows()
 
     @classmethod
-    def transformBoardSide(cls,frame):
-        rotated = transform.rotate(frame,90)
+    def rotateBoard(cls,rgb,gray,plots=False):
+        src_corners = camera.findBoard(rgb,gray,plots)
 
-        return rotated
+        sorted_corners = np.sort(src_corners)
+
+        if sorted_corners[0][1] < sorted_corners[1][1]:
+            upper_left_corner = sorted_corners[0]
+        else: 
+            upper_left_corner = sorted_corners[1]
+
+        if sorted_corners[2][1] > sorted_corners[3][1]:
+            lower_right_corner = sorted_corners[2]
+        else:
+            lower_right_corner = sorted_corners[3]
+
+        center_cord = (upper_left_corner + lower_right_corner)/2
+
+        rotation_angle = 90
+
+        rotated_gray = transform.rotate(gray, rotation_angle,resize = True, center=center_cord)
+        rotated_rgb = transform.rotate(rgb, rotation_angle, resize = True, center=center_cord)
+
+        if plots:
+            plt.figure(1)
+            plt.imshow(gray,cmap="gray")
+            plt.figure(2)
+            plt.imshow(rgb)
+
+            plt.figure(3)
+            plt.imshow(rotated_gray,cmap="gray")
+            plt.figure(4)
+            plt.imshow(rotated_rgb)
+
+        return rotated_gray, rotated_rgb
+
+
 
     @classmethod
     def getCornerAndPiecePlacementOfSideBoard(cls,frame, plots=False):
-        gray = transform.rotate(np.flip(io.imread(frame, as_gray=True),1),angle=-90)
+        gray = io.imread(frame, as_gray=True)
+        rgb_image = io.imread(frame)
 
-        
+        gray, rgb_image = camera.rotateBoard(rgb_image,gray)
 
-        rgb_image = transform.rotate(np.flip(io.imread(frame),1), angle=-90)
         if plots:
             plt.figure(1)
             plt.imshow(gray)
@@ -650,22 +687,22 @@ class camera:
 
         cropped = camera.transformBoard(gray,src_corners, plots=False)
 
-        canny = camera.edgeDetector(cropped, plots=False)
+        canny = camera.edgeDetector(cropped, plots=True)
 
-        corners = camera.cannyCorners(canny,64, cropped,plots=False)
+        # corners = camera.cannyCorners(canny,64, cropped,plots=False)
 
-        camera.cleanupCorners(cropped, corners, plots=True)
+        # camera.cleanupCorners(cropped, corners, plots=True)
 
-        # # detect the pieces
+        # # # detect the pieces
 
-        pieces = camera.identifyPieces(cropped, canny,32, plots=True)
+        # pieces = camera.identifyPieces(cropped, canny,32, plots=False)
 
-        print("pieces present in function")
+        # print("pieces present in function")
 
-        print(pieces)
+        # print(pieces)
 
 
-        return corners, pieces
+        # return corners, pieces
 
 
 if __name__ == "__main__":
@@ -673,9 +710,10 @@ if __name__ == "__main__":
 
 
     for frame in frames: 
-        corners, pieces = camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
+        camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
+        # corners, pieces = camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=True)
 
-        print("Corners propoer orders: {}".format(corners))
+        # print("Corners propoer orders: {}".format(corners))
     
     plt.show()
 
