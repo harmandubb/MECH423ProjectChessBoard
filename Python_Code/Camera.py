@@ -236,9 +236,9 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=0.4)
+        blurred = filters.gaussian(gray, sigma=1)
 
-        canny = feature.canny(blurred,  sigma=0.5)
+        canny = feature.canny(blurred,  sigma=0.1)
 
         if (plots):
             plt.figure(1)
@@ -545,7 +545,7 @@ class camera:
         smallBoardMin = 60 
 
         fullBoardMax = 30
-        fullBoardMin = 20
+        fullBoardMin = 22
 
         hough_radii = np.arange(fullBoardMin, fullBoardMax, 1)
         hough_res = transform.hough_circle(canny, hough_radii)
@@ -687,15 +687,15 @@ class camera:
 
         cropped = camera.transformBoard(gray,src_corners, plots=False)
 
-        canny = camera.edgeDetector(cropped, plots=True)
+        canny = camera.edgeDetector(cropped, plots=False)
 
-        # corners = camera.cannyCorners(canny,64, cropped,plots=False)
+        corners = camera.cannyCorners(canny,64, cropped,plots=False)
 
-        # camera.cleanupCorners(cropped, corners, plots=True)
+        camera.cleanupCorners(cropped, corners, plots=True)
 
-        # # # detect the pieces
+        # detect the pieces
 
-        # pieces = camera.identifyPieces(cropped, canny,32, plots=False)
+        pieces = camera.identifyPieces(cropped, canny,32, plots=True)
 
         # print("pieces present in function")
 
