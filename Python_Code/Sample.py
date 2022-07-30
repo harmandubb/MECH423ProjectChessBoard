@@ -6,14 +6,16 @@ import matplotlib.pyplot as plt
 import glob
 
 if __name__ == "__main__":
-    frames = glob.glob("Side_images/*.jpg")
-
     ch = chess()
-
-
-    for frame in frames: 
-        corners, pieces = camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
-        currentState = ch.getCurrentState(corners,pieces)
     
-        print(currentState)
+    camera.captureImage()
+
+    frame = "CurrentBoard.jpg"
+
+    corners, pieces = camera.getCornerAndPiecePlacement(frame)
+
+    currentBoard = ch.getCurrentState(corners,pieces)
+
+    print(currentBoard)
+
     plt.show()

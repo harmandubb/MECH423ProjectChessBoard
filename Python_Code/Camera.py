@@ -11,6 +11,7 @@ from sklearn.cluster import KMeans
 import sympy as sym
 import math
 import itertools
+import os 
 
 class camera: 
     # Class atributes 
@@ -236,9 +237,9 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=1)
+        blurred = filters.gaussian(gray, sigma=0.7)
 
-        canny = feature.canny(blurred,  sigma=0.1)
+        canny = feature.canny(blurred,  sigma=1)
 
         if (plots):
             plt.figure(1)
@@ -386,10 +387,10 @@ class camera:
         #Pink Mark 2
         hlow = 0.70
         hhigh = 1
-        slow = 0.3
-        shigh = 0.7
+        slow = 0.5
+        shigh = 0.9
         vlow = 0.3
-        vhigh = 0.7
+        vhigh = 0.6
 
         # #green
         # hlow = 0.15
@@ -488,7 +489,7 @@ class camera:
 
     @classmethod 
     def transformBoard(cls, frame, src_corners, plots=False):
-        perimeter_thickness = 0
+        perimeter_thickness = 60
 
         width = 800
         height = 800 
@@ -544,8 +545,8 @@ class camera:
         smallBoardMax = 90
         smallBoardMin = 60 
 
-        fullBoardMax = 30
-        fullBoardMin = 22
+        fullBoardMax = 25
+        fullBoardMin = 15
 
         hough_radii = np.arange(fullBoardMin, fullBoardMax, 1)
         hough_res = transform.hough_circle(canny, hough_radii)
@@ -601,28 +602,30 @@ class camera:
 
         rgb_image = np.flip(io.imread(frame),1)
 
-        src_corners = camera.findBoard(rgb_image, gray)
+        src_corners = camera.findBoard(rgb_image, gray, plots=False)
 
-        cropped = camera.transformBoard(gray,src_corners, False)
+        cropped = camera.transformBoard(gray,src_corners, plots=False)
 
-        canny = camera.edgeDetector(cropped, False)
+        canny = camera.edgeDetector(cropped, plots=True)
 
-        corners = camera.cannyCorners(canny,64, cropped,False)
+        corners = camera.cannyCorners(canny,64, cropped,plots=False)
 
-        camera.cleanupCorners(cropped, corners, False)
+        camera.cleanupCorners(cropped, corners, plots=False)
 
         #detect the pieces
 
-        pieces = camera.identifyPieces(cropped, canny,32)
+        pieces = camera.identifyPieces(cropped, canny,32, plots=False)
 
 
         return corners, pieces
 
     @classmethod 
     def captureImage(cls):
-        videoCaptureObject = cv.VideoCapture(0)
-        result = True
+        if(os.path.exists("CurrentBoard.jpg")):
+            os.remove("CurrentBoard.jpg")
 
+        videoCaptureObject = cv.VideoCapture(1)
+        result = True
         while(result):
             ret,frame = videoCaptureObject.read()
             cv.imwrite("CurrentBoard.jpg",frame)
@@ -668,8 +671,6 @@ class camera:
 
         return rotated_gray, rotated_rgb
 
-
-
     @classmethod
     def getCornerAndPiecePlacementOfSideBoard(cls,frame, plots=False):
         gray = io.imread(frame, as_gray=True)
@@ -705,17 +706,7 @@ class camera:
         # return corners, pieces
 
 
-if __name__ == "__main__":
-    frames = glob.glob("Side_images/*.jpg")
 
-
-    for frame in frames: 
-        camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=False)
-        # corners, pieces = camera.getCornerAndPiecePlacementOfSideBoard(frame, plots=True)
-
-        # print("Corners propoer orders: {}".format(corners))
-    
-    plt.show()
 
 
 
