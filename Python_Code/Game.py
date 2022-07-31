@@ -19,20 +19,24 @@ if __name__=='__main__':
     browerControl = BrowerControl()
 
     playerColor = chAPI.getPlayerColor()
+    print(playerColor)
+
+    ch.setBoardState(chAPI.getBoardState())
 
 
     while(not winner):
         # Check what the current game conditions are 
-        chAPI.updateGame()
+        chAPI.requestGameInfo()
 
         #IF it is our turn
         if(playerColor == chAPI.getCurrentToMove()):
             #Actions to do if it is currently our turn to move
             #   - Need to check how the board has been changed from the opponent
             currentBoard = chAPI.getBoardState()
+            print(currentBoard)
             #   - Figure out how the chess.com board has changed
             #   - Update the physcial board based on the update 
-            diffState = ch.conductOpponentMove(currentBoard)
+            ch.conductOpponentMove(currentBoard)
             #   -update the chessboard state in software
             ch.setBoardState(currentBoard)
 
@@ -40,9 +44,12 @@ if __name__=='__main__':
             #           -This is checked using a timer or using an interupt from the serial microcontroller
             #           - TODO: Figure out if a interupt can occur at this point. 
 
-            ch.waitForPlayerToMove() #This function waits for the micorporcessor to transmit a code show that the player has moved
-                
-            # The player has moved so now we need to conver the mvoe into software code
+            # ch.waitForPlayerToMove() #This function waits for the micorporcessor to transmit a code show that the player has moved
+
+            #For Testing Purposes 
+            ch.waitForKeyStroke() 
+
+            # The player has moved so now we need to convert the move into software code
             camera.captureImage() 
 
             #   - Use Computer vision to see what the chess board move is

@@ -46,8 +46,8 @@ class chess:
         ports = serial.tools.list_ports.comports()
 
         for port, desc, hwid in ports: 
-            # print(port)
-            # print(desc)
+            print("Port: {}".format(port))
+            print("Description: {}".format(desc))
             # print(hwid)
             if ("MSP430" in desc):
                 self.ser.port = port
@@ -124,13 +124,16 @@ class chess:
 
     def getDiffBoardState(self, currentBoardState):
         diffState = currentBoardState - self.board
+        print(diffState)
 
         return diffState
 
     def convertDiffStateToCoordinates(self, diffState):
         origin = np.array(np.where(diffState == -1)).flatten()
+        print(origin)
        
         dest = np.array(np.where(diffState == 1)).flatten()
+        print(dest)
 
         coordinates = [origin, dest]
 
@@ -243,52 +246,57 @@ class chess:
 
     def moveCalculation(self,origin, dest):
         UARTCommands = []
-        solenoidOn = True
+        if ((len(origin)) == 0) and (len(dest) == 0):
+            print("The board has not changed since the last check")
 
-        # Determine if we need to move a piece out of the way
-        if(self.isPiecePresent(dest)):
+        else:
+            
+            solenoidOn = True
+
+            # Determine if we need to move a piece out of the way
+            if(self.isPiecePresent(dest)):
+                solenoidOn = False
+                # eliminate the piece at the destination
+                UARTCommands.extend(self.moveToNECorner(solenoidOn))
+                UARTCommands.extend(self.moveToDestination(solenoidOn, dest))
+                UARTCommands.extend(self.moveToCenter(solenoidOn))
+
+                self.setSolenoidLocation(dest)
+
+                # eliminate the piece
+                solenoidOn = True
+                UARTCommands.extend(self.moveToNECorner(solenoidOn))
+                UARTCommands.extend(self.pieceElimination(dest))   #add the code to move to the edge of the board
+
+                solenoidOn = False
+
+                UARTCommands.extend(self.moveToCenter(solenoidOn))
+
+                
+                # Update the solenoid location 
+                self.setSolenoidLocation((dest[0], 0)) #Can make this dropping of the piece more smarter once the initial system is made better
+
+            # need to move solenoid to origin location 
+
             solenoidOn = False
-            # eliminate the piece at the destination
+
             UARTCommands.extend(self.moveToNECorner(solenoidOn))
-            UARTCommands.extend(self.moveToDestination(solenoidOn, dest))
+            UARTCommands.extend(self.moveToDestination(solenoidOn,origin))
             UARTCommands.extend(self.moveToCenter(solenoidOn))
 
+            self.setSolenoidLocation(origin)
+
+            # Conduct the player's move 
+            solenoidOn = True 
+            moveRelativeCoordinate = self.getRelativeCoordinates(self.solenoidLocation,dest)
+            UARTCommands.extend(self.moveToNECorner(solenoidOn))
+            UARTCommands.extend(self.moveToDestination(solenoidOn,dest))
+            UARTCommands.extend(self.moveToCenter(solenoidOn))
+
+            #setting solenoid location 
             self.setSolenoidLocation(dest)
 
-            # eliminate the piece
-            solenoidOn = True
-            UARTCommands.extend(self.moveToNECorner(solenoidOn))
-            UARTCommands.extend(self.pieceElimination(dest))   #add the code to move to the edge of the board
-
             solenoidOn = False
-
-            UARTCommands.extend(self.moveToCenter(solenoidOn))
-
-            
-            # Update the solenoid location 
-            self.setSolenoidLocation((dest[0], 0)) #Can make this dropping of the piece more smarter once the initial system is made better
-
-        # need to move solenoid to origin location 
-
-        solenoidOn = False
-
-        UARTCommands.extend(self.moveToNECorner(solenoidOn))
-        UARTCommands.extend(self.moveToDestination(solenoidOn,origin))
-        UARTCommands.extend(self.moveToCenter(solenoidOn))
-
-        self.setSolenoidLocation(origin)
-
-        # Conduct the player's move 
-        solenoidOn = True 
-        moveRelativeCoordinate = self.getRelativeCoordinates(self.solenoidLocation,dest)
-        UARTCommands.extend(self.moveToNECorner(solenoidOn))
-        UARTCommands.extend(self.moveToDestination(solenoidOn,dest))
-        UARTCommands.extend(self.moveToCenter(solenoidOn))
-
-        #setting solenoid location 
-        self.setSolenoidLocation(dest)
-
-        solenoidOn = False
 
         return UARTCommands
 
@@ -426,14 +434,10 @@ class chess:
 
         return(self.determineIfPlayerHasMoved(message))
 
+    def waitForKeyStroke(self):
+        inputMove = ""
+
+        while (not(inputMove == "move")):
+            inputMove = input("Confirm move!\n")
+
         
-
-
-        
-
-        
-        
-            
-
-
-ch = chess()

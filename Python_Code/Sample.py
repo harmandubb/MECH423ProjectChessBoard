@@ -7,15 +7,7 @@ import glob
 
 if __name__ == "__main__":
     ch = chess()
+
+    print(ch.ser.port)
     
-    camera.captureImage()
 
-    frame = "CurrentBoard.jpg"
-
-    corners, pieces = camera.getCornerAndPiecePlacement(frame)
-
-    currentBoard = ch.getCurrentState(corners,pieces)
-
-    print(currentBoard)
-
-    plt.show()

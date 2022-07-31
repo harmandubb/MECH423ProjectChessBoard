@@ -3865,3 +3865,53 @@ DevTools listening on ws://localhost:52776/devtools/browser/b95c58e9-7959-4dee-8
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
 JavaScript error: , line 0: uncaught exception: Object
 1657958986817	Marionette	INFO	Stopped listening on port 52787
+1659221503827	geckodriver	INFO	Listening on 127.0.0.1:57109
+1659221510307	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57110" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/zk/msvyy_z14fz93n6c0zlzhl3m0000gn/T/rust_mozprofilemU8B6G"
+1659221510826	Marionette	INFO	Marionette enabled
+1659221510942	Marionette	INFO	Listening on port 57117
+WebDriver BiDi listening on ws://localhost:57110
+Read port: 57117
+2022-07-30 15:51:51.286 plugin-container[6840:133076] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 15:51:51.297 plugin-container[6840:133076] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 15:51:51.368 plugin-container[6840:133076] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 15:51:51.368 plugin-container[6840:133076] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 15:51:51.371 plugin-container[6840:133082] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 15:51:51.371 plugin-container[6840:133082] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1659221512116	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57110/devtools/browser/17cbb0f0-befd-4a44-8a5e-fd2f7c2fa210
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.6e253d53.js, line 1: Error: Request aborted
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.6e253d53.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.6ac2a652.js, line 79: Error: Request aborted
+2022-07-30 22:51:58.083 plugin-container[6846:133411] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 22:51:58.084 plugin-container[6846:133411] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 22:51:58.088 plugin-container[6846:133411] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 22:51:58.088 plugin-container[6846:133411] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 22:51:58.088 plugin-container[6846:133416] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 22:51:58.088 plugin-container[6846:133416] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1659222681200	geckodriver	INFO	Listening on 127.0.0.1:57549
+1659222687712	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57550" "--remote-allow-hosts" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/zk/msvyy_z14fz93n6c0zlzhl3m0000gn/T/rust_mozprofiledzXzzd"
+1659222688215	Marionette	INFO	Marionette enabled
+1659222688311	Marionette	INFO	Listening on port 57557
+WebDriver BiDi listening on ws://localhost:57550
+Read port: 57557
+2022-07-30 16:11:28.442 plugin-container[7407:145132] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 16:11:28.442 plugin-container[7407:145132] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 16:11:28.514 plugin-container[7407:145132] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 16:11:28.514 plugin-container[7407:145132] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 16:11:28.516 plugin-container[7407:145138] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 16:11:28.516 plugin-container[7407:145138] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1659222689458	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:57550/devtools/browser/ccb6effc-53cb-42d1-aacd-d9ee1d581c79
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.6e253d53.js, line 1: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.6e253d53.js, line 1: Error: Request aborted
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: https://www.chess.com/bundles/app/js/home.client.6ac2a652.js, line 79: Error: Request aborted
+JavaScript error: https://www.chess.com/bundles/app/js/navigation.client.6e253d53.js, line 1: Error: Request aborted
+2022-07-30 23:11:33.958 plugin-container[7415:145514] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 23:11:33.959 plugin-container[7415:145514] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 23:11:33.963 plugin-container[7415:145514] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 23:11:33.963 plugin-container[7415:145514] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-07-30 23:11:33.964 plugin-container[7415:145523] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-07-30 23:11:33.964 plugin-container[7415:145523] nil host used in call to allowsAnyHTTPSCertificateForHost:
+JavaScript warning: https://z.moatads.com/playwireprebidheader597261727146/moatheader.js, line 223: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.

@@ -19,11 +19,15 @@ import requests
 import json
 
 class BrowerControl:
-    PATH = "/Users/harmandeepdubb/Documents/Chess Board Project/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver"
+    PATH = "/Users/harmandeepdubb/Documents/Chess_Board/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver"
+    
+    # IMAC path: /Users/harmandeepdubb/Documents/Chess Board Project/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver
     
     profile = webdriver.FirefoxProfile(
-        "/Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/zxgi3khf.default-release")
+        "/Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/je8ftna5.default")
 
+        # Imac Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/zxgi3khf.default-release
+        # Macbook pro Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/je8ftna5.default
         # s14duu3r.default
 
     profile.set_preference("dom.webdriver.enabled", False)
@@ -247,12 +251,6 @@ class chessAPI:
                 board[row,col] = 1
                 col = col + 1
             
-        
-
-chAPI = chessAPI()
-
-bc = BrowerControl()
-
-bc.inputMove(chAPI.gameURL)
+    
 
 

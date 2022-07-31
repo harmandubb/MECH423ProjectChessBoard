@@ -598,9 +598,13 @@ class camera:
 
     @classmethod
     def getCornerAndPiecePlacement(cls,frame):
-        gray = np.flip(io.imread(frame, as_gray=True),1)
+        # gray = np.flip(io.imread(frame, as_gray=True),1)
 
-        rgb_image = np.flip(io.imread(frame),1)
+        # rgb_image = np.flip(io.imread(frame),1)
+
+        gray = transform.rotate(io.imread(frame, as_gray=True),180)
+        rgb_image = transform.rotate(io.imread(frame),180)
+
 
         src_corners = camera.findBoard(rgb_image, gray, plots=False)
 
@@ -673,8 +677,8 @@ class camera:
 
     @classmethod
     def getCornerAndPiecePlacementOfSideBoard(cls,frame, plots=False):
-        gray = io.imread(frame, as_gray=True)
-        rgb_image = io.imread(frame)
+        gray = transform.rotate(io.imread(frame, as_gray=True),180)
+        rgb_image = transform.rotate(io.imread(frame),180)
 
         gray, rgb_image = camera.rotateBoard(rgb_image,gray)
 
