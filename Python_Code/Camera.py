@@ -385,12 +385,12 @@ class camera:
         # vhigh = 0.8
 
         #Pink Mark 2
-        hlow = 0.70
+        hlow = 0.65
         hhigh = 1
-        slow = 0.5
-        shigh = 0.9
+        slow = 0.45
+        shigh = 1
         vlow = 0.3
-        vhigh = 0.6
+        vhigh = 0.7
 
         # #green
         # hlow = 0.15
@@ -489,7 +489,7 @@ class camera:
 
     @classmethod 
     def transformBoard(cls, frame, src_corners, plots=False):
-        perimeter_thickness = 60
+        perimeter_thickness = 0
 
         width = 800
         height = 800 
@@ -608,9 +608,9 @@ class camera:
 
         src_corners = camera.findBoard(rgb_image, gray, plots=False)
 
-        cropped = camera.transformBoard(gray,src_corners, plots=False)
+        cropped = camera.transformBoard(gray,src_corners, plots=True)
 
-        canny = camera.edgeDetector(cropped, plots=True)
+        canny = camera.edgeDetector(cropped, plots=False)
 
         corners = camera.cannyCorners(canny,64, cropped,plots=False)
 

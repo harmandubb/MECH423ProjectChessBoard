@@ -12,6 +12,8 @@ import matplotlib.pyplot as plt
 import serial 
 import serial.tools.list_ports
 
+from Camera import camera
+
 
 class Direction(IntEnum):
     UP = 51
@@ -115,6 +117,14 @@ class chess:
             col = col + 1 
 
         return currentBoard
+
+    def getPhysicalBoardState(self):
+        camera.captureImage()
+        frame = "CurrentBoard.jpg"
+        corners, pieces = camera.getCornerAndPiecePlacement(frame)
+        visionBoard = self.getCurrentState(corners,pieces)
+
+        return visionBoard
 
     def setBoardState(self,curBoard):
         self.board = curBoard

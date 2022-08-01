@@ -10,8 +10,15 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.common.action_chains import ActionChains
+import pathlib
 
-sys.path.insert(1,'../Credentials')
+import platform
+
+os_used = platform.system()
+
+if (os_used == "Darwin"):
+    sys.path.append('..\Credentials')
+
 import google
 
 #Chess API imports
@@ -23,28 +30,34 @@ class BrowerControl:
     
     # IMAC path: /Users/harmandeepdubb/Documents/Chess Board Project/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver
     
-    profile = webdriver.FirefoxProfile(
-        "/Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/je8ftna5.default")
+    if (os_used == "Darwin"):
+        profile = webdriver.FirefoxProfile(
+            "/Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/je8ftna5.default")
+        
+        profile.set_preference("dom.webdriver.enabled", False)
+        profile.set_preference('useAutomationExtension', False)
+        profile.update_preferences()
+        desired = DesiredCapabilities.FIREFOX
 
-        # Imac Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/zxgi3khf.default-release
-        # Macbook pro Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/je8ftna5.default
-        # s14duu3r.default
-
-    profile.set_preference("dom.webdriver.enabled", False)
-    profile.set_preference('useAutomationExtension', False)
-    profile.update_preferences()
-    desired = DesiredCapabilities.FIREFOX
-
-
+            # Imac Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/zxgi3khf.default-release
+            # Macbook pro Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/je8ftna5.default
+            # s14duu3r.default
+        
 
     def __init__(self) -> None:
         self.pieceLayout = None
         self.pixelWidth = 105
 
     def inputMove(self, gameURL, origin, dest) -> None:
-        driver = webdriver.Firefox(firefox_profile=self.profile,
-                                    executable_path=self.PATH,
-                                    desired_capabilities=self.desired)
+
+        if (os_used == "Darwin"):
+            driver = webdriver.Firefox(firefox_profile=self.profile,
+                                        executable_path=self.PATH,
+                                        desired_capabilities=self.desired)
+        else:
+            options = webdriver.ChromeOptions()
+            options.add_argument = {"user-data-dir":r'C:\Users\harma\AppData\Local\Google\Chrome\User Data\Default'}
+            driver = webdriver.Chrome(chrome_options=options)
 
         driver.get("https://www.chess.com/home")
 

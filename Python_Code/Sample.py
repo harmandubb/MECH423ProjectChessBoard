@@ -8,6 +8,10 @@ import glob
 if __name__ == "__main__":
     ch = chess()
 
-    print(ch.ser.port)
+    frame = "CurrentBoard.jpg"
+    corners, pieces = camera.getCornerAndPiecePlacement(frame)
+
+    plt.show()
+    
     
 

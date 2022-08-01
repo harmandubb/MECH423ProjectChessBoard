@@ -21,7 +21,9 @@ if __name__=='__main__':
     playerColor = chAPI.getPlayerColor()
     print(playerColor)
 
-    ch.setBoardState(chAPI.getBoardState())
+    ch.setBoardState(ch.getPhysicalBoardState())
+
+    print(ch.getBoardState())
 
 
     while(not winner):
@@ -49,13 +51,14 @@ if __name__=='__main__':
             #For Testing Purposes 
             ch.waitForKeyStroke() 
 
-            # The player has moved so now we need to convert the move into software code
-            camera.captureImage() 
+            visionBoard = ch.getPhysicalBoardState()
+            # # The player has moved so now we need to convert the move into software code
+            # camera.captureImage() 
 
-            #   - Use Computer vision to see what the chess board move is
-            frame = "CurrentBoard.jpg"
-            corners, pieces = camera.getCornerAndPiecePlacement(frame)
-            visionBoard = ch.getCurrentState(corners,pieces)
+            # #   - Use Computer vision to see what the chess board move is
+            # frame = "CurrentBoard.jpg"
+            # corners, pieces = camera.getCornerAndPiecePlacement(frame)
+            # visionBoard = ch.getCurrentState(corners,pieces)
 
             # Determine the coordinates that would dictate how to move in selenium 
             coordinates = ch.getDiffCoordinates(visionBoard)
