@@ -11,7 +11,9 @@ from sklearn.cluster import KMeans
 import sympy as sym
 import math
 import itertools
-import os 
+import os
+
+from Chess import chess 
 
 class camera: 
     # Class atributes 
@@ -608,7 +610,59 @@ class camera:
 
     @classmethod 
     def identifyPieces2(cls, frame,canny, corners, num_pieces, plots=False):
+        chessBoardSideSquares = 8
+
+        row = 0
+        col = 0
+
+        for row in range(chessBoardSideSquares):
+            for col in range(chessBoardSideSquares):
+                upperLeft_index = col+row*chessBoardSideSquares
+                print("Col:{}".format(col))
+                print("Row:{}".format(row))
+                if (not (upperLeft_index == row*chessBoardSideSquares+(row-1))):
+                    
+                    lowerRight_index = col+(row+1)*chessBoardSideSquares+2
+
+                    print("UpperLeft_Index:{}".format(upperLeft_index))
+                    print("LowerRight_Index:{}".format(lowerRight_index))
+
+                    upperLeft = list(map(int,corners[col+row*chessBoardSideSquares]))
+                    lowerRight = list(map(int,corners[col+(row+1)*chessBoardSideSquares+2]))
+
+                    segment = canny[upperLeft[0]:lowerRight[0],upperLeft[1]:lowerRight[1]]
+
+                    plt.figure(1)
+                    plt.imshow(segment)
+                    plt.show
+
+        # for i in range(chessBoardSideSquares):
+        #     if(i%chessBoardSideSquares == 0 and i != 0):
+        #         row = row + 1
+        #         col = 0
+
+        #     upperLeft = list(map(int,corners[i+row]))
+        #     # print("First Index: {0}".format(i+row))
+        #     # print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+row))
+        #     lowerRight = list(map(int,corners[i+chessBoardSideSquares + 2+row]))
+
+        #     print(upperLeft)
+        #     print(lowerRight)
+
+        #     # Get the image segment 
+        #     segment = frame[upperLeft[0]:lowerRight[0],upperLeft[1]:lowerRight[1]]
+
+        #     plt.figure(1)
+        #     plt.imshow(segment)
+        #     plt.title("Segment Picture")
+        #     plt.show() 
+            
+        #     col = col + 1    
+
+
         
+
+         
          
     @classmethod
     def getCornerAndPiecePlacement(cls,frame):
@@ -632,8 +686,7 @@ class camera:
 
         #detect the pieces
 
-        pieces = camera.identifyPieces(cropped, canny,32, plots=True)
-
+        pieces = camera.identifyPieces2(cropped, canny, corners, 32, plots=True)
 
         return corners, pieces
 
