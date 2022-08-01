@@ -239,7 +239,7 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=0.8)
+        blurred = filters.gaussian(gray, sigma=1)
 
         canny = feature.canny(blurred,  sigma=1)
 
@@ -373,7 +373,6 @@ class camera:
 
     @classmethod 
     def findBoard(cls,frame, gray, plots=False):
-
         
         if plots:
             plt.figure(1)
@@ -635,6 +634,18 @@ class camera:
                     plt.figure(1)
                     plt.imshow(segment)
                     plt.show
+
+                    plt.figure(2)
+                    plt.clf()
+                    # plt.imshow(segment)
+
+                    contours = measure.find_contours(segment)
+
+                    for contour in contours:
+                        plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
+
+
+
 
         # for i in range(chessBoardSideSquares):
         #     if(i%chessBoardSideSquares == 0 and i != 0):
