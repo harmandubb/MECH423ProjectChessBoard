@@ -489,23 +489,31 @@ class camera:
 
     @classmethod 
     def transformBoard(cls, frame, src_corners, plots=False):
-        perimeter_thickness = 0
+        perimeter_thickness = 25
 
-        width = 800
-        height = 800 
+        width = 300
+        height = 300 
 
         top_left = src_corners[0]
         bottom_right = src_corners[2]
+
+        for corners in src_corners:
+            print(corners)
 
         dst_corners = np.array([[0,0],
                                 [width-1,0],
                                 [width-1, height-1],
                                 [0, height-1]
                                 ])
+        for corners in dst_corners:
+            print(corners)
+
 
         tform = transform.estimate_transform('projective',src_corners,dst_corners)
 
-        tf_img_warp = transform.warp(frame, tform.inverse, mode='edge')
+        print(type(tform))
+        
+        tf_img_warp = transform.warp(frame, inverse_map=tform.inverse, mode='edge')
 
 
 
@@ -514,9 +522,9 @@ class camera:
         
 
         if plots:
-            plt.figure(1)
-            plt.imshow(frame, cmap="gray")
-            plt.title("Gray Image")
+            # plt.figure(1)
+            # plt.imshow(frame, cmap="gray")
+            # plt.title("Gray Image")
 
             plt.figure(2)
             plt.imshow(tf_img_warp, cmap="gray")
