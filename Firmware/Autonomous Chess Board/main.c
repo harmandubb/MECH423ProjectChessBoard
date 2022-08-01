@@ -8,16 +8,10 @@
 #define FALSE (0)
 
 //FLAGS
-volatile unsigned int NORTHFLAG = 0 ;
-volatile unsigned int NORTHEASTFLAG = 0;
-volatile unsigned int EASTFLAG = 0;
-volatile unsigned int SOUTHEASTFLAG = 0;
-volatile unsigned int SOUTHFLAG = 0;
-volatile unsigned int SOUTHWESTFLAG = 0;
-volatile unsigned int WESTFLAG = 0;
-volatile unsigned int NORTHWESTFLAG = 0;
-
-
+volatile unsigned int UPFLAG = 0 ;
+volatile unsigned int RIGHTFLAG = 0;
+volatile unsigned int DOWNFLAG = 0;
+volatile unsigned int LEFTFLAG = 0;
 volatile unsigned int ENQUEUEFLAG = 0;
 volatile unsigned int FULLFLAG = 0;
 volatile unsigned int EMPTYFLAG = 0;
@@ -29,6 +23,7 @@ unsigned int ZEROUPDONE = false;
 unsigned int ZEROLEFTDONE = false;
 
 
+
 //PWM
 const int steppingSpeed = 2000;
 volatile unsigned int PWMStepperMax = 1000;
@@ -38,14 +33,10 @@ volatile unsigned int PWMStepperTrigger = 520;
 //stepper motor
 volatile unsigned int leftMotorCW = true;
 volatile unsigned int rightMotorCW = true;
-volatile unsigned int leftMotorOn = true;
-volatile unsigned int rightMotorOn = true;
-
 volatile int leftMotorStepState = 0;
 volatile int rightMotorStepState = 0;
 //volatile int cyclesForHalfSquare = 2228; //cycles for 1 rev
-int cyclesForHalfSquare = 224;
-int cyclesForHalfDiagonal = 317;
+volatile int cyclesForHalfSquare = 224;
 volatile int cycleCountsLeft = 0;
 int cyclesZeroUP = 373 + 222;
 int cyclesZeroLEFT = 100 + 222;
@@ -57,14 +48,10 @@ int solenoidCommand = 0;
 volatile int directionByte = 0;
 volatile int solenoidByte = 0;
 volatile int currentDirection = 0;
-int northByte = 48;
-int northeastBye = 49;
-int eastByte = 50;
-int southeastByte = 51;
-int southByte = 52;
-int southwestByte = 53;
-int westByte = 54;
-int northwestByte = 55;
+int upByte = 48;
+int rightByte = 49;
+int downByte = 50;
+int leftByte = 51;
 int PACKETSIZE = 3;
 
 
@@ -241,6 +228,7 @@ int main(void)
 
     //---------------------------Buffer---------------------//
 
+
     initialize(&buffer);
 
     Queue directions;
@@ -293,9 +281,9 @@ int main(void)
                 if (cyclesZeroLEFT == 0){
                     ZEROLEFTDONE = true;
                     cycleCountsLeft = 0;
-                    NORTHFLAG = false;
+                    LEFTFLAG = false;
                 } else {
-                    NORTHFLAG = true;
+                    LEFTFLAG = true;
                     DONEMOVING = false;
                     cyclesZeroLEFT = cyclesZeroLEFT - 1;
                 }
@@ -305,18 +293,18 @@ int main(void)
                 if (cyclesZeroUP == 0){
                     ZEROUPDONE = true;
                     //cycleCountsLeft = 0;
-                    EASTFLAG = false;
+                    UPFLAG = false;
                 } else{
-                    EASTFLAG = true;
+                    UPFLAG = true;
                     DONEMOVING = false;
                     cyclesZeroUP = cyclesZeroUP - 1;
                 }
             }
             else if (RESETDOWNDONE){
-                SOUTHFLAG = true;
+                RIGHTFLAG = true;
                 DONEMOVING = false;
             } else {
-                WESTFLAG = true;
+                DOWNFLAG = true;
                 DONEMOVING = false;
 
             }
@@ -334,26 +322,19 @@ int main(void)
                 DONEMOVING = false;
                 currentDirection = dequeue(&directions);
                 solenoidCommand = dequeue(&solenoid);
-                //while ((UCA0IFG & UCTXIFG) == 0);
-                //UCA0TXBUF = solenoidCommand;//for debugging
+                while ((UCA0IFG & UCTXIFG) == 0);
+                UCA0TXBUF = solenoidCommand;//for debugging
 
                 if(currentDirection == 0){
-                    NORTHFLAG = 1;
+                    UPFLAG = 1;
                 }else if(currentDirection == 1){
-                    NORTHEASTFLAG = 1;
+                    RIGHTFLAG = 1;
                 }else if(currentDirection == 2){
-                    EASTFLAG = 1;
+                    DOWNFLAG = 1;
                 }else if(currentDirection == 3){
-                    SOUTHEASTFLAG = 1;
-                }else if(currentDirection == 4){
-                    SOUTHFLAG = 1;
-                }else if(currentDirection == 5){
-                    SOUTHWESTFLAG = 1;
-                }else if(currentDirection == 6){
-                    WESTFLAG = 1;
-                }else if(currentDirection == 7){
-                    NORTHWESTFLAG = 1;
+                    LEFTFLAG = 1;
                 }
+
             }
         }
 
@@ -365,155 +346,92 @@ int main(void)
             P1OUT &= ~(BIT1);
         }
 
-        if(NORTHFLAG){
-            NORTHFLAG = 0;
-            leftMotorCW = true;
-            rightMotorCW = true;
-
-            leftMotorOn = true;
-            rightMotorOn = true;
-
-            cycleCountsLeft = cyclesForHalfSquare;
-        }
-        if(SOUTHFLAG){
-            SOUTHFLAG = 0;
-            leftMotorCW = false;
-            rightMotorCW = false;
-
-            leftMotorOn = true;
-            rightMotorOn = true;
-
-            cycleCountsLeft = cyclesForHalfSquare;
-        }
-        if(EASTFLAG){
-            EASTFLAG = 0;
-            leftMotorCW = true;
-            rightMotorCW = false;
-
-            leftMotorOn = true;
-            rightMotorOn = true;
-
-            cycleCountsLeft = cyclesForHalfSquare;
-        }
-        if(WESTFLAG){
-            WESTFLAG = 0;
+        if(UPFLAG){
+            UPFLAG = 0;
             leftMotorCW = false;
             rightMotorCW = true;
-
-            leftMotorOn = true;
-            rightMotorOn = true;
-
             cycleCountsLeft = cyclesForHalfSquare;
         }
-        if(NORTHEASTFLAG){
-            NORTHEASTFLAG = 0;
-            rightMotorCW = true;
-
-            leftMotorOn = false;
-            rightMotorOn = true;
-
-            cycleCountsLeft = cyclesForHalfDiagonal;
-        }
-        if(SOUTHEASTFLAG){
-            SOUTHEASTFLAG = 0;
-            leftMotorCW = false;
-
-            leftMotorOn = true;
-            rightMotorOn = false;
-
-            cycleCountsLeft = cyclesForHalfDiagonal;
-        }
-        if(SOUTHWESTFLAG){
-            SOUTHWESTFLAG = 0;
-            rightMotorCW = false;
-
-            leftMotorOn = false;
-            rightMotorOn = true;
-
-            cycleCountsLeft = cyclesForHalfDiagonal;
-        }
-        if(NORTHWESTFLAG){
-            NORTHWESTFLAG = 0;
+        if(DOWNFLAG){
+            DOWNFLAG = 0;
             leftMotorCW = true;
-
-            leftMotorOn = true;
-            rightMotorOn = false;
-
-            cycleCountsLeft = cyclesForHalfDiagonal;
+            rightMotorCW = false;
+            cycleCountsLeft = cyclesForHalfSquare;
         }
-
-
-
-
-
+        if(RIGHTFLAG){
+            RIGHTFLAG = 0;
+            leftMotorCW = true;
+            rightMotorCW = true;
+            cycleCountsLeft = cyclesForHalfSquare;
+        }
+        if(LEFTFLAG){
+            LEFTFLAG = 0;
+            leftMotorCW = false;
+            rightMotorCW = false;
+            cycleCountsLeft = cyclesForHalfSquare;
+        }
 
         //---------------LEFT MOTOR--------------------//
 
         if(!DONEMOVING){   //when done moving is true skip code
-            if(leftMotorOn){
-                if (leftMotorStepState >= 8) {
-                leftMotorStepState = 0;
-                }
-                else if (leftMotorStepState <= -1) {
-                    leftMotorStepState = 7;
-                }
+            if (leftMotorStepState >= 8) {
+            leftMotorStepState = 0;
+            }
+            else if (leftMotorStepState <= -1) {
+                leftMotorStepState = 7;
+            }
 
-                if (stepperMotorLookupTable[leftMotorStepState][0] == 1) {
-                    P3OUT |= BIT0;
-                }else{
-                    P3OUT &= ~BIT0;
-                }
-                if (stepperMotorLookupTable[leftMotorStepState][1] == 1){
-                    P3OUT |= BIT1;
-                }else{
-                    P3OUT &= ~BIT1;
-                }
-                if (stepperMotorLookupTable[leftMotorStepState][2] == 1){
-                    P3OUT |= BIT2;
-                }else{
-                    P3OUT &= ~BIT2;
-                }
-                if (stepperMotorLookupTable[leftMotorStepState][3] == 1){
-                    P3OUT |= BIT3;
-                }else{
-                    P3OUT &= ~BIT3;
-                }
-
+            if (stepperMotorLookupTable[leftMotorStepState][0] == 1) {
+                P3OUT |= BIT0;
+            }else{
+                P3OUT &= ~BIT0;
+            }
+            if (stepperMotorLookupTable[leftMotorStepState][1] == 1){
+                P3OUT |= BIT1;
+            }else{
+                P3OUT &= ~BIT1;
+            }
+            if (stepperMotorLookupTable[leftMotorStepState][2] == 1){
+                P3OUT |= BIT2;
+            }else{
+                P3OUT &= ~BIT2;
+            }
+            if (stepperMotorLookupTable[leftMotorStepState][3] == 1){
+                P3OUT |= BIT3;
+            }else{
+                P3OUT &= ~BIT3;
             }
 
             //-------------------RIGHT MOTOR------------------//
-            if(rightMotorOn){
-                if (rightMotorStepState >= 8) {
-                   rightMotorStepState = 0;
-                                }
-                else if (rightMotorStepState <= -1) {
-                   rightMotorStepState = 7;
-                }
-
-                if (stepperMotorLookupTable[rightMotorStepState][0] == 1) {
-                    P3OUT |= BIT7;
-                }else{
-                    P3OUT &= ~BIT7;
-                }
-                if (stepperMotorLookupTable[rightMotorStepState][1] == 1){
-                    P3OUT |= BIT6;
-                }else{
-                    P3OUT &= ~BIT6;
-                }
-                if (stepperMotorLookupTable[rightMotorStepState][2] == 1){
-                    P3OUT |= BIT5;
-                }else{
-                    P3OUT &= ~BIT5;
-                }
-                if (stepperMotorLookupTable[rightMotorStepState][3] == 1){
-                    P3OUT |= BIT4;
-                }else{
-                    P3OUT &= ~BIT4;
-                }
-
+            if (rightMotorStepState >= 8) {
+               rightMotorStepState = 0;
+                            }
+            else if (rightMotorStepState <= -1) {
+               rightMotorStepState = 7;
             }
 
-            cycleCountsLeft--; //increment the count of steps
+            if (stepperMotorLookupTable[rightMotorStepState][0] == 1) {
+                P3OUT |= BIT7;
+            }else{
+                P3OUT &= ~BIT7;
+            }
+            if (stepperMotorLookupTable[rightMotorStepState][1] == 1){
+                P3OUT |= BIT6;
+            }else{
+                P3OUT &= ~BIT6;
+            }
+            if (stepperMotorLookupTable[rightMotorStepState][2] == 1){
+                P3OUT |= BIT5;
+            }else{
+                P3OUT &= ~BIT5;
+            }
+            if (stepperMotorLookupTable[rightMotorStepState][3] == 1){
+                P3OUT |= BIT4;
+            }else{
+                P3OUT &= ~BIT4;
+            }
+
+            cycleCountsLeft--;
         }
 
         if(cycleCountsLeft <= 0){
@@ -548,6 +466,30 @@ int main(void)
     return 0;
 }
 
+//#pragma vector = TIMER0_A0_VECTOR
+//__interrupt void TIMER0_A0_ISR(void) {
+//    TA0IV = 0; //clear inttrupt
+//    TA0CCTL0 &= ~(CCIFG); //clear flag
+//
+//
+//    if(cycleCountsLeft <= 0){
+//        DONEMOVING = true;
+//    }
+//    else{
+//        if(leftMotorCW){
+//            leftMotorStepState++;
+//        }else{
+//            leftMotorStepState--;
+//        }
+//        if(rightMotorCW){
+//            rightMotorStepState++;
+//        }
+//        else{
+//            rightMotorStepState--;
+//        }
+//    }
+//
+//}
 
 #pragma vector = PORT4_VECTOR
 __interrupt void PORT4_ISR(void)
@@ -571,14 +513,17 @@ __interrupt void USCI_A0_ISR(void)
 {
     RxByte = UCA0RXBUF;
     while ((UCA0IFG & UCTXIFG) == 0);
-    UCA0TXBUF = RxByte;//for debugging
+    //UCA0TXBUF = RxByte;//for debugging
     enqueue(&buffer, RxByte);
+
+    //ENQUEUEFLAG = 1;
 }
 
 int decode(Queue* buffer, Queue* directions, Queue* solenoid){
     if (dequeue(buffer) == 'a') {
         solenoidByte = dequeue(buffer);
         directionByte = dequeue(buffer);
+
 
         //store solenoidByte
         enqueue(solenoid, solenoidByte);
@@ -592,15 +537,10 @@ int decode(Queue* buffer, Queue* directions, Queue* solenoid){
             enqueue(directions, 2);
         } else if (directionByte == 51){
             enqueue(directions, 3);
-        } else if (directionByte == 52){
-            enqueue(directions, 4);
-        } else if (directionByte == 53){
-            enqueue(directions, 5);
-        } else if (directionByte == 54){
-            enqueue(directions, 6);
-        } else if (directionByte == 55){
-            enqueue(directions, 7);
         }
+
+
+
 
         return true;
     }

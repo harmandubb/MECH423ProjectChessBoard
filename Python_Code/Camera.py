@@ -237,7 +237,7 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=0.7)
+        blurred = filters.gaussian(gray, sigma=0.8)
 
         canny = feature.canny(blurred,  sigma=1)
 
@@ -286,7 +286,9 @@ class camera:
             plt.xlabel("Angles (degrees)")
             plt.ylabel('Distance (pixels)')
 
-        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=40, min_angle=1, threshold=5)
+        LINEDISTANCE = 20 
+
+        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=LINEDISTANCE, min_angle=1, threshold=5)
 
         if plots:
             plt.figure(5)
@@ -387,7 +389,7 @@ class camera:
         #Pink Mark 2
         hlow = 0.65
         hhigh = 1
-        slow = 0.45
+        slow = 0.35
         shigh = 1
         vlow = 0.3
         vhigh = 0.7
@@ -553,8 +555,8 @@ class camera:
         smallBoardMax = 90
         smallBoardMin = 60 
 
-        fullBoardMax = 25
-        fullBoardMin = 15
+        fullBoardMax = 15
+        fullBoardMin = 6
 
         hough_radii = np.arange(fullBoardMin, fullBoardMax, 1)
         hough_res = transform.hough_circle(canny, hough_radii)
@@ -565,7 +567,7 @@ class camera:
         # Select the most prominent 3 circles
         smallBoardMinDist = 120
 
-        fullBoardMinDist = 50
+        fullBoardMinDist = 25
 
 
         accums, cx, cy, radii = transform.hough_circle_peaks(hough_res, hough_radii, num_peaks= num_pieces - 1,
@@ -587,23 +589,27 @@ class camera:
         for cord in zip(cx,cy):
             pieces.append(cord)
 
-        # if plots:
+        if plots:
 
-        #     plt.figure(2)
-        #     plt.clf()
-        #     plt.imshow(canny)
-        #     plt.title("Canny Edge detection")
+            plt.figure(2)
+            plt.clf()
+            plt.imshow(canny)
+            plt.title("Canny Edge detection")
 
-        #     print(type(hough_res))
+            print(type(hough_res))
 
-        #     print(np.max(hough_res))
+            print(np.max(hough_res))
 
-        #     plt.figure(2)
-        #     plt.imshow(hough_res)
-        #     plt.title("Circle Hough transform")
+            # plt.figure(2)
+            # plt.imshow(hough_res)
+            # plt.title("Circle Hough transform")
 
         return pieces
 
+    @classmethod 
+    def identifyPieces2(cls, frame,canny, corners, num_pieces, plots=False):
+        
+         
     @classmethod
     def getCornerAndPiecePlacement(cls,frame):
         # gray = np.flip(io.imread(frame, as_gray=True),1)
@@ -614,19 +620,19 @@ class camera:
         rgb_image = transform.rotate(io.imread(frame),180)
 
 
-        src_corners = camera.findBoard(rgb_image, gray, plots=False)
+        src_corners = camera.findBoard(rgb_image, gray, plots=True)
 
-        cropped = camera.transformBoard(gray,src_corners, plots=True)
+        cropped = camera.transformBoard(gray,src_corners, plots=False)
 
-        canny = camera.edgeDetector(cropped, plots=False)
+        canny = camera.edgeDetector(cropped, plots=True)
 
         corners = camera.cannyCorners(canny,64, cropped,plots=False)
 
-        camera.cleanupCorners(cropped, corners, plots=False)
+        camera.cleanupCorners(cropped, corners, plots=True)
 
         #detect the pieces
 
-        pieces = camera.identifyPieces(cropped, canny,32, plots=False)
+        pieces = camera.identifyPieces(cropped, canny,32, plots=True)
 
 
         return corners, pieces

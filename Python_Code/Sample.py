@@ -8,7 +8,7 @@ import glob
 if __name__ == "__main__":
     ch = chess()
 
-    # frame = "Board_Images/board7.jpg"
+    camera.captureImage()
 
     frame = "CurrentBoard.jpg"
     corners, pieces = camera.getCornerAndPiecePlacement(frame)
