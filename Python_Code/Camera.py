@@ -612,7 +612,7 @@ class camera:
     @classmethod 
     def identifyPieces2(cls, frame,canny, corners, num_pieces, plots=False):
         chessBoardSideSquares = 8
-        pieceThreshold = 8 
+        pieceThreshold = 4 
         visionBoard = np.zeros([chessBoardSideSquares,chessBoardSideSquares])
         cropping = 3
 
@@ -652,7 +652,7 @@ class camera:
                     for contour in contours: 
                         plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
 
-                    print(len(contours))
+                    print("Num contours:{}".format(len(contours)))
                 # run the code to check if a piece is presnet in the square
                 if (len(contours) > pieceThreshold):
                     if plots:

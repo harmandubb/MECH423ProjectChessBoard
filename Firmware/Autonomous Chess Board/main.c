@@ -323,7 +323,7 @@ int main(void)
                 currentDirection = dequeue(&directions);
                 solenoidCommand = dequeue(&solenoid);
                 while ((UCA0IFG & UCTXIFG) == 0);
-                UCA0TXBUF = solenoidCommand;//for debugging
+//                UCA0TXBUF = solenoidCommand;//for debugging
 
                 if(currentDirection == 0){
                     UPFLAG = 1;
@@ -513,7 +513,7 @@ __interrupt void USCI_A0_ISR(void)
 {
     RxByte = UCA0RXBUF;
     while ((UCA0IFG & UCTXIFG) == 0);
-    //UCA0TXBUF = RxByte;//for debugging
+    UCA0TXBUF = RxByte;//for debugging
     enqueue(&buffer, RxByte);
 
     //ENQUEUEFLAG = 1;
