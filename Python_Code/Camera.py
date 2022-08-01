@@ -239,9 +239,11 @@ class camera:
     def edgeDetector(cls,gray, plots):
        
 
-        blurred = filters.gaussian(gray, sigma=1)
+        # blurred = filters.gaussian(gray, sigma=0.1)
 
-        canny = feature.canny(blurred,  sigma=1)
+        blurred = gray
+
+        canny = feature.canny(blurred,  sigma=0.05)
 
         if (plots):
             plt.figure(1)
@@ -290,11 +292,11 @@ class camera:
 
         LINEDISTANCE = 20 
 
-        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=LINEDISTANCE, min_angle=1, threshold=5)
+        acc, theta, d = transform.hough_line_peaks(h,theta,d, num_peaks=houghPeaks, min_distance=LINEDISTANCE, min_angle=5, threshold=5)
 
         if plots:
             plt.figure(5)
-            plt.imshow(gray, cmap="gray")
+            # plt.imshow(gray, cmap="gray")
             plt.title("Detected lines")
 
         # vertical_lines = np.zeros(int(math.sqrt(boardSquares)+1))
@@ -610,65 +612,56 @@ class camera:
     @classmethod 
     def identifyPieces2(cls, frame,canny, corners, num_pieces, plots=False):
         chessBoardSideSquares = 8
+        pieceThreshold = 8 
+        visionBoard = np.zeros([chessBoardSideSquares,chessBoardSideSquares])
+        cropping = 3
 
         row = 0
         col = 0
+        offsetIndex = 0
 
         for row in range(chessBoardSideSquares):
             for col in range(chessBoardSideSquares):
-                upperLeft_index = col+row*chessBoardSideSquares
-                print("Col:{}".format(col))
-                print("Row:{}".format(row))
-                if (not (upperLeft_index == row*chessBoardSideSquares+(row-1))):
-                    
-                    lowerRight_index = col+(row+1)*chessBoardSideSquares+2
+                
 
-                    print("UpperLeft_Index:{}".format(upperLeft_index))
-                    print("LowerRight_Index:{}".format(lowerRight_index))
+                upperLeft_index = col+row*9
+                lowerRight_index = 10+col+row*9
 
-                    upperLeft = list(map(int,corners[col+row*chessBoardSideSquares]))
-                    lowerRight = list(map(int,corners[col+(row+1)*chessBoardSideSquares+2]))
+                if plots:
+                    print("Col: {}".format(col))
+                    print("Row: {}".format(row))
 
-                    segment = canny[upperLeft[0]:lowerRight[0],upperLeft[1]:lowerRight[1]]
+                    print("Upper Left Index:{}".format(upperLeft_index))
+                    print("Lower Right Index:{}".format(lowerRight_index))
 
+                upperLeft_corner = list(map(int,corners[upperLeft_index]))
+                lowerRight_corner = list(map(int,corners[lowerRight_index]))
+
+                segment = canny[upperLeft_corner[0]+cropping:lowerRight_corner[0]-cropping,upperLeft_corner[1]+cropping:lowerRight_corner[1]-cropping]
+                contours = measure.find_contours(segment)
+
+                if plots:
                     plt.figure(1)
+                    plt.title("Picture of Chess Board Square")
                     plt.imshow(segment)
-                    plt.show
 
                     plt.figure(2)
                     plt.clf()
-                    # plt.imshow(segment)
+                    plt.title("Contours of chessboard square")
 
-                    contours = measure.find_contours(segment)
-
-                    for contour in contours:
+                    for contour in contours: 
                         plt.plot(contour[:, 1], contour[:, 0], linewidth=2)
 
+                    print(len(contours))
+                # run the code to check if a piece is presnet in the square
+                if (len(contours) > pieceThreshold):
+                    if plots:
+                        print("Piece is present")
+                        print(visionBoard)
+                    visionBoard[col][row] = 1
 
-
-
-        # for i in range(chessBoardSideSquares):
-        #     if(i%chessBoardSideSquares == 0 and i != 0):
-        #         row = row + 1
-        #         col = 0
-
-        #     upperLeft = list(map(int,corners[i+row]))
-        #     # print("First Index: {0}".format(i+row))
-        #     # print("Secound Index: {0}".format(i+self.chessBoardSideSquares + 2+row))
-        #     lowerRight = list(map(int,corners[i+chessBoardSideSquares + 2+row]))
-
-        #     print(upperLeft)
-        #     print(lowerRight)
-
-        #     # Get the image segment 
-        #     segment = frame[upperLeft[0]:lowerRight[0],upperLeft[1]:lowerRight[1]]
-
-        #     plt.figure(1)
-        #     plt.imshow(segment)
-        #     plt.title("Segment Picture")
-        #     plt.show() 
-            
-        #     col = col + 1    
+        return visionBoard
+                    
 
 
         
@@ -676,30 +669,28 @@ class camera:
          
          
     @classmethod
-    def getCornerAndPiecePlacement(cls,frame):
-        # gray = np.flip(io.imread(frame, as_gray=True),1)
-
-        # rgb_image = np.flip(io.imread(frame),1)
+    def getVisionBoard(cls,frame):
+        camera.captureImage()
+        frame = "CurrentBoard.jpg"
 
         gray = transform.rotate(io.imread(frame, as_gray=True),180)
         rgb_image = transform.rotate(io.imread(frame),180)
 
-
-        src_corners = camera.findBoard(rgb_image, gray, plots=True)
+        src_corners = camera.findBoard(rgb_image, gray, plots=False)
 
         cropped = camera.transformBoard(gray,src_corners, plots=False)
 
-        canny = camera.edgeDetector(cropped, plots=True)
+        canny = camera.edgeDetector(cropped, plots=False)
 
         corners = camera.cannyCorners(canny,64, cropped,plots=False)
 
-        camera.cleanupCorners(cropped, corners, plots=True)
+        camera.cleanupCorners(cropped, corners, plots=False)
 
         #detect the pieces
 
-        pieces = camera.identifyPieces2(cropped, canny, corners, 32, plots=True)
+        visionBoard = camera.identifyPieces2(cropped, canny, corners, 32, plots=False)
 
-        return corners, pieces
+        return visionBoard
 
     @classmethod 
     def captureImage(cls):
@@ -753,39 +744,7 @@ class camera:
 
         return rotated_gray, rotated_rgb
 
-    @classmethod
-    def getCornerAndPiecePlacementOfSideBoard(cls,frame, plots=False):
-        gray = transform.rotate(io.imread(frame, as_gray=True),180)
-        rgb_image = transform.rotate(io.imread(frame),180)
-
-        gray, rgb_image = camera.rotateBoard(rgb_image,gray)
-
-        if plots:
-            plt.figure(1)
-            plt.imshow(gray)
-            plt.figure(2)
-            plt.imshow(rgb_image)
-
-        src_corners = camera.findBoard(rgb_image, gray, plots=False)
-
-        cropped = camera.transformBoard(gray,src_corners, plots=False)
-
-        canny = camera.edgeDetector(cropped, plots=False)
-
-        corners = camera.cannyCorners(canny,64, cropped,plots=False)
-
-        camera.cleanupCorners(cropped, corners, plots=True)
-
-        # detect the pieces
-
-        pieces = camera.identifyPieces(cropped, canny,32, plots=True)
-
-        # print("pieces present in function")
-
-        # print(pieces)
-
-
-        # return corners, pieces
+    
 
 
 

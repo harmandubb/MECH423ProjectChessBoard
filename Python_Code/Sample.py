@@ -11,7 +11,9 @@ if __name__ == "__main__":
     # camera.captureImage()
 
     frame = "CurrentBoard.jpg"
-    corners, pieces = camera.getCornerAndPiecePlacement(frame)
+    visionBoard = camera.getVisionBoard(frame)
+
+    print(visionBoard)
 
     plt.show()
      
