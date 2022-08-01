@@ -669,10 +669,9 @@ class camera:
          
          
     @classmethod
-    def getVisionBoard(cls,frame):
+    def getVisionBoard(cls, frame ="CurrentBoard.jpg"):
         camera.captureImage()
-        frame = "CurrentBoard.jpg"
-
+        
         gray = transform.rotate(io.imread(frame, as_gray=True),180)
         rgb_image = transform.rotate(io.imread(frame),180)
 

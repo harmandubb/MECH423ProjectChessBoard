@@ -21,7 +21,7 @@ if __name__=='__main__':
     playerColor = chAPI.getPlayerColor()
     print(playerColor)
 
-    ch.setBoardState(ch.getPhysicalBoardState())
+    ch.setBoardState(camera.getVisionBoard())
 
     print(ch.getBoardState())
 
