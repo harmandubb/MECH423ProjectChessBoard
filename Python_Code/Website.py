@@ -26,7 +26,7 @@ import requests
 import json
 
 class BrowerControl:
-    PATH = "/Users/harmandeepdubb/Documents/Chess_Board/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver"
+    
     
     # IMAC path: /Users/harmandeepdubb/Documents/Chess Board Project/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver
     
@@ -38,6 +38,7 @@ class BrowerControl:
         profile.set_preference('useAutomationExtension', False)
         profile.update_preferences()
         desired = DesiredCapabilities.FIREFOX
+        PATH = "/Users/harmandeepdubb/Documents/Chess_Board/MECH423ProjectChessBoard/Python_Code/Selenium_Setup/geckodriver"
 
             # Imac Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/zxgi3khf.default-release
             # Macbook pro Path: /Users/harmandeepdubb/Library/Application Support/Firefox/Profiles/je8ftna5.default
@@ -55,9 +56,11 @@ class BrowerControl:
                                         executable_path=self.PATH,
                                         desired_capabilities=self.desired)
         else:
+            PATH = r"C:\Users\harma\OneDrive\Documents\Mecha 4\Mech 423\Project\MECH423ProjectChessBoard\Python_Code\Selenium_Setup\Windows\chromedriver.exe"
             options = webdriver.ChromeOptions()
             options.add_argument = {"user-data-dir":r'C:\Users\harma\AppData\Local\Google\Chrome\User Data\Default'}
-            driver = webdriver.Chrome(chrome_options=options)
+            driver = webdriver.Chrome(chrome_options=options,
+                                        executable_path=PATH)
 
         driver.get("https://www.chess.com/home")
 
@@ -265,5 +268,11 @@ class chessAPI:
                 col = col + 1
             
     
+# chAPI = chessAPI()
 
+# browsercontrol = BrowerControl()
 
+# origin = [0,0]
+# dest = [1,1]
+
+# browsercontrol.inputMove(chAPI.gameURL, origin, dest)

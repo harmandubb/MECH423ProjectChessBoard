@@ -51,7 +51,9 @@ if __name__=='__main__':
             #For Testing Purposes 
             ch.waitForKeyStroke() 
 
-            visionBoard = ch.getPhysicalBoardState()
+            visionBoard = camera.getVisionBoard()
+
+            print(visionBoard)
             # # The player has moved so now we need to convert the move into software code
             # camera.captureImage() 
 

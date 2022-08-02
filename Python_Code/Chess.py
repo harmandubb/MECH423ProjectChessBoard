@@ -15,7 +15,7 @@ import serial.tools.list_ports
 # from Camera import camera
 
 
-class Direction(Enum):
+class Direction():
     UP = (51).to_bytes(1,"big")
     RIGHT = (48).to_bytes(1,"big")
     DOWN = (49).to_bytes(1,"big")
@@ -43,7 +43,7 @@ class chess:
         # ChessIO
         self.ser = serial.Serial()
         self.ser.baudrate = baudrate
-        self.ser.write_timeout = 1 #sec
+        self.ser.write_timeout = 10 #sec
 
         ports = serial.tools.list_ports.comports()
 
@@ -392,7 +392,8 @@ class chess:
         #leave the implementation to center the solenoid to the main code
 
     def sendMovementCommands(self, UARTCommands):
-        sleepTimer = 0.1 #sec
+        sleepTimer = 0.25 #sec
+        
 
         while(len(UARTCommands) > 0):
             
@@ -401,16 +402,23 @@ class chess:
 
             bytes = UARTCommands.pop(0)
 
+            for i in range(10):
+                self.ser.close()
+                self.ser.open()
+
+                self.ser.reset_input_buffer()
+            
             for byte in bytes:
                 # print(byte)
 
-                if (type(byte) != int):
-                    # print(type(byte))
-                    byte = int(byte)
-                    # print(byte)
+                # if (type(byte) != int):
+                #     # print(type(byte))
+                #     byte = int(byte)
+                #     # print(byte)
 
-                print(byte.to_bytes(2,"big"))
-                self.ser.write(byte.to_bytes(2,"big"))
+                self.ser.write(byte)
+                feedback = self.ser.read()
+                print("Feedback: {}".format(int.from_bytes(feedback, "big")))
 
 
             

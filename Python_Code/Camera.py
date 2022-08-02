@@ -7,7 +7,8 @@ from skimage import data, io, filters, color, feature, transform, measure, draw
 from scipy import interpolate, ndimage
 from scipy.signal import convolve2d
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans 
+from sklearn.cluster import KMeans
+from sklearn.decomposition import TruncatedSVD 
 import sympy as sym
 import math
 import itertools
@@ -612,9 +613,9 @@ class camera:
     @classmethod 
     def identifyPieces2(cls, frame,canny, corners, num_pieces, plots=False):
         chessBoardSideSquares = 8
-        pieceThreshold = 4 
+        pieceThreshold = 6 
         visionBoard = np.zeros([chessBoardSideSquares,chessBoardSideSquares])
-        cropping = 3
+        cropping = 4
 
         row = 0
         col = 0
