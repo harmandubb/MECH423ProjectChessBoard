@@ -10,6 +10,9 @@ if __name__ == "__main__":
     ch = chess()
     ch.ser.write_timeout = 0
 
+    temp = (int(True)).to_bytes(1,"big")
+    print("Solenoid in bytes: {}".format(temp))
+
     a = b'a' 
     move = (48).to_bytes(1,"big")
     solenoid = (0).to_bytes(1,"big")

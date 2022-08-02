@@ -1,6 +1,6 @@
 import time
 import numpy as np 
-from enum import IntEnum
+from enum import Enum
 import math
 
 import glob
@@ -15,11 +15,11 @@ import serial.tools.list_ports
 # from Camera import camera
 
 
-class Direction(IntEnum):
-    UP = 51
-    RIGHT = 48
-    DOWN = 49
-    LEFT = 50
+class Direction(Enum):
+    UP = (51).to_bytes(1,"big")
+    RIGHT = (48).to_bytes(1,"big")
+    DOWN = (49).to_bytes(1,"big")
+    LEFT = (50).to_bytes(1,"big")
 
 
 class chess: 
@@ -56,7 +56,7 @@ class chess:
                 print("MSP430 is on COMport {}".format(self.ser.port))
 
         # self.aAsciValue = (97).to_bytes(2,'big')
-        self.aAsciValue = 97
+        self.aAsciValue = b'a'
 
         # self.ser.open()
         
@@ -205,45 +205,57 @@ class chess:
         return UARTCommands
 
     def moveToNECorner(self, solenoidOn):
+        solenoid_byte = (int(solenoidOn)).to_bytes(1,"big")
+
         commands = [
-            ([self.aAsciValue, solenoidOn, Direction.UP]),
-            ([self.aAsciValue, solenoidOn, Direction.RIGHT])
+            ([self.aAsciValue, solenoid_byte, Direction.UP]),
+            ([self.aAsciValue, solenoid_byte, Direction.RIGHT])
         ]
 
         return commands
     
     def moveToCenter(self, solenoidOn):
+        solenoid_byte = (int(solenoidOn)).to_bytes(1,"big")
+
         commands = [
-            [self.aAsciValue, solenoidOn, Direction.DOWN],
-            [self.aAsciValue, solenoidOn, Direction.LEFT]
+            [self.aAsciValue, solenoid_byte, Direction.DOWN],
+            [self.aAsciValue, solenoid_byte, Direction.LEFT]
         ]
 
         return commands
 
     def moveHalfToLeft(self,solenoidOn):
+        solenoid_byte = (int(solenoidOn)).to_bytes(1,"big")
+
         commands = [
-            [self.aAsciValue, solenoidOn, Direction.LEFT],
+            [self.aAsciValue, solenoid_byte, Direction.LEFT],
         ]
 
         return commands
 
     def moveHalfToRight(self,solenoidOn):
+        solenoid_byte = (int(solenoidOn)).to_bytes(1,"big")
+
         commands = [
-            [self.aAsciValue, solenoidOn, Direction.RIGHT],
+            [self.aAsciValue, solenoid_byte, Direction.RIGHT],
         ]
 
         return commands
 
     def moveHalfToUP(self,solenoidOn):
+        solenoid_byte = (int(solenoidOn)).to_bytes(1,"big")
+
         commands = [
-            [self.aAsciValue, solenoidOn, Direction.UP],
+            [self.aAsciValue, solenoid_byte, Direction.UP],
         ]
 
         return commands
 
     def moveHalfToDown(self,solenoidOn):
+        solenoid_byte = (int(solenoidOn)).to_bytes(1,"big")
+
         commands = [
-            [self.aAsciValue, solenoidOn, Direction.DOWN],
+            [self.aAsciValue, solenoid_byte, Direction.DOWN],
         ]
 
         return commands
@@ -330,11 +342,13 @@ class chess:
         else:
             RIGHTLEFT = Direction.LEFT
 
+        solenoid_byte = (int(solenoidOn)).to_bytes(1,"big")
+
         # move up and down first 
         for i in range(abs(relativeDestCoordinates[1])):
             # need two half steps to move one square
             for j in range(2):
-                temp = [[self.aAsciValue, solenoidOn, UPDOWN]]
+                temp = [[self.aAsciValue, solenoid_byte, UPDOWN]]
                 commands.extend(temp) 
 
                 # print("Commands extended: {}".format(commands))
@@ -343,7 +357,7 @@ class chess:
         for i in range(abs(relativeDestCoordinates[0])):
             # need two half steps to move one square
             for j in range(2):
-                temp = [[self.aAsciValue, solenoidOn, RIGHTLEFT]]
+                temp = [[self.aAsciValue, solenoid_byte, RIGHTLEFT]]
                 commands.extend(temp)
                 # print("Commands extended: {}".format(commands))
 
@@ -417,7 +431,7 @@ class chess:
             data_left = self.ser.inWaiting()
             buffer.append(self.ser.read(data_left))
 
-            if (buffer.pop(0) == (255).to_bytes(2,"big")):
+            if (buffer.pop(0) == (255).to_bytes(1,"big")):
                 message = buffer
 
         return message
